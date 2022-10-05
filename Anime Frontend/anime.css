@@ -1,0 +1,53 @@
+.wallpaper img{
+    height: 375px;
+    width: 100%;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);  
+}
+
+.image-portrait img{
+    height: 300px;
+    position: absolute;
+    top: 175px;
+    left: 150px;
+}
+
+.anime-name{
+    position: absolute;
+    font-size: 40px;
+    top: 200px;
+    left: 420px;
+    color: white;
+}
+
+.type{
+    position: absolute;
+    font-size: 15px;
+    top: 215px;
+    left: 640px;
+    background:#1f61e7;
+    border-radius: 5px;
+    color: white;
+    padding: 4px;
+}
+
+@media (max-width: 780px){
+    .image-portrait img{
+        left: 75px;
+    }
+}
+
+input[type="submit"]{
+    position: absolute;
+    margin-left: 420px;
+    height: 45px;
+    margin-top: -200px;
+    border: 1px solid;
+    background:#1f61e7;
+    border-radius: 5px;
+    font-size: 18px;
+    width: 9%;
+}
