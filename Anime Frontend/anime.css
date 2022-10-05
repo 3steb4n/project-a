@@ -36,7 +36,31 @@
 
 @media (max-width: 780px){
     .image-portrait img{
-        left: 75px;
+        left: 80px;
+        width: 220px;
+    }
+    .anime-name{
+        position: absolute;
+        font-size: 30px;
+        top: 480px;
+        left: 120px;
+        color: white;
+    }
+    .type{
+        position: absolute;
+        font-size: 15px;
+        font-weight: bold;
+        top: 530px;
+        left: 100px;
+        background: white;
+        border-radius: 6px;
+        color: black;
+        padding: 4px;
+    }
+    input[type="submit"]{
+        position: absolute;
+        left: -400px;
+        top: 4px;
     }
 }
 
@@ -49,5 +73,5 @@ input[type="submit"]{
     background:#1f61e7;
     border-radius: 5px;
     font-size: 18px;
-    width: 9%;
+    width: 10%;
 }
