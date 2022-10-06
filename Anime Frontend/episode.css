@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans Mono', monospace;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color: #1B1B1B;
+
+}
+
+.header{
+    padding: 0 8%;
+    background-color: #1B1B1B;
+}
+
+.header-content{
+    display: flex;
+    align-items: center;
+}
+
+.nav-links{
+    padding: 60px 0;
+}
+
+.nav-links li{
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.nav-links li a{
+    text-decoration: none;
+    color:#F7F7F7;
+    padding: 5px 0;
+}
+
+.nav-links li a:hover{
+    color:#12F8FF;
+}
+
+.btn{
+    color: #fff;
+    position: relative;
+}
+
+.checkbtn{
+    color: #F7F7F7;
+    float: left;
+    line-height: 35px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+
+@media (max-width: 798px){
+    .checkbtn{
+        display: block;
+    }
+    .links{
+        display: none;
+    }
+}
+
+
+.title-anime{
+    position: absolute;
+    font-size: 40px;
+    margin-left: 100px;
+    margin-top: 35x;
+}
+
+
+.videoplayer video{
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 90px;
+}
