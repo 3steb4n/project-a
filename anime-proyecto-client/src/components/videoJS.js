@@ -10,7 +10,6 @@ const VideoJs = (props) => {
 
     React.useEffect(()=> {
         if (!playerRef.current) {
-            console.log('test')
             const videoElement = videoRef.current;
 
             if(!videoElement) return;
