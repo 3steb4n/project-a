@@ -31,6 +31,18 @@ router.post('/register', async(req, res, next) => {
     res.send(400, 'password needed');
     return;
   }
+  user = await User.findOne({where : {email: req.body.email}}) // busca por username
+  if (user) {
+    res.send(400, 'Email ya registrado')
+    return;
+  }
+  user = null;
+  user = await User.findOne({where : {username: req.body.username}}) // busca por username
+  if (user) {
+    res.send(400, 'username ya registrado')
+    return;
+  }
+
   var usr = {
     email: req.body.email,
     username: req.body.username,
