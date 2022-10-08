@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 var express = require('express');
 const { token } = require('morgan');
 require('dotenv').config()
-console.log(process.env)
+// console.log(process.env)
 const User = Models.User;
 var router = express.Router();
 
@@ -82,6 +82,49 @@ router.post('/login', async(req, res, next) => {
     res.send(400, 'jerman la mama xdxdxdxd');
     return;
   }
+})
+
+router.post('/verify_token', async(req, res, next) => {
+  var user;
+  if(Object.keys(req.body).length === 0) {
+    res.status(400).send('Something broke!')
+    return;
+  }
+  const token = req.body.token;
+    // If the token is present
+    if(token){
+ 
+        // Verify the token using jwt.verify method
+        try {
+          var decode = jwt.verify(token, process.env.JWT_SECRET);
+
+        } catch (e) {
+          return res.json({
+            login: false,
+            data: 'error token'
+          });
+        }
+
+        if(!decode) {
+          return res.json({
+            login: false,
+            data: 'error token'
+          });
+        } else {
+          
+          //  Return response with decode data
+          return res.json({
+              login: true,
+              data: decode
+          });
+        }
+    }else{
+        // Return response with error
+        return res.json({
+            login: false,
+            data: 'error no token'
+        });
+    }
 })
 
 module.exports = router;
