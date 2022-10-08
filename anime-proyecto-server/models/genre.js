@@ -22,18 +22,21 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'Genre',
   });
 
+  //Se crea la variable en donde va a almacenar un metodo asincrono con la propiedad fileName (ruta del archivo)
   const generateGenreRegisters = async (fileName = 'list-genres.txt') => {
-    const {readFileSync, promises: fsPromises} = require('fs');
+    //Se importa libreria fs
+    const {promises: fsPromises} = require('fs');
     try {
       const contents = await fsPromises.readFile(fileName, 'utf-8');
       let i = 0;
       const arr = contents.split(/\r?\n/);
-
+      //Ciclo for en donde va a realizar la consulta del genero por el nombre que esté en archivo fileName
       for(i = 0; arr.length > i; i++) {
         let listAnime = arr[i];
         Genre.count({
           where: { name: arr[i] }
         }).then((count) => {
+          //Si no encuentra el genero en la base de datos, se va a insertar con el metodo create()
           if(count === 0) {
             Genre.create({ name: listAnime });
           }

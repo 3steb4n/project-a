@@ -10,7 +10,7 @@ var router = express.Router();
 
 //Create Anime
 router.post('/create', (req, res, next) => {
-    /*if(ObjectKeys(req.body).length === 0) {
+    if(Object.keys(req.body).length === 0) {
         res.send(400, 'Error. Request empty');
         return;
     }
@@ -21,6 +21,11 @@ router.post('/create', (req, res, next) => {
     }
 
     if(isNaN(req.body.numberChapters) || req.body.numberCharpters < 1) {
-        res.send(400, 'Error. numberChapter has a invalida value');
-    }*/
+        res.send(400, 'Error. numberChapter has a invalide value');
+        return;
+    }
+
+    if(isNaN(req.body.typeAnimeId) || req.body.typeAnimeId < 0) {
+        req.send(400, 'Error. typeAnimeId has a invalide value')
+    }
 });
