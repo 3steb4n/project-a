@@ -10,10 +10,20 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       id_user: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        alloNull: false,
+        references: {
+          model: 'Users',
+          key: 'id'
+        }
       },
       id_chapter: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'ChapterAnimes',
+          key: 'id'
+        }
       },
       text_comment: {
         type: Sequelize.STRING

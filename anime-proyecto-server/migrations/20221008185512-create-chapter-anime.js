@@ -22,7 +22,12 @@ module.exports = {
         type: Sequelize.STRING
       },
       id_anime: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'animes',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
