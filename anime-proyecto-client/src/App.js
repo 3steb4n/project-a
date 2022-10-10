@@ -17,11 +17,12 @@ import video from './public/video.png'
 import './auth.css'
 
 
+import { useNavigate } from 'react-router-dom';
 
 function App() {
 
   // store.dispatch({type: "loginIn", payload: {value: true}})
-  console.log(store.getState())
+  console.log(store.getState(),'holy')
   return (
     <>
       <div className="App">
@@ -40,34 +41,22 @@ function App() {
 }
 
 const Register = () => {
-  
-  
-  const [mixname, setMixname] = useState('');
-  
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   
+  const navigate = useNavigate();
+
   //display errors
-  const displayErrors = (message, setErrorMessage) => {
-    console.log(setErrorMessage)
+  const displayErrors = (message) => {
     setErrorMessage(message);
     setTimeout(() => {setErrorMessage('')}, 2000)
   }
-  
-  
-  const loginRequest = (e) => {
-    
-    if (mixname == '') {
-      displayErrors('Falta usuario', setErrorMessage);
-      return;
-    }
-    e.preventDefault();
-  }
+
   const registerRequest = (e) => {
     e.preventDefault(); //previene recarga del submit
-    console.log('aaasdaxc123', email == '', errorMessage)
+    // console.log('aaasdaxc123', email == '', errorMessage)
 
     if (email == '') {
       displayErrors('Falta Email');
@@ -86,7 +75,16 @@ const Register = () => {
     params.append('username', username);
     params.append('password', password);
     axios.post('//localhost:4000/users/register', params).then((response) => {
-      console.log(response);
+      console.log(response.data, 'aaa');
+      if (response.data.status == '200') {
+        displayErrors(response.data.message);
+        setTimeout(() => {
+          navigate('/login')
+        }, 4000);
+      } else {
+        displayErrors(response.data.message);
+        return;
+      }
     })
   }
   
@@ -117,23 +115,79 @@ const Register = () => {
 }
 
 const Login = () => {
+  const [mixname, setMixname] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [errorMessage, setErrorMessage] = useState('');
+  
+  const navigate = useNavigate();
+
+  //display errors
+  const displayErrors = (message) => {
+    setErrorMessage(message);
+    setTimeout(() => {setErrorMessage('')}, 2000)
+  }
+  const loginRequest = (e) => {
+    e.preventDefault();
+
+    if (mixname == '') {
+      displayErrors('Falta usuario o email');
+      return;
+    }
+    if (password == '') {
+      displayErrors('Falta usuario');
+      return;
+    }
+
+    let params = new URLSearchParams();
+    params.append('email', mixname);
+    params.append('username', mixname);
+    params.append('password', password);
+    axios.post('//localhost:4000/users/login', params).then((response) => {
+      console.log(response.data, 'aaa');
+      if (response.data.status == 200) {
+        displayErrors(response.data.message);
+        console.log(response.data.token)
+        params = new URLSearchParams();
+        params.append('token', response.data.token);
+        //verifica token
+        axios.post('//localhost:4000/users/verify_token', params).then((response) => {
+          if(response.data.status == 200) {
+            console.log(response.data)
+            const data = response.data.data
+            store.dispatch({type: "loginIn", payload: {value: true, data: data}})
+            console.log(store.getState(),'holy')
+
+          }
+        })
+
+
+        // setTimeout(() => { navigate('/') }, 4000);
+      } else {
+        displayErrors(response.data.message);
+        return;
+      }
+    })
+  }
   return (
     <>
       <div className="center">
           <h1>Login</h1>
           <form action="post">
               <div className="text_field">
-                  <input type="text" required/>
+                  <input type="text" value={mixname} onChange={(e) => {setMixname(e.target.value)}}/>
                   <span></span>
                   <label>Username o email</label>
               </div>
               <div className="text_field">
-                  <input type="password" required/>
+                  <input type="password" value={password} onChange={(e) => {setPassword(e.target.value)}} />
                   <span></span>
                   <label>Contrasena</label>
               </div>
               <div className="pass-forget"><a href="">Olvidaste&nbsp;la Contrasena?</a></div>
-              <input type="submit" value="Iniciar Sesion"/>
+              <input type="submit" value="Iniciar Sesion" onClick={loginRequest}/>
+              <p className="error" style={{color: 'white', marginTop: '10px', marginBottom: '0px'}}> {errorMessage} </p>
+
               <div className="register_link">
                   ¿No tiene una cuenta? <a href="register">Registrate</a>
               </div>
