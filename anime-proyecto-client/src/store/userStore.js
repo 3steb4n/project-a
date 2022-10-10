@@ -1,6 +1,10 @@
 const initialState = {
     login: false,
-    user: {}
+    user: {
+        username: '',
+        id: '',
+        email: '',
+    }
 }
 const userStore = (state = initialState, action) => {
     switch (action.type) {
@@ -8,7 +12,13 @@ const userStore = (state = initialState, action) => {
             // console.log(action.payload.value)
             if (action.payload.value == 1) {
                 return {
-                    ...state,
+                    user: {
+                        username: action.payload.data.username,
+                        email: action.payload.data.email,
+                        id: action.payload.data.id,
+
+
+                    },
                     login: state.login = true,
                 }
             }

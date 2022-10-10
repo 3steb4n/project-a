@@ -16,30 +16,30 @@ router.get('/', function (req, res, next) {
 router.post('/register', async (req, res, next) => {
     const salt = await bcrypt.genSalt(10)
     if (Object.keys(req.body).length === 0) {
-        res.send(400, 'Something broke!');
+        res.send(200, {status: 401, message: 'Faltan parametros'});
         return;
     }
     if (typeof (req.body.email) == 'undefined') {
-        res.send(400, 'email needed');
+        res.send(200, {status: 401, message: 'Falta email'});
         return;
     }
     if (typeof (req.body.username) == 'undefined') {
-        res.send(400, 'username needed');
+        res.send(200, {status: 401, message: 'Falta username'});
         return;
     }
     if (typeof (req.body.password) == 'undefined') {
-        res.send(400, 'password needed');
+        res.send(200, {status: 401, message: 'Falta password'});
         return;
     }
     user = await User.findOne({ where: { email: req.body.email } }) // busca por username
     if (user) {
-        res.send(400, 'Email ya registrado')
+        res.send(200, {status: 401, message: 'Email ya registrado'})
         return;
     }
     user = null;
     user = await User.findOne({ where: { username: req.body.username } }) // busca por username
     if (user) {
-        res.send(400, 'username ya registrado')
+        res.send(200, {status: 401, message: 'Username ya registrado'})
         return;
     }
 
@@ -49,22 +49,24 @@ router.post('/register', async (req, res, next) => {
         password: await bcrypt.hash(req.body.password, salt)
     }
     created_user = await User.create(usr)
-    res.status(200).json(created_user);
+
+    
+    res.status(200).json({status: 200, message: 'Usuario creado', users: created_user});
 });
 
 router.post('/login', async (req, res, next) => {
     var user;
     if (Object.keys(req.body).length === 0) {
-        res.status(400).send('Something broke!')
+        res.send(200, {status: 401, message: 'Falta parametros'});
         return;
     }
 
     if (typeof (req.body.username) == 'undefined' && typeof (req.body.email) == 'undefined') {
-        res.status(400).send('username or email needed')
+        res.send(200, {status: 401, message: 'Falta email o usuario'})
         return;
     }
-    if (req.body.email == '' && req.body.email == '') {
-        res.status(400).send('username or email')
+    if (req.body.email == '' && req.body.username == '') {
+        res.send(200, {status: 401, message: 'Falta email o usuario'})
         return;
     }
     if (typeof (req.body.email) == 'undefined') {
@@ -74,10 +76,9 @@ router.post('/login', async (req, res, next) => {
     }
     if (user) {
         if (typeof (req.body.password) == 'undefined' || req.body.password == '') {
-            res.send(400, 'password needed');
+            res.send(200, {status: 401, message: 'Falta password'});
             return;
         }
-        console.log(req.body.password)
         const password_valid = await bcrypt.compare(req.body.password, user.password)
         if (password_valid) {
             const token = jwt.sign({
@@ -85,12 +86,12 @@ router.post('/login', async (req, res, next) => {
                 "email": user.email,
                 "username": user.username,
             }, process.env.JWT_SECRET)
-            res.status(200).json({ token: token })
+            res.status(200).json({ token: token, message: 'Login correcto', status: 200 })
         } else {
-            res.status(400).json({ error: 'jerman es un hijo de puta xdxdddxd contrasenia equivocada xdd' })
+            res.status(200).json({ message: 'jerman es un hijo de puta xdxdddxd contrasenia equivocada xdd', status: 401 })
         }
     } else {
-        res.send(400, 'jerman la mama xdxdxdxd');
+        res.send(200, {status: 400, message: 'Jerman la chupa y no existe esta cuenta xDDD'});
         return;
     }
 })
@@ -112,28 +113,28 @@ router.post('/verify_token', async (req, res, next) => {
         } catch (e) {
             return res.json({
                 login: false,
-                data: 'error token'
+                message: 'token incorrecto'
             });
         }
 
         if (!decode) {
             return res.json({
                 login: false,
-                data: 'error token'
+                message: 'token no valido'
             });
         } else {
-
-            //  Return response with decode data
             return res.json({
+                status: 200,
                 login: true,
-                data: decode
+                data: decode,
+                message: 'aaaa'
             });
         }
     } else {
         // Return response with error
         return res.json({
             login: false,
-            data: 'error no token'
+            message: 'error no token'
         });
     }
 })
