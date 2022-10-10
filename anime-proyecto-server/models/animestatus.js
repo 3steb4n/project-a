@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class typeAnime extends Model {
+  class AnimeStatus extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,28 +13,26 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  typeAnime.init({
+  AnimeStatus.init({
     name: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'typeAnime',
+    modelName: 'AnimeStatus',
   });
-
-  const createTypeAnime = () => {
-    const nameType = ['ONA', 'OVA', 'ANIME', 'PELICULA', 'BD', 'ESPECIAL'];
-    nameType.map(value => {
-      typeAnime.count({
-        where: { name: value }
+  const generateAnimeStatus = () => {
+    const animeStatus = ['En emisión', "Finalizado"];
+    animeStatus.map(value => {
+      AnimeStatus.count({
+        where: {name: value}
       }).then(count => {
-        if(count === 0) {
-          typeAnime.create({
+        if(count == 0) {
+          AnimeStatus.create({
             name: value
           });
         }
-      });
+      })
     });
-  }
-  createTypeAnime();
-  
-  return typeAnime;
+  };
+  generateAnimeStatus();
+  return AnimeStatus;
 };

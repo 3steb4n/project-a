@@ -16,16 +16,12 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
-      seasonal: {
-        type: Sequelize.STRING,
-        allowNull: false
+      season: {
+        type: Sequelize.STRING
       },
       year: {
         type: Sequelize.INTEGER,
         allowNull: false
-      },
-      season: {
-        type: Sequelize.INTEGER
       },
       url_preview: {
         type: Sequelize.STRING,
@@ -33,19 +29,30 @@ module.exports = {
       },
       url_trailer: {
         type: Sequelize.STRING,
+      },
+      number_chapter: {
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       anime_type_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          key: 'id',
+          model: 'typeAnimes'
+        }
       },
       status_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          key: 'id',
+          model: 'AnimeStatuses'
+        }
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE 
       },
       updatedAt: {
         allowNull: false,

@@ -15,8 +15,39 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   anime.init({
-    name: DataTypes.STRING,
-    user_id: DataTypes.INTEGER
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING
+    },
+    season: {
+      type: DataTypes.STRING
+    },
+    year: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    url_preview: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    url_trailer: {
+      type: DataTypes.STRING,
+    },
+    number_chapter: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    anime_type_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    status_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'anime',
