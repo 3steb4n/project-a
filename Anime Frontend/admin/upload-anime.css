@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+  }
+
+.image-upload{
+    width: 11%;
+    position: relative;
+    left: 60px;
+    top: 40px;
+    border-style: groove;
+    width: 200px;
+}
+
+.imagePortrait{
+    position: relative;
+    top: 70px;
+    left: 10px;
+    width: 410px;
+    min-width: 40px
+}
+
+.imagePortrait img{
+    border-radius: 2%;
+}
+
+
+.trailer{
+    position: absolute;
+    top: -40px;
+}
+
+.container{
+    position: relative;
+    top: -500px;
+    left: 500px;
+    border-style: groove;
+    width: 1200px;
+    height: 500px;
+}
+
+
+
+
+
