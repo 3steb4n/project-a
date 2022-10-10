@@ -33,12 +33,18 @@ router.post('/create', async (req, res, next) => {
     }
 
     if(animeInformation.name == "" || animeInformation.name === undefined) {
-        res.send(400, 'Error. Name is empty');
+        res.status(400).json({ 
+            status: 400,
+            message: 'Error. name is empty'
+        })
         return;
     }
 
     if(isNaN(animeInformation.numberEpisodes) || animeInformation.numberEpisodes < 0 || !Number.isInteger(animeInformation.numberEpisodes)) {
-        res.send(400, 'Error. numberChapter has a invalide value');
+        res.status(400).json({
+            status: 400,
+            message: 'Error. numberChapter has a invalide value'
+        });
         return;
     }
 
@@ -51,7 +57,10 @@ router.post('/create', async (req, res, next) => {
             }
 
             if(i === (seasons.length - 1)) {
-                res.status(400).json( { status: 400, message: 'Error. Season invalid' } );
+                res.status(400).json({ 
+                    status: 400, 
+                    message: 'Error. Season invalid' 
+                });
                 return;
             }
         }
@@ -61,7 +70,7 @@ router.post('/create', async (req, res, next) => {
         res.status(400).json({
             status:400,
             message: 'Error. year is empty'
-        })
+        });
         return;
     }else{
         //console.log(animeInformation.year.toString()[0]);
@@ -70,7 +79,7 @@ router.post('/create', async (req, res, next) => {
             res.status(400).json({ 
                 status: 400,
                 message: 'Error. year is not valid'
-            })
+            });
             return;
         }
     }
@@ -79,11 +88,17 @@ router.post('/create', async (req, res, next) => {
         try {
             new URL(animeInformation.urlPreview);
         }catch{
-            res.status(400).json( { error: 404, message: 'Error. urlPreview is not valid' } );
+            res.status(400).json({
+                error: 404,
+                message: 'Error. urlPreview is not valid' 
+            });
             return;
         }
     }else{
-        res.status(400).json( { error: 404, message: 'Error. urlPreview is empty'} );
+        res.status(400).json({ 
+            error: 404, 
+            message: 'Error. urlPreview is empty'
+        });
         return;
     }
 
@@ -94,7 +109,7 @@ router.post('/create', async (req, res, next) => {
             res.status(400).json({
                 error: 400,
                 message: 'Error. urlTrailer is not validate'
-            })
+            });
             return;
         }
     }
@@ -200,8 +215,12 @@ router.post('/create', async (req, res, next) => {
             return;
         });
         await animeGenerated();
-    }catch(err){
-        console.log(err);
+    }catch{
+        res.status(400).json({
+            status: 400,
+            message: 'Internal error'
+        })
+        return;
     }
 });
 
