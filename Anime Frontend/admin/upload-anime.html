@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="upload-anime.css">
+    <title>Upload anime</title>
+</head>
+<body>
+
+<div class="image-upload">
+  <div class="image-select">
+    <div class="image-select-button" id="imageName">Choose image</div>
+    <input type="file" name="chooseimage" id="chooseimage" accept="video/">
+  </div>
+</div>
+
+
+ <div class="imagePortrait">
+    <div class="image">
+        <img src="/Anime Frontend/images/One-piece.jpg" alt="">
+    </div>
+ </div>
+
+
+
+ <div class="container">
+    <div class="title">Anime Name</div>
+    <input type="text" id="anime-name" placeholder="Nombre del Anime"/>
+    
+    <div class="sinopsis">Sinopsis</div>
+    <input type="text" id="sinopsis" placeholder="Nombre del Anime"/>
+    <div class="Episodes">Episodio</div>
+    <input type="text" id="episodios" placeholder="Nombre del Anime"/>
+    <div class="genres">
+        <div class="title">Selecciona Generos</div>
+            <select  multiple="multiple">
+                <option>Accion</option>
+            </select>
+        </div>
+        <div class="types">
+            <div class="title">Selecciona Tipo Estreno</div>
+                <select  multiple="multiple">
+                    <option>TV</option>
+                </select>
+        </div>
+        <div class="status">
+            <div class="title">Selecciona Estado del Anime</div>
+                <select  multiple="multiple">
+                    <option>En Emision</option>
+                </select>
+        </div>
+        <div class="types">
+            <div class="title">Temporada</div>
+                <select  multiple="multiple">
+                    <option>S1</option>
+                </select>
+        </div>
+        <div class="types">
+
+            <div class="title">Selecciona Secuela o Precuela</div>
+                <input type="checkbox">Secuela
+                <input type="checkbox">Precuela
+                <select  multiple="multiple">
+                    <option>Boruto</option>
+                </select>
+                
+        </div>
+    </div>
+
+</body>
+</html>
