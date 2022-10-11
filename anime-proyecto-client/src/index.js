@@ -4,13 +4,26 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
-import store from './store'
+import configureStore from './store'
+
 import { Provider } from 'react-redux'
+
+import { PersistGate } from 'redux-persist/es/integration/react'
+// <Provider store={store}>
+//   <App />
+
+// </Provider>
+const { persistor, store } = configureStore()
+
+const onBeforeLift = () => {
+  // take some action before the gate lifts
+}
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <App />
-
+      <PersistGate loading={null} onBeforeLift={onBeforeLift} persistor={persistor}>
+        <App />
+      </PersistGate>
     </Provider>
   </BrowserRouter>,
   document.getElementById("root")

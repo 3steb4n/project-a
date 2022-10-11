@@ -69,11 +69,10 @@ router.post('/login', async (req, res, next) => {
         res.send(200, {status: 401, message: 'Falta email o usuario'})
         return;
     }
-    if (typeof (req.body.email) == 'undefined') {
-        user = await User.findOne({ where: { username: req.body.username } }) // busca por username
-    } else {
-        user = await User.findOne({ where: { email: req.body.email } }) // busca por email
-    }
+
+    user = await User.findOne({ where: { email: req.body.email } }) // busca por email
+    if(!user) user = await User.findOne({ where: { username: req.body.username } }) // busca por username
+
     if (user) {
         if (typeof (req.body.password) == 'undefined' || req.body.password == '') {
             res.send(200, {status: 401, message: 'Falta password'});

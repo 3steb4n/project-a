@@ -22,6 +22,12 @@ const userStore = (state = initialState, action) => {
                     login: state.login = true,
                 }
             }
+        case "logOut":
+            return {
+                user: {
+                },
+                login: false,
+            }
     }
     return state
 }
