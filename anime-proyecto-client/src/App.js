@@ -3,9 +3,9 @@ import './App.css';
 import VideoJs from './components/videoJS';
 import { Routes, Route, Link } from "react-router-dom";
 import videojs from 'video.js'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
-import store from "./store";
+import configureStore from "./store";
 import axios from 'axios'
 
 //imagenes
@@ -19,10 +19,9 @@ import './auth.css'
 
 import { useNavigate } from 'react-router-dom';
 
-function App() {
+const { persistor, store } = configureStore()
 
-  // store.dispatch({type: "loginIn", payload: {value: true}})
-  console.log(store.getState(),'holy')
+function App() {
   return (
     <>
       <div className="App">
@@ -32,8 +31,6 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-
-
         </Routes>
       </div>
     </>
@@ -47,6 +44,10 @@ const Register = () => {
   const [errorMessage, setErrorMessage] = useState('');
   
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (store.getState().login) navigate('/')
+  });
 
   //display errors
   const displayErrors = (message) => {
@@ -122,6 +123,12 @@ const Login = () => {
   
   const navigate = useNavigate();
 
+  console.log(store.getState().login,'holy')
+  // console.log(store)
+  useEffect(() => {
+    if (store.getState().login) navigate('/')
+  });
+
   //display errors
   const displayErrors = (message) => {
     setErrorMessage(message);
@@ -155,9 +162,9 @@ const Login = () => {
           if(response.data.status == 200) {
             console.log(response.data)
             const data = response.data.data
+            displayErrors('Redirigiendo...');
             store.dispatch({type: "loginIn", payload: {value: true, data: data}})
-            console.log(store.getState(),'holy')
-
+            navigate('/')
           }
         })
 
@@ -198,6 +205,25 @@ const Login = () => {
 }
 
 const NavBar = () => {
+  const navigate = useNavigate();
+
+  const logOut = (e) => {
+    e.preventDefault()
+    alert('Jerman la mama xDDDD')
+    store.dispatch({type: 'logOut', payload: {}})
+    navigate('/')
+
+  }
+  
+  let logginButton;
+  if (store.getState().login) {
+    logginButton = [
+      <li className="btn"><a onClick={(e) => {e.preventDefault()}}>{store.getState().user.username}</a></li>,
+      <li className="btn"><a href="register" onClick={logOut}>Logout</a></li>
+    ]
+  } else {
+    logginButton = [ <li key={1} className="btn"><a href="login">Login</a></li>, <li key={2} className="btn"><a href="register">register</a></li> ]
+  }
   return (
     <>
       <div className="header">
@@ -213,8 +239,7 @@ const NavBar = () => {
                 <li><a href="">Movies</a></li>
                 <li><a href="">TV Series</a></li>
                 <li><a href="">Most Popular</a></li>
-                <li className="btn"><a href="login">Login</a></li>
-                <li className="btn"><a href="register">Register</a></li>
+                {logginButton}
             </div>
             </ul>
         </nav>
