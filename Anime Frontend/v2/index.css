@@ -2,6 +2,8 @@
     padding: 0;
     margin: 0;
     font-family: 'Noto Sans Mono', monospace;
+    text-decoration: none;
+    list-style: none;
     box-sizing: border-box;
 }
 
@@ -23,18 +25,24 @@ body::-webkit-scrollbar {
   }
 /* Start of Navbar */
 
-.container-nav {
+.navbar {
     background: rgb(37, 37, 37);
-    height: 75px;
-    display: flex;
-    padding-left: 15px;
-    position: relative;
-    align-items: center;
-}
+    height: 80px;
+    width: 100%;
+    line-height: 70px;
 
+}
 
 #check {
     display: none;
+}
+
+.section {
+    position: relative;
+    top: 5px;
+    display: flex;
+    justify-content: flex-start;
+
 }
 
 .checkbtn{
@@ -42,47 +50,43 @@ body::-webkit-scrollbar {
     padding: 0;
     color: #fff;
     cursor: pointer;
-    position: absolute;
-    top: 20px;
-    width: 29px;
-    height: 28px;
-    text-align: center;
-    left: 25px;
+    height: 10px;
+    margin-top: 5px;
+    margin-left: 25px;
+    
 }
 
 .logo {
-    position: absolute;
+    font-size: 40px;
+    margin-left: 30px;
     color: white;
-    left: 100px;
-    text-align: center;
-    top: 17px;
-}
-
-.search {
-    position: absolute;
-    left: 250px;
 }
 
 .search input {
-    width: 275px;
+    margin-left: 30px;
+    width: 300px;
     height: 40px;
     border: none;
+    color: #111;
     border-radius: 1px;
     text-indent: 10px;
     font-size: 15px;
 }
 
 #searchIcon {
-    position: absolute;
-    top: 12px;
     margin-left: -30px;
     color: #202125;
     cursor: pointer;
 }
 
-.social{
+.social {
     position: relative;
-    left: 530px;
+    margin: 5px 20px;
+}
+
+.item {
+    float: left;
+    padding: 0 5px;
 }
 
 #discord {
@@ -90,13 +94,28 @@ body::-webkit-scrollbar {
     font-size: 30px;
 }
 
-.random {
+.auth ul li{
     position: relative;
-    margin: auto;
-
+    display: inline-block;
+    margin: 0px 5px;
+    
 }
 
-/* End of Navbar */
+.auth ul li a {
+    background: #fff;
+    padding: 15px;
+    border-radius: 2px;
+    color: black;
+}
+
+.auth ul li a:hover{
+    color: white;
+    background: green;
+    padding: 20px;
+    transition: padding .3s
+}
+
+/* End of NavBar */
 
 /* Start of Popuplar Slider Anime */
 
@@ -150,7 +169,7 @@ img {
     font-size: 12px;
     padding: 8px 12px;
     position: absolute;
-    top: 0;
+    top: 100px;
   }
 
 
