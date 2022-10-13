@@ -9,14 +9,27 @@
     <title>Document</title>
 </head>
 <body>
-
+    
+    <input type="checkbox" id="check">
+    <div class="sidebar">
+        <label for="check" class="checkbtn">
+            <div class="head">Cerrar Menu</div>
+        </label>
+        <ul>
+            <li><a href="#">Accion</a></li>
+            <li><a href="#">Aventura</a></li>
+            <li><a href="#">Comedia</a></li>
+            <li><a href="#">Fantasia</a></li>
+            <li><a href="#">Romance</a></li>
+            
+        </ul>
+    </div>
     <div class="navbar">
         <div class="section">
             <div class="menu">
-                <input type="checkbox" id="check">
                     <label for="check" class="checkbtn">
-                <i class="fas fa-bars"></i>
-            </label>
+                        <i class="fas fa-bars"></i>
+                    </label>
             </div>
             <div class="logo">AnimexD</div>
             <div class="search">
@@ -33,7 +46,10 @@
                 <div class="item">
                     <a href=""><i class="fa-brands fa-telegram" id="discord"></i></a>
                 </div>
+                
             </div>
+        </div>
+        <div class="section-2">
             <div class="auth">
                 <ul>
                     <li><a href="#">Iniciar Sesion</a></li>
@@ -42,27 +58,31 @@
             </div>
         </div>
     </div>
+
     <div class="random">
         <div class="carousel fade">
+            <div class="ranking-number">#1</div>
             <div class="title-random">Sankarea</div>
             <div class="image-random">
                 <img src="../images/1.png" alt="">
             </div>
         </div>
         <div class="carousel fade">
-            <div class="title-random">Bleach</div>
+            <div class="ranking-number">#2</div>
+            <div class="title-random">Camilo pito chico</div>
             <div class="image-random">
                 <img src="../images/2.png" alt="">
             </div>
         </div>
         <div class="carousel fade">
-            <div class="title-random">Bleach</div>
+            <div class="ranking-number">#3</div>
+            <div class="title-random">Camilo es Gay</div>
             <div class="image-random">
                 <img src="../images/3.png" alt="">
             </div>
         </div>
-        <a class="prev" onclick="nextslide(-1)">❮</a>
-        <a class="next" onclick="nextslide(1)">❯</a>
+        <a class="prev">❮</a>
+        <a class="next">❯</a>
     </div>
 
     <div class="row-animes">
@@ -163,5 +183,6 @@
 
 
 <script src="../js/index.js"></script>
+
 
 </html>
