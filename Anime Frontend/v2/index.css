@@ -104,7 +104,8 @@ body::-webkit-scrollbar {
 
 .section-2 {
     position: relative;
-    top: -70px;
+    top: -75px;
+    right: 10px;
     margin-left: 60%;
     display: flex;
     justify-content: flex-end;
@@ -185,10 +186,13 @@ body::-webkit-scrollbar {
 
 /* Start of Popuplar Slider Anime */
 
+.carousel {
+    position: relative;
+}
+
 .prev, .next {
     cursor: pointer;
     position: absolute;
-    width: auto;
     margin-top: -200px;
     padding: 16px;
     color: white;
@@ -218,24 +222,55 @@ img {
     object-fit: cover;
 }
 
+.prev {
+    position: relative;
+    top: -20px;
+    float: right;
+}
+
 .next {
-    right: 0;
-  }
+    position: relative;
+    float: right;
+    top: 60px;
+}
+
+.content-1 {
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+    font-size: 150%;
+}
 
 .ranking-number {
-    position: absolute;
-    left: 97.4%;
-    font-size: 50px;
-    background: #ff7e00;
-    color: darkcyan;
+    margin-bottom: 20px;
+    position: relative;
+    max-width: 270px;
+    padding: 0 10px;
+    color: white;
+    background: #2a2a2a;
+    border-radius: 10px;
 }
 
 .title-random {
+    margin-bottom: 20px;
     color: #f2f2f2;
-    font-size: 120px;
-    position: absolute;
-    
+    max-width: 170px;
+    position: relative;
+    padding: 0 20px;
+    background: #2a2a2a;
+    border-radius: 15px;
   }
+
+.description {
+    margin-bottom: 20px;
+    position: relative;
+    background: #2a2b31;
+    color: white;
+    max-width: 800px;
+    line-height: 1.6em;
+    border-radius: 5px;
+    padding: 6px;
+}
 
 .fade {
     animation-name: fade;
@@ -295,7 +330,11 @@ img {
     .latest-animes {
         width: 100%;
     }
-  }
+    .content-1 {
+        font-size: 120%;
+        
+    }
+}
 
 @media screen and (max-width: 1144px) {
     .latest-animes {
@@ -309,6 +348,20 @@ img {
         position: relative;
         left: -42px;
     }
+    .description {
+        font-size: 75%;
+    }
+}
+
+
+@media screen and (max-width: 851px) {
+    .description {
+        display: none;
+    }
+    .content-1 {
+        font-size: 30px;
+        bottom: 245px;
+    }
 }
 
 @media screen and (max-width: 957px) {
@@ -317,6 +370,10 @@ img {
     }
     .header-anime {
         display: none;
+    }
+
+    .description {
+        font-size: 4;
     }
 }
 
