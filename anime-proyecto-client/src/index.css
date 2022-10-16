@@ -1,0 +1,201 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans Mono', monospace;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #1B1B1B;
+
+}
+
+.header{
+  padding: 0 8%;
+  background-color: #1B1B1B;
+}
+
+.header-content{
+  display: flex;
+  align-items: center;
+}
+
+.nav-links{
+  padding: 60px 0;
+}
+
+.nav-links li{
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.nav-links li a{
+  text-decoration: none;
+  color:#F7F7F7;
+  padding: 5px 0;
+}
+
+.nav-links li a:hover{
+  color:#12F8FF;
+}
+
+.btn{
+  color: #fff;
+  position: relative;
+}
+
+.checkbtn{
+  color: #F7F7F7;
+  float: left;
+  line-height: 35px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+#check {
+  display: none;
+}
+
+
+@media (max-width: 798px){
+  .checkbtn{
+      display: block;
+  }
+  .links{
+      display: none;
+  }
+}
+
+/* Animes Recientes */
+
+
+.latest-animes {
+  float: left;
+}
+
+.latest-animes img{
+  border-radius: 10px;
+  width: 200px;
+  left: 22px;
+  margin-left: 25px;
+  margin-top: 20px;
+  position: relative;
+  
+}
+.title-anime{
+  position: absolute;
+  color: white;
+  margin-left: 50px;
+  margin-top: -35px;
+  background:#282828;
+  border-radius: 5px;
+  padding: 3px;
+  
+}
+
+.title-type{
+  position: absolute;
+  color: white;
+  padding: 5px;
+  margin-left: 45px;
+  margin-top: -285px;
+  background:#282828;
+  border-radius: 5px;
+}
+
+@media (max-width: 798px){
+  .title-type{
+      position: absolute;
+      color: white;
+      margin-left: 35px;
+      margin-top: -215px;
+      background:#282828;
+      border-radius: 5px;
+  }
+}
+
+.header-anime{
+  font-size: 30px;
+  color: white;
+  margin-left: 40px;
+  position: relative;
+  top: 9px;
+  text-align: left;
+}
+
+
+.row-anime::after{
+  content: "";
+  display: table;
+  clear: both;
+
+}
+
+@media (max-width: 798px){
+  .latest-animes img{
+  border-radius: 10px;
+  width: 150px;
+  left: 10px;
+  margin-left: 25px;
+  margin-top: 20px;
+  position: relative;
+  }
+}
+
+/* Latest Episodes */
+
+.header-emision{
+  font-size: 30px;
+  color: white;
+  margin-left: 40px;
+  position: relative;
+  top: 9px;
+  text-align: left;
+}
+
+.header-emision h2{
+  font-size: 15px;
+  color: rgb(125, 125, 125);
+}
+
+.latest-episode {
+  float: left;
+}
+
+.latest-episode img{
+  border-radius: 10px;
+  width: 320px;
+  margin-left: 40px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.title-emision{
+  position: absolute;
+  color: white;
+  margin-left: 40px;
+  margin-top: -27px;
+  background:#282828;
+  border-radius: 2px;
+  padding: 2px;
+}
+
+.title-ep{
+  position: absolute;
+  color: white;
+  width: 96px;
+  margin-left: 250px;
+  margin-top: -170px;
+  background:#282828;
+  border-radius: 5px;
+  text-align: center;
+  padding: 1px;
+}
+
+.content::after{
+  content: "";
+  display: table;
+  clear: both;
+
+}
