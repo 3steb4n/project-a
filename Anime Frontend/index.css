@@ -1,200 +1,482 @@
-*{
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
     font-family: 'Noto Sans Mono', monospace;
+    text-decoration: none;
+    list-style: none;
     box-sizing: border-box;
 }
 
-body{
-    background-color: #1B1B1B;
-
+body {
+    background: #202125;
 }
 
-.header{
-    padding: 0 8%;
-    background-color: #1B1B1B;
+body::-webkit-scrollbar {
+    width: 0.8em;
+  }
+   
+  body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+   
+  body::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+  }
+
+/* Start of Sidebar */
+
+.sidebar {
+    height: 100%;
+    width: 320px;
+    background: #2a2c31;
+    position: absolute;
+    z-index: 1;
+    transition: 0.5s ease;
+    transform: translateX(-420px);
 }
 
-.header-content{
-    display: flex;
-    align-items: center;
+.sidebar .head {
+    color: aliceblue;
+    font-size: 20px;
+    letter-spacing: 3px;
+    padding: 22px;
+    background: #111;
+    width: 200px;
+    border-radius: 25px;
 }
 
-.nav-links{
-    padding: 60px 0;
+.sidebar ul {
+    width: 100%;
+    list-style: none;
 }
 
-.nav-links li{
-    display: inline-block;
-    margin: 0 20px;
+.sidebar ul li {
+    display: block;
+    width: 100%;
 }
 
-.nav-links li a{
+.sidebar ul li a {
+    color: white;
     text-decoration: none;
-    color:#F7F7F7;
-    padding: 5px 0;
-}
-
-.nav-links li a:hover{
-    color:#12F8FF;
-}
-
-.btn{
-    color: #fff;
+    padding: 15px 10px;
+    display: block;
+    font-size: 20px;
+    letter-spacing: 1px;
     position: relative;
+    transition: 0.3s;
+    overflow: hidden;
+    text-transform: capitalize;
 }
 
-.checkbtn{
-    color: #F7F7F7;
-    float: left;
-    line-height: 35px;
-    margin-right: 40px;
-    cursor: pointer;
-    display: none;
+.sidebar ul li:hover a {
+    color: rgb(7, 121, 149);
+}
+
+#check:checked ~ .sidebar{
+    transform: translateX(0);
+}
+
+/* End of Sidebar */
+
+/* Start of Navbar */
+
+.navbar {
+    background: rgb(37, 37, 37);
+    height: 80px;
+    width: 100%;
+    line-height: 70px;
+
 }
 
 #check {
-    display: none;
+        visibility: hidden;
+        display: none;
+}
+
+.section {
+    position: relative;
+    top: 5px;
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.section-2 {
+    position: relative;
+    top: -75px;
+    right: 10px;
+    margin-left: 60%;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.checkbtn{
+    font-size: 30px;
+    padding: 0;
+    color: #fff;
+    cursor: pointer;
+    height: 10px;
+    margin-top: 5px;
+    margin-left: 25px;
+    
+}
+
+.logo {
+    font-size: 40px;
+    margin-left: 30px;
+    color: white;
+}
+
+.search input {
+    margin-left: 30px;
+    width: 300px;
+    height: 40px;
+    border: none;
+    color: #111;
+    border-radius: 1px;
+    text-indent: 10px;
+    font-size: 15px;
+}
+
+#searchIcon {
+    margin-left: -30px;
+    color: #202125;
+    cursor: pointer;
+}
+
+.social {
+    position: relative;
+    margin: 5px 20px;
+}
+
+.item {
+    float: left;
+    padding: 0 5px;
+}
+
+#discord {
+    color: white;
+    font-size: 30px;
+}
+
+.auth ul li{
+    position: relative;
+    display: inline-block;
+    margin: 0px 5px;
+    
+}
+
+.auth ul li a {
+    background: #fff;
+    padding: 15px;
+    border-radius: 2px;
+    color: black;
+}
+
+.auth ul li a:hover{
+    color: white;
+    background: green;
+    padding: 20px;
+    transition: padding .3s
+}
+
+/* End of NavBar */
+
+/* Start of Popuplar Slider Anime */
+
+.carousel {
+    position: relative;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    margin-top: -200px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 5px;
+    user-select: none;
+    background: #2a2b31;
+  }
+
+.prev:hover, .next:hover {
+    background-color: green;
 }
 
 
-@media (max-width: 798px){
-    .checkbtn{
-        display: block;
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.image-random img{
+    height: 550px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.prev {
+    position: relative;
+    top: -20px;
+    float: right;
+}
+
+.next {
+    position: relative;
+    float: right;
+    top: 60px;
+}
+
+.content-1 {
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+    font-size: 150%;
+}
+
+.ranking-number {
+    margin-bottom: 20px;
+    position: relative;
+    max-width: 270px;
+    padding: 0 10px;
+    color: white;
+    background: #2a2a2a;
+    border-radius: 10px;
+}
+
+.title-random {
+    margin-bottom: 20px;
+    color: #f2f2f2;
+    max-width: 170px;
+    position: relative;
+    padding: 0 20px;
+    background: #2a2a2a;
+    border-radius: 15px;
+  }
+
+.description {
+    margin-bottom: 20px;
+    position: relative;
+    background: #2a2b31;
+    color: white;
+    max-width: 800px;
+    line-height: 1.6em;
+    border-radius: 5px;
+    padding: 6px;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+  /* End of Popular Sider Anime */
+
+  /* Start of Latest Animes */
+
+.header-anime {
+    position: relative;
+    padding: 1% 40px;
+    font-size: 30px;
+    color: #f2f2f2;
+}
+
+.latest-animes .anime-info{
+    position: relative;
+    float: left;
+    width: 15%;
+    left: 115px;
+    
+}
+
+.anime-info img {
+    width: 70%;
+    border-radius: 5px;
+}
+
+
+.title-an {
+    position: relative;
+    top: 23px;
+    font-size: 20px;
+    padding:0 5px;
+    width: 100px;
+    border-radius: 3px;
+    background-color:#394257;
+}
+
+.anime-type {
+    position: relative;
+    top: -22px;
+    font-size: 15px;
+    width: 20px;
+    border-radius: 3px;
+    background-color: #394257;
+}
+
+@media screen and (max-width: 1331px) {
+    .latest-animes {
+        width: 100%;
     }
-    .links{
+    .content-1 {
+        font-size: 120%;
+        
+    }
+}
+
+@media screen and (max-width: 1144px) {
+    .latest-animes {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .latest-animes {
+        width: 100%;
+        position: relative;
+        left: -42px;
+    }
+    .description {
+        font-size: 75%;
+    }
+}
+
+
+@media screen and (max-width: 851px) {
+    .description {
+        display: none;
+    }
+    .content-1 {
+        font-size: 30px;
+        bottom: 245px;
+    }
+}
+
+@media screen and (max-width: 957px) {
+    .latest-animes {
+        display: none;
+    }
+    .header-anime {
+        display: none;
+    }
+
+    .description {
+        font-size: 4;
+    }
+}
+
+@media screen and (max-width: 1036px) {
+    .section-2 {
         display: none;
     }
 }
 
-/* Animes Recientes */
-
-
-.latest-animes {
-    float: left;
-}
-
-.latest-animes img{
-    border-radius: 10px;
-    width: 200px;
-    left: 22px;
-    margin-left: 25px;
-    margin-top: 20px;
-    position: relative;
-    
-}
-
-.title-anime{
-    position: absolute;
-    color: white;
-    margin-left: 50px;
-    margin-top: -35px;
-    background:#282828;
-    border-radius: 5px;
-    padding: 3px;
-    
-}
-
-.title-type{
-    position: absolute;
-    color: white;
-    padding: 5px;
-    margin-left: 45px;
-    margin-top: -285px;
-    background:#282828;
-    border-radius: 5px;
-}
-
-@media (max-width: 798px){
-    .title-type{
-        position: absolute;
-        color: white;
-        margin-left: 35px;
-        margin-top: -215px;
-        background:#282828;
-        border-radius: 5px;
+@media screen and (max-width: 727px) {
+    .social {
+        display: none;
     }
 }
 
-.header-anime{
-    font-size: 30px;
-    color: white;
-    margin-left: 40px;
-    position: relative;
-    top: 9px;
+@media screen and (max-width: 569px) {
+    .search {
+        display: none;
+    }
 }
 
+/* End of Latest Animes  */
 
-.row-anime::after{
+.row-animes::after{
     content: "";
     display: table;
     clear: both;
 
 }
 
-@media (max-width: 798px){
-    .latest-animes img{
-    border-radius: 10px;
-    width: 150px;
-    left: 10px;
-    margin-left: 25px;
-    margin-top: 20px;
-    position: relative;
-    }
-}
+/* Start of Latest Episodes  */
 
-/* Latest Episodes */
-
-.header-emision{
+.header-text {
+    position: absolute;
+    padding: 1% 40px;
     font-size: 30px;
-    color: white;
-    margin-left: 40px;
-    position: relative;
-    top: 9px;
+    color: #f2f2f2;
 }
 
-h2 {
+.header-text h2 {
     font-size: 15px;
     color: rgb(125, 125, 125);
 }
 
-.latest-episode {
-    float: left;
-}
-
-.latest-episode img{
-    border-radius: 10px;
-    width: 320px;
-    margin-left: 40px;
-    margin-top: 20px;
+.latest-episodes {
     position: relative;
+    float: left;
+    width: 20%;
+    padding: 5px;
+    
 }
 
-.title-emision{
-    position: absolute;
-    color: white;
-    margin-left: 40px;
-    margin-top: -27px;
-    background:#282828;
-    border-radius: 2px;
-    padding: 2px;
-}
-
-.title-ep{
-    position: absolute;
-    color: white;
-    width: 96px;
-    margin-left: 250px;
-    margin-top: -170px;
-    background:#282828;
+.episode-info img {
     border-radius: 5px;
-    text-align: center;
-    padding: 1px;
 }
 
-.content::after{
-    content: "";
-    display: table;
-    clear: both;
+#episode-latest-image {
+    width: 100%;
+}
+
+.title-episode{
+    position: relative;
+    float: right;
+    top: 23px;
+    background-color: #ff7e00;
+    border-radius: 2px;
+    padding: 0 10px;
+    font-size: 20px;
+    width: 130px;
+}
+
+.title-anime {
+    position: relative;
+    top: -31px;
+    font-size: 20px;
+    padding:0 5px;
+    width: 100px;
+    border-radius: 3px;
+    background-color:#394257;
 
 }
+
+@media screen and (max-width: 1331px) {
+    .latest-episodes {
+        width: 25%;
+    }
+  }
+
+@media screen and (max-width: 1144px) {
+    .latest-episodes {
+        width: 340px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .latest-episodes {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .latest-episodes {
+        width: 100%;
+    }
+}
+

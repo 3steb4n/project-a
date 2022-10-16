@@ -24,6 +24,14 @@ body::-webkit-scrollbar {
     outline: 1px solid slategrey;
   }
 
+  img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
 /* Start of Sidebar */
 
 .sidebar {
@@ -184,9 +192,31 @@ body::-webkit-scrollbar {
 
 /* End of NavBar */
 
-/* Start of Popuplar Slider Anime */
 
-.carousel {
+@media screen and (max-width: 1031px) {
+    .social {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 885px) {
+    .search {
+        display: none;
+    }
+    .section-2 {
+        margin-left: 0%;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .section-2 {
+        display: none;
+    }
+}
+
+/* Trending Animes */
+
+.container-primary {
     position: relative;
 }
 
@@ -203,24 +233,10 @@ body::-webkit-scrollbar {
     background: #2a2b31;
   }
 
-.prev:hover, .next:hover {
+  .prev:hover, .next:hover {
     background-color: green;
 }
 
-
-img {
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-}
-
-.image-random img{
-    height: 550px;
-    width: 100%;
-    object-fit: cover;
-}
 
 .prev {
     position: relative;
@@ -234,210 +250,71 @@ img {
     top: 60px;
 }
 
-.content-1 {
-    position: absolute;
-    bottom: 100px;
-    left: 20px;
-    font-size: 150%;
-}
-
 .ranking-number {
-    margin-bottom: 20px;
-    position: relative;
-    max-width: 270px;
-    padding: 0 10px;
-    color: white;
+    position: absolute;
     background: #2a2a2a;
+    font-size: 30px;
+    top: 100px;
+    left: 40px;
+    color: white;
+    padding: 5px 10px;
     border-radius: 10px;
 }
 
-.title-random {
-    margin-bottom: 20px;
-    color: #f2f2f2;
-    max-width: 170px;
-    position: relative;
-    padding: 0 20px;
-    background: #2a2a2a;
-    border-radius: 15px;
-  }
-
-.description {
-    margin-bottom: 20px;
-    position: relative;
-    background: #2a2b31;
-    color: white;
-    max-width: 800px;
-    line-height: 1.6em;
-    border-radius: 5px;
-    padding: 6px;
-}
-
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-  
-@keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-}
-
-  /* End of Popular Sider Anime */
-
-  /* Start of Latest Animes */
-
-.header-anime {
-    position: relative;
-    padding: 1% 40px;
-    font-size: 30px;
-    color: #f2f2f2;
-}
-
-.latest-animes .anime-info{
-    position: relative;
-    float: left;
-    width: 15%;
-    left: 115px;
-    
-}
-
-.anime-info img {
-    width: 70%;
-    border-radius: 5px;
-}
-
-
-.title-an {
-    position: relative;
-    top: 23px;
-    font-size: 20px;
-    padding:0 5px;
-    width: 100px;
-    border-radius: 3px;
-    background-color:#394257;
-}
-
-.anime-type {
-    position: relative;
-    top: -22px;
-    font-size: 15px;
-    width: 20px;
-    border-radius: 3px;
-    background-color: #394257;
-}
-
-@media screen and (max-width: 1331px) {
-    .latest-animes {
-        width: 100%;
-    }
-    .content-1 {
-        font-size: 120%;
-        
-    }
-}
-
-@media screen and (max-width: 1144px) {
-    .latest-animes {
-        width: 95%;
-    }
-}
-
-@media screen and (max-width: 1100px) {
-    .latest-animes {
-        width: 100%;
-        position: relative;
-        left: -42px;
-    }
-    .description {
-        font-size: 75%;
-    }
-}
-
-
-@media screen and (max-width: 851px) {
-    .description {
-        display: none;
-    }
-    .content-1 {
-        font-size: 30px;
-        bottom: 245px;
-    }
-}
-
-@media screen and (max-width: 957px) {
-    .latest-animes {
-        display: none;
-    }
-    .header-anime {
-        display: none;
-    }
-
-    .description {
-        font-size: 4;
-    }
-}
-
-@media screen and (max-width: 1036px) {
-    .section-2 {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 727px) {
-    .social {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 569px) {
-    .search {
-        display: none;
-    }
-}
-
-/* End of Latest Animes  */
-
-.row-animes::after{
-    content: "";
-    display: table;
-    clear: both;
-
-}
-
-/* Start of Latest Episodes  */
-
-.header-text {
+.title-name {
     position: absolute;
-    padding: 1% 40px;
-    font-size: 30px;
-    color: #f2f2f2;
+    background: #2a2a2a;
+    font-size: 60px;
+    top: 200px;
+    left: 40px;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
 }
 
-.header-text h2 {
-    font-size: 15px;
-    color: rgb(125, 125, 125);
+.trending-anime {
+    position: relative;
+}
+
+.trending-anime img{
+    height: 550px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* End Trending Animes */
+
+
+/* Latest Anime Episodes  */
+
+.container-episodes {
+    position: relative;
+}
+
+.episode-header {
+    top: 15px;
+    color: white;
+    position: relative;
+    font-size: 35px;
+    margin-left: 20px;
 }
 
 .latest-episodes {
     position: relative;
+
+}
+
+.episode-info {
     float: left;
     width: 20%;
-    padding: 5px;
-    
-}
-
-.episode-info img {
-    border-radius: 5px;
-}
-
-#episode-latest-image {
-    width: 100%;
+    padding: 10px;
 }
 
 .title-episode{
     position: relative;
     float: right;
-    top: 23px;
+    top: 25px;
+    left: 10x;
     background-color: #ff7e00;
     border-radius: 2px;
     padding: 0 10px;
@@ -447,7 +324,7 @@ img {
 
 .title-anime {
     position: relative;
-    top: -31px;
+    top: -30px;
     font-size: 20px;
     padding:0 5px;
     width: 100px;
@@ -456,26 +333,130 @@ img {
 
 }
 
+#episode-latest-image {
+    width: 100%;
+    margin: 1px;
+    border-radius: 5px;
+}
+
+/* End Latest Anime Episodes  */
+
 @media screen and (max-width: 1331px) {
-    .latest-episodes {
+    .episode-info {
         width: 25%;
     }
   }
 
 @media screen and (max-width: 1144px) {
-    .latest-episodes {
+    .episode-info {
         width: 340px;
     }
 }
 
 @media screen and (max-width: 1100px) {
-    .latest-episodes {
+    .episode-info {
         width: 50%;
     }
 }
 
 @media screen and (max-width: 630px) {
-    .latest-episodes {
+    .episode-info {
         width: 100%;
     }
 }
+
+
+.container-episodes::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+
+  /* Latest Animes Added */
+
+.container-anime {
+    position: relative;
+    width: 100%;
+}
+
+.anime-header {
+    color: white;
+    position: relative;
+    font-size: 35px;
+    margin-left: 20px;
+}
+
+.latest-episodes {
+    position: relative;
+}
+
+.anime-title {
+    position: relative;
+    top: 25px;
+    font-size: 20px;
+    padding:0 5px;
+    width: 100px;
+    border-radius: 3px;
+    color: white;
+    background-color:#000000;
+}
+
+.info-anime {
+    float: left;
+    width: 16%;
+    padding: 10px;
+}
+
+#anime-latest-image {
+    width: 100%;
+    margin: 1px;
+    border-radius: 5px;
+}
+
+  /* End of Latest Animes Added  */
+
+
+@media screen and (max-width: 1300px) {
+    .info-anime {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .info-anime {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .info-anime {
+        width: 40%;
+    }
+}
+.container-anime::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+/* Footer */
+
+.container-footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    position: static;
+    background: #111;
+    text-align: center;
+}
+
+.copyright {
+    color: white;
+}
+
+.disclaimer { 
+    color: white;
+}
+
+/* End Footer */
