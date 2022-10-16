@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      *  dDall this method automatically.
      */
     static associate(models) {
-      // define association here
-      //relación llave foranea con la tabla AnimeGenre
+      this.belongsToMany(models.Genre, {through: models.AnimeGenre});
+      this.hasMany(models.AnimeGenre)
     }
   }
   anime.init({

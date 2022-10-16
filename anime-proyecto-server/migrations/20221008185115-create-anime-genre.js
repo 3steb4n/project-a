@@ -9,19 +9,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      anime_id: {
+      animeId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'animes',
-          key: 'id'
+          key: 'id',
+          model: 'Animes'
         }
       },
-      genre_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Genres',
-          key: 'id'
-        }
+      GenreId: {
+          type: Sequelize.INTEGER,
+          references: {
+            key: 'id',
+            model: 'Genres'
+          }
       },
       createdAt: {
         allowNull: false,

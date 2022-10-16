@@ -10,13 +10,11 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      this.belongsTo(models.anime);
+      this.belongsTo(models.Genre);
     }
   }
-  AnimeGenre.init({
-    anime_id: DataTypes.INTEGER,
-    genre_id: DataTypes.INTEGER
-  }, {
+  AnimeGenre.init({}, {
     sequelize,
     modelName: 'AnimeGenre',
   });

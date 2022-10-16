@@ -1,6 +1,6 @@
 const Models = require('./../models');
 var express = require('express');
-const { Model } = require('sequelize');
+const { Op, Model } = require('sequelize');
 require('dotenv').config()
 var router = express.Router();
 
@@ -196,12 +196,16 @@ router.post('/create', async (req, res) => {
         }, { fields: ['name', 'description', 'season', 'year', 'url_preview', 'url_trailer', 'number_chapter', 'anime_type_id', 'status_id'] })
         .then(async result => {
             let bodyAnime = JSON.parse(JSON.stringify(result));
-            animeInformation.genresList.filter((subject, index) => animeInformation.genresList.indexOf(subject) === index).map(async value => {
-                Models.AnimeGenre.create({
-                    anime_id: bodyAnime.id,
-                    genre_id: value
+            try{
+                animeInformation.genresList.filter((subject, index) => animeInformation.genresList.indexOf(subject) === index).map(value => {
+                    Models.AnimeGenre.create({
+                        animeId: bodyAnime.id,
+                        GenreId: value
+                    });
                 });
-            });
+            }catch(e){
+                console.log(e);
+            }
             return bodyAnime;
         });
 
@@ -256,4 +260,178 @@ router.post('/create', async (req, res) => {
     }
 });
 
-module.exports = router;
+router.post("/search", async (req, res, next) => {
+    let filterFields = {
+        genreId: req.body.genreId,
+        year: req.body.year,
+        type: req.body.type,
+        status: req.body.status
+    };
+
+    if(filterFields.genreId.length === 0 && filterFields.year.length === 0 && filterFields.type.length === 0 && filterFields.status.length === 0) {
+        await Models.anime.findAndCountAll({
+            order: [['createdAt', 'DESC']]
+        }).then(re => {
+            res.status(200).json({
+                status: 200,
+                list: JSON.parse(JSON.stringify(re))
+            });
+            return;
+        }).catch(err => {
+            res.status(200).json({
+                status: 500,
+                message: 'Internal error'
+            });
+            console.log(err);
+            return;
+        })
+    } else {
+        await Models.anime.findAll({
+            ...(filterFields.year.length > 0 && filterFields.type.length > 0 && filterFields.status.length > 0 && filterFields.genreId.length > 0 && {
+                include: Models.AnimeGenre,
+                where: {
+                    [Op.and]: [
+                        { year: filterFields.year },
+                        { anime_type_id: filterFields.type },
+                        { status_id: filterFields.status }
+                    ]
+                },
+                include: {
+                    model: Models.Genre,
+                    where: {
+                        id: filterFields.genreId
+                    }
+                }
+            }),
+            ...(filterFields.type.length > 0 && filterFields.year.length === 0 && filterFields.status.length === 0 && filterFields.genreId.length === 0 && {
+                where: {
+                    anime_type_id:  filterFields.type
+                }
+            }),
+            ...(filterFields.year.length > 0 && filterFields.type.length === 0 && filterFields.status.length === 0 && filterFields.genreId.length === 0 && {
+                where: {
+                    year: filterFields.year
+                }
+            }),
+            ...(filterFields.status.length > 0 && filterFields.year.length === 0 && filterFields.type.length === 0 && filterFields.genreId.length === 0 && {
+                where: {
+                    status_id: filterFields.status
+                } 
+            }),
+            ...(filterFields.genreId.length > 0 && filterFields.year.length === 0 && filterFields.status.length === 0 && filterFields.type.length === 0 && {
+                include: Models.AnimeGenre,
+                include: {
+                    model: Models.Genre,
+                    where: {
+                        id: filterFields.genreId
+                    }
+                }
+            }),
+            ...(filterFields.type.length > 0 && filterFields.year.length > 0 && filterFields.status.length === 0 && filterFields.genreId.length === 0 && {
+                where: {
+                    [Op.and]: [
+                        { anime_type_id: filterFields.type },
+                        { year: filterFields.year }
+                    ]
+                }
+            }),
+            ...(filterFields.type.length > 0 && filterFields.status.length > 0 && filterFields.year.length === 0 && filterFields.genreId.length === 0 && {
+                where: {
+                    [Op.and]: [
+                        { anime_type_id: filterFields.type },
+                        { status_id: filterFields.status }
+                    ]
+                }
+            }),
+            ...(filterFields.status.length > 0 && filterFields.year.length > 0 && filterFields.type.length === 0 && filterFields.genreId.length === 0 && {
+                where: {
+                    [Op.and]: [ 
+                        { year: filterFields.year },
+                        { status_id: filterFields.status }
+                    ]
+                }
+            }),
+            ...(filterFields.genreId.length > 0 && filterFields.status.length > 0 && filterFields.year.length === 0 && filterFields.type.length === 0 && {
+                include: Models.AnimeGenre,
+                where: {
+                    status_id: filterFields.status
+                },
+                include: {
+                    model: Models.Genre,
+                    where: {
+                        id: filterFields.genreId
+                    }
+                }
+            }),
+            ...(filterFields.genreId.length > 0 && filterFields.year.length > 0 && filterFields.status.length === 0 && filterFields.type.length === 0 && {
+                include: Models.AnimeGenre,
+                where: {
+                    year: filterFields.year
+                },
+                include: {
+                    model: Anime.Genre,
+                    where: {
+                        id: filterFields.genreId
+                    }
+                }
+            }),
+            ...(filterFields.genreId.length > 0 && filterFields.type.length > 0 && filterFields.year.length === 0 && filterFields.status.length === 0 && {
+                include: Models.AnimeGenre,
+                where: {
+                    anime_type_id: filterFields.type
+                },
+                include: {
+                    model: Models.Genre,
+                    where: {
+                        id: filterFields.genreId
+                    }
+                }
+            }),
+            ...(filterFields.genreId.length > 0 && filterFields.type.length > 0 && filterFields.year.length > 0 && filterFields.status.length === 0 && {
+                include: Model.AnimeGenre,
+                where:{
+                    [Op.and]: [
+                        { anime_type_id: filterFields.type },
+                        { year: filterFields.year  }
+                    ]
+                },
+                include: {
+                    model: Model.Genre,
+                    where: {
+                        id: filterFields.genreId
+                    }
+                }
+            }),
+            ...(filterFields.genreId.length > 0 && filterFields.type.length > 0 && filterFields.status.length > 0 && filterFields.year.length === 0 && {
+                include: Models.AnimeGenre,
+                where: {
+                    [Op.and]: [
+                        { anime_type_id: filterFields.type },
+                        { status_id: filterFields.status }
+                    ]
+                },
+                include: {
+                    model: Models.Genre,
+                    where: {
+                        id: filterFields.genreId
+                    }
+                }
+            }),
+        }).then(re => {
+            res.status(200).json({
+                status: 200,
+                message: JSON.parse(JSON.stringify(re))
+            });
+            return;
+        }).catch(err => {
+            res.status(200).json({
+                status: 500,
+                message: 'Internal error.'
+            });
+            console.log(err);
+            return;
+        });
+    }
+});
+
+module.exports = router

@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
-      //relación llave foranea con la tabla AnimeGenre
+      this.belongsToMany(models.anime, {through: models.AnimeGenre});
+      this.hasMany(models.AnimeGenre);
     }
   }
   Genre.init({
