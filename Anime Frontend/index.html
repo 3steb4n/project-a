@@ -6,22 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="header-side-footer.css">
     <title>Document</title>
 </head>
 <body>
     
     <input type="checkbox" id="check">
     <div class="sidebar">
-        <label for="check" class="checkbtn">
-            <div class="head">Cerrar Menu</div>
-        </label>
+        <div class="close-menu">
+            <label for="check" class="closebtn">Cerrar Menu</label>
+        </div>
         <ul>
-            <li><a href="#">Accion</a></li>
-            <li><a href="#">Aventura</a></li>
-            <li><a href="#">Comedia</a></li>
-            <li><a href="#">Fantasia</a></li>
-            <li><a href="#">Romance</a></li>
-            
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Directorio Anime</a></li>
+            <li><a href="#">TV Series</a></li>
+            <li><a href="#">Peliculas</a></li>
+            <li><a href="#">ONAS</a></li>            
         </ul>
     </div>
     <div class="navbar">
@@ -59,141 +59,84 @@
         </div>
     </div>
 
-    <div class="random">
-        <div class="carousel fade">
-            <div class="content-1">
-                <div class="ranking-number">#1 Lo mas visto</div>
-                <div class="title-random">Sankarea</div>
-                <div class="description">La mami de takeshiLa mami de takeshiLa mami de takeshiLa mami de takeshiLa mami de takeshiLa mami de takeshiLa mami de takeshiLa mami de takeshiLa mami de takeshi </div>
-            </div>
-            <div class="image-random">
-                <img src="images/1.png" alt="">
-            </div>
-        </div>
-        <div class="carousel fade">
-            <div class="content-1">
-                <div class="ranking-number">#2 Lo mas visto</div>
-                <div class="title-random">Bleach</div>
-                <div class="description">La mami de takeshi</div>
-            </div>
-            <div class="image-random">
-                <img src="images/1.png" alt="">
-            </div>
-        </div>
-        <div class="carousel fade">
-            <div class="content-1">
-                <div class="ranking-number">#3 Lo mas visto</div>
-                <div class="title-random">Bleach</div>
-                <div class="description">culo de la mami de takeshiculo de la mami de takeshiculo de la mami de takeshi</div>
-            </div>
-            <div class="image-random">
-                <img src="images/1.png" alt="">
-            </div>
+
+    <!-- Anime Slider  -->
+
+    <div class="container-primary">
+        <div class="trending-anime">
+            <a href="#"><div class="ranking-number">#1 Lo mas visto</div>
+            <div class="title-name">Sankarea</div>
+            <div class="anime-type">TV</div>
+            <div class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste magnam ducimus impedit saepe optio esse veniam voluptates soluta possimus facilis ipsam, aut, rerum exercitationem, quisquam reiciendis tempore voluptas ut eum?</div>
+            <img src="images/1.png" alt=""></a>
         </div>
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next"onclick="plusSlides(1)">❯</a>
     </div>
 
-    <div class="row-animes">
-        <div class="header-anime">Últimos Animes</div>
+    <!-- End Anime Slider  -->
+
+    <!-- Latest Episodes -->
+
+    <div class="container-episodes">
+        <div class="episode-header">
+            Ultimos Episodios
+        </div>
+        <div class="latest-episodes">
+            <div class="episode-info">
+                <div class="title-episode">Episodio 1</div>
+                <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
+                <div class="title-anime">Sankarea</div>
+            </div>
+            <div class="episode-info">
+                <div class="title-episode">Episodio 1</div>
+                <a href="#"><img src="images/2.png" alt="" id="episode-latest-image"></a>
+                <div class="title-anime">Sankarea</div>
+            </div>
+            <div class="episode-info">
+                <div class="title-episode">Episodio 1</div>
+                <a href="#"><img src="images/3.png" alt="" id="episode-latest-image"></a>
+                <div class="title-anime">Sankarea</div>
+            </div>
+            <div class="episode-info">
+                <div class="title-episode">Episodio 1</div>
+                <a href="#"><img src="images/4.png" alt="" id="episode-latest-image"></a>
+                <div class="title-anime">Sankarea</div>
+            </div>
+            <div class="episode-info">
+                <div class="title-episode">Episodio 1</div>
+                <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
+                <div class="title-anime">Sankarea</div>
+            </div>
+            <div class="episode-info">
+                <div class="title-episode">Episodio 1</div>
+                <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
+                <div class="title-anime">Sankarea</div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- End Latest Episodes  -->
+
+    <div class="container-anime">
+        <div class="anime-header">
+            Ultimos Animes
+        </div>
         <div class="latest-animes">
-            <div class="anime-info">
-                <div class="title-an">Sankarea</div>
-                <a href="#"><img src="images/pas.jpg" alt="" id="anime-image" ></a>
-                <div class="anime-type">
-                    TV
-                </div>
-            </div>
-            <div class="anime-info">
-                <div class="title-an">Sankarea</div>
-                <a href="#"><img src="images/pas.jpg" alt="" id="anime-image" ></a>
-                <div class="anime-type">
-                    TV
-                </div>
-            </div>
-            <div class="anime-info">
-                <div class="title-an">Sankarea</div>
-                <a href="#"><img src="images/pas.jpg" alt="" id="anime-image" ></a>
-                <div class="anime-type">
-                    TV
-                </div>
-            </div>
-            <div class="anime-info">
-                <div class="title-an">Sankarea</div>
-                <a href="#"><img src="images/pas.jpg" alt="" id="anime-image" ></a>
-                <div class="anime-type">
-                    TV
-                </div>
-            </div>
-            <div class="anime-info">
-                <div class="title-an">Sankarea</div>
-                <a href="#"><img src="images/pas.jpg" alt="" id="anime-image" ></a>
-                <div class="anime-type">
-                    TV
-                </div>
-            </div>
-            <div class="anime-info">
-                <div class="title-an">Sankarea</div>
-                <a href="#"><img src="images/pas.jpg" alt="" id="anime-image" ></a>
-                <div class="anime-type">
-                    TV
-                </div>
+            <div class="info-anime">
+                <div class="anime-title">Sankarea</div>
+                <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
             </div>
         </div>
     </div>
-
-    <!-- Anime Episodes -->
-
-    <div class="row-episodes">
-        <div class="header-text">Últimos Episodios
-            <h2>Los episodios mas recientes</h2>
-            <div class="latest-episodes">
-                <div class="episode-info">
-                    <div class="title-episode">Episodio 1</div>
-                    <a href="#"><img src="images/video.png" alt="" id="episode-latest-image"></a>
-                    <div class="title-anime">Sankarea</div>
-                </div>
-            </div>
-            <div class="latest-episodes">
-                <div class="episode-info">
-                    <div class="title-episode">Episodio 1</div>
-                    <a href="#"><img src="images/video.png" alt="" id="episode-latest-image"></a>
-                    <div class="title-anime">Sankarea</div>
-                </div>
-            </div>
-            <div class="latest-episodes">
-                <div class="episode-info">
-                    <div class="title-episode">Episodio 1</div>
-                    <a href="#"><img src="images/video.png" alt="" id="episode-latest-image"></a>
-                    <div class="title-anime">Sankarea</div>
-                </div>
-            </div>
-            <div class="latest-episodes">
-                <div class="episode-info">
-                    <div class="title-episode">Episodio 1</div>
-                    <a href="#"><img src="images/video.png" alt="" id="episode-latest-image"></a>
-                    <div class="title-anime">Sankarea</div>
-                </div>
-            </div>
-            <div class="latest-episodes">
-                <div class="episode-info">
-                    <div class="title-episode">Episodio 1</div>
-                    <a href="#"><img src="images/video.png" alt="" id="episode-latest-image"></a>
-                    <div class="title-anime">Sankarea</div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- End of Anime Row -->
 
     <!-- Footer Start -->
 
     <div class="container-footer">
         <div class="logo">AnimexD</div>
         <div class="copyright">
-            Copyright © 2022 AnimeUI. Todos los derechos reservados
+            Copyright © 2022 AnimexD. Todos los derechos reservados
         </div>
         <div class="disclaimer">
             Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los contenidos son proporcionados por terceros no afiliados.
@@ -203,10 +146,8 @@
 
     <!-- Footer End -->
 
+    <script src="index.js"></script>
+
+
 </body>
-
-
-<script src="js/index.js"></script>
-
-
 </html>

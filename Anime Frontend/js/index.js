@@ -8,7 +8,7 @@ function plusSlides(n) {
 
 function showSlides(n) {
   let i;
-  let slides = document.getElementsByClassName("carousel");
+  let slides = document.getElementsByClassName("trending-anime");
   if (slideIndex > slides.length) {slideIndex = 1}    
   if (n > slides.length) {slideIndex = 1}    
   if (n < 1) {slideIndex = slides.length}
