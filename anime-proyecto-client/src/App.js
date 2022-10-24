@@ -1,10 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
-import VideoJs from './components/videoJS';
+// import logo from './logo.svg';
+// import VideoJs from './components/videoJS';
 import { Routes, Route, Link } from "react-router-dom";
-import videojs from 'video.js'
+// import videojs from 'video.js'
 import React, { useState, useEffect } from 'react';
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import configureStore from "./store";
 import axios from 'axios'
 
@@ -15,7 +14,6 @@ import video from './public/video.png'
 //login register
 
 import './auth.css'
-
 
 import { useNavigate } from 'react-router-dom';
 
@@ -28,7 +26,6 @@ function App() {
         <NavBar/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="about" element={<About />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Routes>
@@ -167,8 +164,6 @@ const Login = () => {
             navigate('/')
           }
         })
-
-
         // setTimeout(() => { navigate('/') }, 4000);
       } else {
         displayErrors(response.data.message);
@@ -222,28 +217,60 @@ const NavBar = () => {
       <li className="btn"><a href="register" onClick={logOut}>Logout</a></li>
     ]
   } else {
-    logginButton = [ <li key={1} className="btn"><a href="login">Login</a></li>, <li key={2} className="btn"><a href="register">register</a></li> ]
+    logginButton = [ <li key={1} className="btn"><a href="login">Iniciar Sesion</a></li>, <li key={2} className="btn"><a href="register">Registrarse</a></li> ]
   }
   return (
     <>
-      <div className="header">
-        <nav className="header-content">
-            <ul className="nav-links">
-                <input type="checkbox" id="check"/>
-                <label htmlFor="check" className="checkbtn">
-                    <i className="fas fa-bars"></i>
-                    Menu
-                </label>
-                <div className="links">
-                <li><a href="/">Home</a></li>
-                <li><a href="">Movies</a></li>
-                <li><a href="">TV Series</a></li>
-                <li><a href="">Most Popular</a></li>
-                {logginButton}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+      <input type="checkbox" id="check"/>
+    <div class="sidebar">
+        <div class="close-menu">
+            <label for="check" class="closebtn">Cerrar Menu</label>
+        </div>
+        <ul>
+            <div class="login-side">
+            <li><a href="#">{logginButton}</a></li>
             </div>
-            </ul>
-        </nav>
-      </div>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Directorio Anime</a></li>
+            <li><a href="#">TV Series</a></li>
+            <li><a href="#">Peliculas</a></li>
+            <li><a href="#">ONAS</a></li>            
+        </ul>
+    </div>
+    <div class="navbar">
+        <div class="section">
+            <div class="menu">
+                    <label for="check" class="open-side">
+                        <i class="fas fa-bars"></i>
+                    </label>
+            </div>
+            <div class="logo">AnimexD</div>
+            <div class="search">
+                <input type="text" placeholder="Buscar Anime..."/>
+                <span class="fas fa-search" id="searchIcon"></span>
+            </div>
+            <div class="social">
+                <div class="item">
+                    <a href="#"><i class="fa-brands fa-discord" id="discord"></i></a>
+                </div>
+                <div class="item">
+                    <a href="#"><i class="fa-brands fa-twitter" id="discord"></i></a>
+                </div>
+                <div class="item">
+                    <a href="#"><i class="fa-brands fa-telegram" id="discord"></i></a>
+                </div>
+                
+            </div>
+        </div>
+        <div class="section-2">
+            <div class="auth">
+                <ul>
+                    {logginButton}
+                </ul>
+            </div>
+        </div>
+    </div>
     </>
   )
 }
@@ -251,157 +278,129 @@ const NavBar = () => {
 function Home() {
   const playerRef = React.useRef(null);
 
-  const videoJsOptions = {
-    autoplay: false,
-    controls: true,
-    responsive: true,
-    poster: "https://animeui.infura-ipfs.io/ipfs/bafybeigzq2fr4xepmamkra6y3aktftdmvgypdgdpsaugt6mgexqxnrntny/video-capture-2284.png",
-    fill: true,
-    sources: [{
-      src: 'https://animeui.infura-ipfs.io/ipfs/bafybeifevc67pwnogqkf35pbvrr5ly5yygcwcnkulsx32lhw7nsxuwp4hu/The%20Prince%20of%20Tennis%20II%20U-17%20World%20Cup%20-%20S01E13%20%5B1080p%5D.mp4',
-      type: 'video/mp4'
-    }]
-  };
-
-  const handlePlayerReady = (player) => {
-    playerRef.current = player;
-
-    // You can handle player events here, for example:
-    player.on('waiting', () => {
-      videojs.log('player is waiting');
-    });
-
-    player.on('dispose', () => {
-      videojs.log('player will dispose');
-    });
-  };
-
-  const videojsStyle = {
-    position: 'relative !important',
-    width: '20px !important',
-    height: 'auto !important'
-  }
-
   return (
     <>
-      <div className="row-anime">
-        <div className="header-anime">Animes recientes</div>
-        <div className="latest-animes">
-            <a href="#"><img src={pas} alt=""/></a>
-            <div className="title-anime">
-                Sankarea
-            </div>
-            <div className="title-type">TV</div>
+       {/* <!-- Anime Slider  --> */}
+
+    <div class="container-primary">
+        <div class="trending-anime">
+            <a href="#"><div class="ranking-number">#1 Lo mas visto</div>
+            <div class="title-name">Sankarea</div>
+            <div class="anime-type">TV</div>
+            <div class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste magnam ducimus impedit saepe optio esse veniam voluptates soluta possimus facilis ipsam, aut, rerum exercitationem, quisquam reiciendis tempore voluptas ut eum?</div>
+            <img src={video} alt=""/></a>
         </div>
-        <div className="latest-animes">
-            <a href="#"><img src={pas} alt=""/></a>
-            <div className="title-anime">
-                Sankarea
-            </div>
-            <div className="title-type">Pelicula</div>
-        </div>
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next"onclick="plusSlides(1)">❯</a>
     </div>
-    <div className="content">
-        <div className="header-emision">Últimos episodios
-            <h2>Los episodios mas recientes</h2>
+
+    {/* <!-- End Anime Slider  --> */}
+
+    {/* <!-- Latest Episodes --> */}
+
+    <div class="container-episodes">
+        <div class="episode-header">
+            Ultimos Episodios
         </div>
-        <div className="latest-episode">
-            <a href="#"><img src={video} alt=""/></a>
-            <div className="title-emision" >
-                Sankarea
+        <div class="latest-episodes">
+            <div class="episode-info">
+                <div class="title-episode">Episodio 1</div>
+                <a href="#"><img src={video} alt="" id="episode-latest-image"/></a>
+                <div class="title-anime">Sankarea</div>
             </div>
-            <div className="title-ep">
-                Episodio 1
+            <div class="episode-info">
+                <div class="title-episode">Episodio 1</div>
+                <a href="#"><img src={video} alt="" id="episode-latest-image"/></a>
+                <div class="title-anime">Sankarea</div>
             </div>
-        </div>
-        <div className="latest-episode">
-            <a href="#"><img src={video} alt=""/></a>
-            <div className="title-emision" >
-                Sankarea
+            <div class="episode-info">
+                <div class="title-episode">Episodio 1</div>
+                <a href="#"><img src={video} alt="" id="episode-latest-image"/></a>
+                <div class="title-anime">Sankarea</div>
             </div>
-            <div className="title-ep">
-                Episodio 2
+            <div class="episode-info">
+                <div class="title-episode">Episodio 1</div>
+                <a href="#"><img src={video} alt="" id="episode-latest-image"/></a>
+                <div class="title-anime">Sankarea</div>
             </div>
-        </div>
-        <div className="latest-episode">
-            <a href="#"><img src={video} alt=""/></a>
-            <div className="title-emision" >
-                Sankarea
+            <div class="episode-info">
+                <div class="title-episode">Episodio 1</div>
+                <a href="#"><img src={video} alt="" id="episode-latest-image"/></a>
+                <div class="title-anime">Sankarea</div>
             </div>
-            <div className="title-ep">
-                Episodio 2
-            </div>
-        </div>
-        <div className="latest-episode">
-            <a href="#"><img src={video} alt=""/></a>
-            <div className="title-emision" >
-                Sankarea
-            </div>
-            <div className="title-ep">
-                Episodio 2
-            </div>
-        </div>
-        <div className="latest-episode">
-            <a href="#"><img src={video} alt=""/></a>
-            <div className="title-emision" >
-                Sankarea
-            </div>
-            <div className="title-ep">
-                Episodio 2
+            <div class="episode-info">
+                <div class="title-episode">Episodio 1</div>
+                <a href="#"><img src={video} alt="" id="episode-latest-image"/></a>
+                <div class="title-anime">Sankarea</div>
             </div>
         </div>
-        <div className="latest-episode">
-            <a href="#"><img src={video} alt=""/></a>
-            <div className="title-emision" >
-                Sankarea
-            </div>
-            <div className="title-ep">
-                Episodio 2
-            </div>
+        
+    </div>
+
+    {/* <!-- End Latest Episodes  --> */}
+
+    <div class="container-anime">
+        <div class="anime-header">
+            Ultimos Animes
         </div>
-        <div className="latest-episode">
-            <a href="#"><img src={video} alt=""/></a>
-            <div className="title-emision" >
-                Sankarea
-            </div>
-            <div className="title-ep">
-                Episodio 2
-            </div>
-        </div>
-        <div className="latest-episode">
-            <a href="#"><img src={video} alt=""/></a>
-            <div className="title-emision" >
-                Sankarea
-            </div>
-            <div className="title-ep">
-                Episodio 2
+        <div class="latest-animes">
+            <div class="info-anime">
+                <div class="anime-title">Sankarea</div>
+                <a href="#"><img src={pas} alt="" id="anime-latest-image"/></a>
             </div>
         </div>
     </div>
-      {/* <div style={{width: "1280px", backgroundColor:"red", height: "720px", margin: "0 auto", backgroundColor: "red"}}>
-        <VideoJs options={videoJsOptions} onReady={handlePlayerReady} style={{videojsStyle}}></VideoJs>
-      </div>
-      <nav>
-        <Link to="/about">About</Link>
-      </nav> */}
+
+    {/* <!-- Footer Start --> */}
+
+    <div class="container-footer">
+        <div class="logo">AnimexD</div>
+        <div class="copyright">
+            Copyright © 2022 AnimexD. Todos los derechos reservados
+        </div>
+        <div class="disclaimer">
+            Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los contenidos son proporcionados por terceros no afiliados.
+        </div>
+        <br/>
+    </div>
+
+    {/* <!-- Footer End --> */}
     </>
   );
+
+
+  // const videoJsOptions = {
+  //   autoplay: false,
+  //   controls: true,
+  //   responsive: true,
+  //   poster: "https://animeui.infura-ipfs.io/ipfs/bafybeigzq2fr4xepmamkra6y3aktftdmvgypdgdpsaugt6mgexqxnrntny/video-capture-2284.png",
+  //   fill: true,
+  //   sources: [{
+  //     src: 'https://animeui.infura-ipfs.io/ipfs/bafybeifevc67pwnogqkf35pbvrr5ly5yygcwcnkulsx32lhw7nsxuwp4hu/The%20Prince%20of%20Tennis%20II%20U-17%20World%20Cup%20-%20S01E13%20%5B1080p%5D.mp4',
+  //     type: 'video/mp4'
+  //   }]
+  // };
+
+  // const handlePlayerReady = (player) => {
+  //   playerRef.current = player;
+
+  //   // You can handle player events here, for example:
+  //   player.on('waiting', () => {
+  //     videojs.log('player is waiting');
+  //   });
+
+  //   player.on('dispose', () => {
+  //     videojs.log('player will dispose');
+  //   });
+  // };
+
+  // const videojsStyle = {
+  //   position: 'relative !important',
+  //   width: '20px !important',
+  //   height: 'auto !important'
+  // }
+
 }
 
-function About() {
-  return (
-    <>
-      <main>
-        <h2>Who are we?</h2>
-        <p>
-          That feels like an existential question, don't you
-          think?
-        </p>
-      </main>
-      <nav>
-        <Link to="/">Home</Link>
-      </nav>
-    </>
-  );
-}
+
 export default App;
