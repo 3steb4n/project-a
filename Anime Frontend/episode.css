@@ -3,94 +3,40 @@
     padding: 0;
     font-family: 'Noto Sans Mono', monospace;
     box-sizing: border-box;
-}
-
-
-body{
-    background-color: #1B1B1B;
-
-}
-
-.header{
-    padding: 0 8%;
-    background-color: #1B1B1B;
-}
-
-.header-content{
-    display: flex;
-    align-items: center;
-}
-
-.nav-links{
-    padding: 60px 0;
-}
-
-.nav-links li{
-    display: inline-block;
-    margin: 0 20px;
-}
-
-.nav-links li a{
     text-decoration: none;
-    color:#F7F7F7;
-    padding: 5px 0;
 }
 
-.nav-links li a:hover{
-    color:#12F8FF;
+body {
+    background: #202125;
 }
 
-.btn{
-    color: #fff;
+.episode-container {
     position: relative;
+    padding: 0 15px;
 }
 
-.checkbtn{
-    color: #F7F7F7;
-    float: left;
-    line-height: 35px;
-    margin-right: 40px;
-    cursor: pointer;
-    display: none;
-}
-
-#check {
-    display: none;
-}
-
-
-@media (max-width: 798px){
-    .checkbtn{
-        display: block;
-    }
-    .links{
-        display: none;
-    }
-}
-
-
-.title-anime{
-    font-size: 40px;
-    left: 939px;
-    top: 219px;
+.title-episode {
     color: white;
-    background-color: #12F8FF;
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+
+#video-player {
+    border-radius: 5px;
+    width: 50%;
+}
+
+.video-controllers {
+    color: white;
+    font-size: 20px;
 }
 
 
-.videoplayer video{
-    position: absolute;
-    margin-top: 80px;
-    margin-left: 90px;
+.container-comments {
+    position: relative;
+    left: 20px;
+    width: 900px;
+    height: 500px;
+    background-color: aliceblue;
 }
 
-@media (max-width: 798px){
-    .title-anime{
-        font-size: 25px;
-        left: -55px;
-    }
-    .videoplayer video{
-        width: 100%;
-        left: -90px;
-    }
-}
