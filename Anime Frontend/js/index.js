@@ -17,3 +17,11 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block";
 }
+
+function genres() {
+  document.getElementById("multiselect-container").classList.toggle("show");
+}
+
+function years() {
+  document.getElementById("multiselect-container2").classList.toggle("show");
+}

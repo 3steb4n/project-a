@@ -4,128 +4,157 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="header-side-footer.css">
     <link rel="stylesheet" href="dir_anime.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="header">
-        <nav class="header-content">
-            <ul class="nav-links">
-                <input type="checkbox" id="check">
-                <label for="check" class="checkbtn">
-                    <i class="fas fa-bars"></i>
-                    Menu
-                </label>
-                <div class="links">
-                <li><a href="">Home</a></li>
-                <li><a href="">Movies</a></li>
-                <li><a href="">TV Series</a></li>
-                <li><a href="">Most Popular</a></li>
-                <li class="btn"><a href="login.html">Login</a></li>
-                <li class="btn"><a href="register.html">Register</a></li>
+    <input type="checkbox" id="check">
+    <div class="sidebar">
+        <div class="close-menu">
+            <label for="check" class="closebtn">Cerrar Menu</label>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Directorio Anime</a></li>
+            <li><a href="#">TV Series</a></li>
+            <li><a href="#">Peliculas</a></li>
+            <li><a href="#">ONAS</a></li>            
+        </ul>
+    </div>
+    <div class="navbar">
+        <div class="section">
+            <div class="menu">
+                    <label for="check" class="checkbtn">
+                        <i class="fas fa-bars"></i>
+                    </label>
             </div>
-            </ul>
-        </nav>
+            <div class="logo">AnimexD</div>
+            <div class="search">
+                <input type="text" placeholder="Buscar Anime...">
+                <span class="fas fa-search" id="searchIcon"></span>
+            </div>
+            <div class="social">
+                <div class="item">
+                    <a href=""><i class="fa-brands fa-discord" id="discord"></i></a>
+                </div>
+                <div class="item">
+                    <a href=""><i class="fa-brands fa-twitter" id="discord"></i></a>
+                </div>
+                <div class="item">
+                    <a href=""><i class="fa-brands fa-telegram" id="discord"></i></a>
+                </div>
+                
+            </div>
+        </div>
+        <div class="section-2">
+            <div class="auth">
+                <ul>
+                    <li><a href="#">Iniciar Sesion</a></li>
+                    <li><a href="#">Registrarse</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <div class="filters-container">
-        <div class="genre">
-            <div class="title">Selecciona Estado del Anime</div>
-                <select  multiple="multiple">
-                    <option>Accion</option>
-                    <option>Aventura</option>
-                 </select>
-                 <select  multiple="multiple">
-                    <option>En Emision</option>
-                 </select>
-                 <select  multiple="multiple">
-                    <option>En Emision</option>
-                 </select>
-                 <select name="" id="">
-                    <option value="0">Estado</option>
-                    <option value="1">En emisión</option>
-                    <option value="2">Finalizado</option>
-                  </select>
-                <select name="" id="">
-                      <option value="0">Orden</option>
-                      <option value="1">Ascendente (A - Z)</option>
-                      <option value="2">Descendente (Z - A)</option>
-                      <option value="3">Recientemente agregados</option>
-                    </select>
-            
-            
-            
+        <div class="container">
+            <div class="text-header">Lista completa de Animes</div>
+            <!-- Genres Button -->
+            <span class="multiselect-filter">
+                <button onclick="genres()" class="btn-multiselect">
+                    <span class="multiselect-selected">
+                        <b>Generos: </b>
+                        Todos <i class="fa-solid fa-caret-down" id="caret"></i>
+                    </span>
+                </button>
+                <div class="multiselect-container zoomIn" id="multiselect-container">
+                    <div class="select-checkbox">
+                        <input type="checkbox" id="filter">
+                        <label for="filter" class="filter-select-checkbox">Accion</label>
+                    </div>
+                    <div class="select-checkbox">
+                        <input type="checkbox" id="filter2">
+                        <label for="filter2" class="filter-select-checkbox">Aventura</label>
+                    </div>
+                    <div class="select-checkbox">
+                        <input type="checkbox" id="filter3">
+                        <label for="filter3" class="filter-select-checkbox">Comedia</label>
+                    </div>
+                    <div class="select-checkbox">
+                        <input type="checkbox" id="filter4">
+                        <label for="filter4" class="filter-select-checkbox">Recuentos de la Vida</label>
+                    </div>
+                    <div class="select-checkbox">
+                        <input type="checkbox" id="filter5">
+                        <label for="filter5" class="filter-select-checkbox">Accion</label>
+                    </div>
+                </div>
+                <!-- Year Button -->
+                <span class="multiselect-year">
+                    <button onclick="years()" class="btn-multiselect">
+                        <span class="multiselect-selected">
+                            <b>Anos: </b>
+                            Todos <i class="fa-solid fa-caret-down" id="caret"></i>
+                        </span>
+                    </button>
+                    <div class="multiselect-container zoomIn" id="multiselect-container2">
+                        <div class="select-checkbox">
+                            <input type="checkbox" id="year">
+                            <label for="year" class="filter-select-checkbox">1999</label>
+                        </div>
+                        <div class="select-checkbox">
+                            <input type="checkbox" id="year2">
+                            <label for="year2" class="filter-select-checkbox">2000</label>
+                        </div>
+                        <div class="select-checkbox">
+                            <input type="checkbox" id="year3">
+                            <label for="year3" class="filter-select-checkbox">2001</label>
+                        </div>
+                        <div class="select-checkbox">
+                            <input type="checkbox" id="year4">
+                            <label for="year4" class="filter-select-checkbox">2002</label>
+                        </div>
+                        <div class="select-checkbox">
+                            <input type="checkbox" id="year5">
+                            <label for="year5" class="filter-select-checkbox">2003</label>
+                        </div>
+                    </div>
+                </span>
+                <!-- Type Button -->
+                <span class="multiselect-year">
+                    <button onclick="" class="btn-multiselect">
+                        <span class="multiselect-selected">
+                            <b>Tipo: </b>
+                            Todos <i class="fa-solid fa-caret-down" id="caret"></i>
+                        </span>
+                    </button>
+                </span>
+                <!-- Status Button -->
+                <span class="multiselect-year">
+                    <button onclick="" class="btn-multiselect">
+                        <span class="multiselect-selected">
+                            <b>Estado: </b>
+                            Todos <i class="fa-solid fa-caret-down" id="caret"></i>
+                        </span>
+                    </button>
+                </span>
+                <!-- Order Button -->
+                <span class="multiselect-year">
+                    <button onclick="" class="btn-multiselect">
+                        <span class="multiselect-selected">
+                            <b>Orden: </b>
+                            Todos <i class="fa-solid fa-caret-down" id="caret"></i>
+                        </span>
+                    </button>
+                </span>
+            </span>
         </div>
-    </div>
 
-    <div class="row-anime">
-        <div class="header-anime">Lista de Animes</div>
-        <div class="latest-animes">
-            <a href="#"><img src="images/pas.jpg" alt=""></a>
-            <div class="title-anime">
-                Sankarea
-            </div>
-            <div class="title-type">TV</div>
-        </div>
-        <div class="latest-animes">
-            <a href="#"><img src="images/pas.jpg" alt=""></a>
-            <div class="title-anime">
-                Sankarea
-            </div>
-            <div class="title-type">Pelicula</div>
-        </div>
-        <div class="latest-animes">
-            <a href="#"><img src="images/pas.jpg" alt=""></a>
-            <div class="title-anime">
-                Sankarea
-            </div>
-            <div class="title-type">Pelicula</div>
-        </div>
-        <div class="latest-animes">
-            <a href="#"><img src="images/pas.jpg" alt=""></a>
-            <div class="title-anime">
-                Sankarea
-            </div>
-            <div class="title-type">Pelicula</div>
-        </div>
-        <div class="latest-animes">
-            <a href="#"><img src="images/pas.jpg" alt=""></a>
-            <div class="title-anime">
-                Sankarea
-            </div>
-            <div class="title-type">Pelicula</div>
-        </div>
-        <div class="latest-animes">
-            <a href="#"><img src="images/pas.jpg" alt=""></a>
-            <div class="title-anime">
-                Sankarea
-            </div>
-            <div class="title-type">Pelicula</div>
-        </div>
-        <div class="latest-animes">
-            <a href="#"><img src="images/pas.jpg" alt=""></a>
-            <div class="title-anime">
-                Sankarea
-            </div>
-            <div class="title-type">Pelicula</div>
-        </div>
-        <div class="latest-animes">
-            <a href="#"><img src="images/pas.jpg" alt=""></a>
-            <div class="title-anime">
-                Sankarea
-            </div>
-            <div class="title-type">Pelicula</div>
-        </div>
-        <div class="latest-animes">
-            <a href="#"><img src="images/pas.jpg" alt=""></a>
-            <div class="title-anime">
-                Sankarea
-            </div>
-            <div class="title-type">Pelicula</div>
-        </div>
-        
-    </div>
+    <script src="js/index.js"></script>
+
+
+
+
 </body>
 </html>
