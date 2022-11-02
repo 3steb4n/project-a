@@ -5,30 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="header-side-footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
 
 
-    <div class="header">
-        <nav class="header-content">
-            <ul class="nav-links">
-                <input type="checkbox" id="check">
-                <label for="check" class="checkbtn">
-                    <i class="fas fa-bars"></i>
-                    Menu
-                </label>
-                <div class="links">
-                <li><a href="/">Home</a></li>
-                <li><a href="">Movies</a></li>
-                <li><a href="">TV Series</a></li>
-                <li><a href="">Most Popular</a></li>
-                <li class="btn"><a href="login.html">Login</a></li>
-                <li class="btn"><a href="register.html">Register</a></li>
+    <input type="checkbox" id="check">
+    <div class="sidebar">
+        <div class="close-menu">
+            <label for="check" class="closebtn">Cerrar Menu</label>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Directorio Anime</a></li>
+            <li><a href="#">TV Series</a></li>
+            <li><a href="#">Peliculas</a></li>
+            <li><a href="#">ONAS</a></li>            
+        </ul>
+    </div>
+    <div class="navbar">
+        <div class="section">
+            <div class="menu">
+                    <label for="check" class="checkbtn">
+                        <i class="fas fa-bars"></i>
+                    </label>
             </div>
-            </ul>
-        </nav>
+            <div class="logo">AnimexD</div>
+            <div class="search">
+                <input type="text" placeholder="Buscar Anime...">
+                <span class="fas fa-search" id="searchIcon"></span>
+            </div>
+            <div class="social">
+                <div class="item">
+                    <a href=""><i class="fa-brands fa-discord" id="discord"></i></a>
+                </div>
+                <div class="item">
+                    <a href=""><i class="fa-brands fa-twitter" id="discord"></i></a>
+                </div>
+                <div class="item">
+                    <a href=""><i class="fa-brands fa-telegram" id="discord"></i></a>
+                </div>
+                
+            </div>
+        </div>
+        <div class="section-2">
+            <div class="auth">
+                <ul>
+                    <li><a href="#">Iniciar Sesion</a></li>
+                    <li><a href="#">Registrarse</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
 
