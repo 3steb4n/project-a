@@ -262,175 +262,211 @@ router.post('/create', async (req, res) => {
 
 router.post("/search", async (req, res, next) => {
     let filterFields = {
+        name: req.body.name,
         genreId: req.body.genreId,
         year: req.body.year,
         type: req.body.type,
         status: req.body.status
     };
 
-    if(filterFields.genreId.length === 0 && filterFields.year.length === 0 && filterFields.type.length === 0 && filterFields.status.length === 0) {
-        await Models.anime.findAndCountAll({
-            order: [['createdAt', 'DESC']]
-        }).then(re => {
-            res.status(200).json({
-                status: 200,
-                list: JSON.parse(JSON.stringify(re))
-            });
+    if(filterFields.name !== undefined) {
+        let minCaracters = 3;
+        if(filterFields.name.length >= minCaracters) {
+            await Models.anime.findAll({
+                attributes: ['id', 'name', 'url_preview'],
+                order: [['createdAt', 'DESC']],
+                where: {
+                    name: {
+                        [Op.startsWith]: filterFields.name
+                    }
+                }
+            }).then(resp => {
+                res.status(200).json({
+                    status: 200,
+                    result: JSON.parse(JSON.stringify(resp))
+                });
+                return;
+            }).catch(err => {
+                res.status(400).json({
+                    status: 400,
+                    message: 'Internal error'
+                });
+                console.log(err);
+                return;
+            })
+        } else {
+            res.status(200).json();
             return;
-        }).catch(err => {
-            res.status(200).json({
-                status: 500,
-                message: 'Internal error'
+        }
+    }
+
+    if(filterFields.genreId !== undefined && filterFields.year !== undefined && filterFields.type !== undefined && filterFields.status !== undefined) {
+        if (filterFields.genreId.length === 0 && filterFields.year.length === 0 && filterFields.type.length === 0 && filterFields.status.length === 0) {
+            await Models.anime.findAndCountAll({
+                attributes: ['id', 'name', 'url_preview'],
+                order: [['createdAt', 'DESC']]
+            }).then(re => {
+                res.status(200).json({
+                    status: 200,
+                    list: JSON.parse(JSON.stringify(re))
+                });
+                return;
+            }).catch(err => {
+                res.status(200).json({
+                    status: 500,
+                    message: 'Internal error'
+                });
+                console.log(err);
+                return;
+            })
+        } else {
+            await Models.anime.findAndCountAll({
+                attributes: ['id', 'name', 'url_preview'],
+                ...(filterFields.year.length > 0 && filterFields.type.length > 0 && filterFields.status.length > 0 && filterFields.genreId.length > 0 && {
+                    include: Models.AnimeGenre,
+                    where: {
+                        [Op.and]: [
+                            { year: filterFields.year },
+                            { anime_type_id: filterFields.type },
+                            { status_id: filterFields.status }
+                        ]
+                    },
+                    include: {
+                        model: Models.Genre,
+                        where: {
+                            id: filterFields.genreId
+                        }
+                    }
+                }),
+                ...(filterFields.type.length > 0 && filterFields.year.length === 0 && filterFields.status.length === 0 && filterFields.genreId.length === 0 && {
+                    where: {
+                        anime_type_id: filterFields.type
+                    }
+                }),
+                ...(filterFields.year.length > 0 && filterFields.type.length === 0 && filterFields.status.length === 0 && filterFields.genreId.length === 0 && {
+                    where: {
+                        year: filterFields.year
+                    }
+                }),
+                ...(filterFields.status.length > 0 && filterFields.year.length === 0 && filterFields.type.length === 0 && filterFields.genreId.length === 0 && {
+                    where: {
+                        status_id: filterFields.status
+                    }
+                }),
+                ...(filterFields.genreId.length > 0 && filterFields.year.length === 0 && filterFields.status.length === 0 && filterFields.type.length === 0 && {
+                    include: Models.AnimeGenre,
+                    include: {
+                        model: Models.Genre,
+                        where: {
+                            id: filterFields.genreId
+                        }
+                    }
+                }),
+                ...(filterFields.type.length > 0 && filterFields.year.length > 0 && filterFields.status.length === 0 && filterFields.genreId.length === 0 && {
+                    where: {
+                        [Op.and]: [
+                            { anime_type_id: filterFields.type },
+                            { year: filterFields.year }
+                        ]
+                    }
+                }),
+                ...(filterFields.type.length > 0 && filterFields.status.length > 0 && filterFields.year.length === 0 && filterFields.genreId.length === 0 && {
+                    where: {
+                        [Op.and]: [
+                            { anime_type_id: filterFields.type },
+                            { status_id: filterFields.status }
+                        ]
+                    }
+                }),
+                ...(filterFields.status.length > 0 && filterFields.year.length > 0 && filterFields.type.length === 0 && filterFields.genreId.length === 0 && {
+                    where: {
+                        [Op.and]: [
+                            { year: filterFields.year },
+                            { status_id: filterFields.status }
+                        ]
+                    }
+                }),
+                ...(filterFields.genreId.length > 0 && filterFields.status.length > 0 && filterFields.year.length === 0 && filterFields.type.length === 0 && {
+                    include: Models.AnimeGenre,
+                    where: {
+                        status_id: filterFields.status
+                    },
+                    include: {
+                        model: Models.Genre,
+                        where: {
+                            id: filterFields.genreId
+                        }
+                    }
+                }),
+                ...(filterFields.genreId.length > 0 && filterFields.year.length > 0 && filterFields.status.length === 0 && filterFields.type.length === 0 && {
+                    include: Models.AnimeGenre,
+                    where: {
+                        year: filterFields.year
+                    },
+                    include: {
+                        model: Anime.Genre,
+                        where: {
+                            id: filterFields.genreId
+                        }
+                    }
+                }),
+                ...(filterFields.genreId.length > 0 && filterFields.type.length > 0 && filterFields.year.length === 0 && filterFields.status.length === 0 && {
+                    include: Models.AnimeGenre,
+                    where: {
+                        anime_type_id: filterFields.type
+                    },
+                    include: {
+                        model: Models.Genre,
+                        where: {
+                            id: filterFields.genreId
+                        }
+                    }
+                }),
+                ...(filterFields.genreId.length > 0 && filterFields.type.length > 0 && filterFields.year.length > 0 && filterFields.status.length === 0 && {
+                    include: Model.AnimeGenre,
+                    where: {
+                        [Op.and]: [
+                            { anime_type_id: filterFields.type },
+                            { year: filterFields.year }
+                        ]
+                    },
+                    include: {
+                        model: Model.Genre,
+                        where: {
+                            id: filterFields.genreId
+                        }
+                    }
+                }),
+                ...(filterFields.genreId.length > 0 && filterFields.type.length > 0 && filterFields.status.length > 0 && filterFields.year.length === 0 && {
+                    include: Models.AnimeGenre,
+                    where: {
+                        [Op.and]: [
+                            { anime_type_id: filterFields.type },
+                            { status_id: filterFields.status }
+                        ]
+                    },
+                    include: {
+                        model: Models.Genre,
+                        where: {
+                            id: filterFields.genreId
+                        }
+                    }
+                }),
+            }).then(re => {
+                res.status(200).json({
+                    status: 200,
+                    message: JSON.parse(JSON.stringify(re))
+                });
+                return;
+            }).catch(err => {
+                res.status(200).json({
+                    status: 500,
+                    message: 'Internal error.'
+                });
+                console.log(err);
+                return;
             });
-            console.log(err);
-            return;
-        })
-    } else {
-        await Models.anime.findAll({
-            ...(filterFields.year.length > 0 && filterFields.type.length > 0 && filterFields.status.length > 0 && filterFields.genreId.length > 0 && {
-                include: Models.AnimeGenre,
-                where: {
-                    [Op.and]: [
-                        { year: filterFields.year },
-                        { anime_type_id: filterFields.type },
-                        { status_id: filterFields.status }
-                    ]
-                },
-                include: {
-                    model: Models.Genre,
-                    where: {
-                        id: filterFields.genreId
-                    }
-                }
-            }),
-            ...(filterFields.type.length > 0 && filterFields.year.length === 0 && filterFields.status.length === 0 && filterFields.genreId.length === 0 && {
-                where: {
-                    anime_type_id:  filterFields.type
-                }
-            }),
-            ...(filterFields.year.length > 0 && filterFields.type.length === 0 && filterFields.status.length === 0 && filterFields.genreId.length === 0 && {
-                where: {
-                    year: filterFields.year
-                }
-            }),
-            ...(filterFields.status.length > 0 && filterFields.year.length === 0 && filterFields.type.length === 0 && filterFields.genreId.length === 0 && {
-                where: {
-                    status_id: filterFields.status
-                } 
-            }),
-            ...(filterFields.genreId.length > 0 && filterFields.year.length === 0 && filterFields.status.length === 0 && filterFields.type.length === 0 && {
-                include: Models.AnimeGenre,
-                include: {
-                    model: Models.Genre,
-                    where: {
-                        id: filterFields.genreId
-                    }
-                }
-            }),
-            ...(filterFields.type.length > 0 && filterFields.year.length > 0 && filterFields.status.length === 0 && filterFields.genreId.length === 0 && {
-                where: {
-                    [Op.and]: [
-                        { anime_type_id: filterFields.type },
-                        { year: filterFields.year }
-                    ]
-                }
-            }),
-            ...(filterFields.type.length > 0 && filterFields.status.length > 0 && filterFields.year.length === 0 && filterFields.genreId.length === 0 && {
-                where: {
-                    [Op.and]: [
-                        { anime_type_id: filterFields.type },
-                        { status_id: filterFields.status }
-                    ]
-                }
-            }),
-            ...(filterFields.status.length > 0 && filterFields.year.length > 0 && filterFields.type.length === 0 && filterFields.genreId.length === 0 && {
-                where: {
-                    [Op.and]: [ 
-                        { year: filterFields.year },
-                        { status_id: filterFields.status }
-                    ]
-                }
-            }),
-            ...(filterFields.genreId.length > 0 && filterFields.status.length > 0 && filterFields.year.length === 0 && filterFields.type.length === 0 && {
-                include: Models.AnimeGenre,
-                where: {
-                    status_id: filterFields.status
-                },
-                include: {
-                    model: Models.Genre,
-                    where: {
-                        id: filterFields.genreId
-                    }
-                }
-            }),
-            ...(filterFields.genreId.length > 0 && filterFields.year.length > 0 && filterFields.status.length === 0 && filterFields.type.length === 0 && {
-                include: Models.AnimeGenre,
-                where: {
-                    year: filterFields.year
-                },
-                include: {
-                    model: Anime.Genre,
-                    where: {
-                        id: filterFields.genreId
-                    }
-                }
-            }),
-            ...(filterFields.genreId.length > 0 && filterFields.type.length > 0 && filterFields.year.length === 0 && filterFields.status.length === 0 && {
-                include: Models.AnimeGenre,
-                where: {
-                    anime_type_id: filterFields.type
-                },
-                include: {
-                    model: Models.Genre,
-                    where: {
-                        id: filterFields.genreId
-                    }
-                }
-            }),
-            ...(filterFields.genreId.length > 0 && filterFields.type.length > 0 && filterFields.year.length > 0 && filterFields.status.length === 0 && {
-                include: Model.AnimeGenre,
-                where:{
-                    [Op.and]: [
-                        { anime_type_id: filterFields.type },
-                        { year: filterFields.year  }
-                    ]
-                },
-                include: {
-                    model: Model.Genre,
-                    where: {
-                        id: filterFields.genreId
-                    }
-                }
-            }),
-            ...(filterFields.genreId.length > 0 && filterFields.type.length > 0 && filterFields.status.length > 0 && filterFields.year.length === 0 && {
-                include: Models.AnimeGenre,
-                where: {
-                    [Op.and]: [
-                        { anime_type_id: filterFields.type },
-                        { status_id: filterFields.status }
-                    ]
-                },
-                include: {
-                    model: Models.Genre,
-                    where: {
-                        id: filterFields.genreId
-                    }
-                }
-            }),
-        }).then(re => {
-            res.status(200).json({
-                status: 200,
-                message: JSON.parse(JSON.stringify(re))
-            });
-            return;
-        }).catch(err => {
-            res.status(200).json({
-                status: 500,
-                message: 'Internal error.'
-            });
-            console.log(err);
-            return;
-        });
+        }
     }
 });
 
