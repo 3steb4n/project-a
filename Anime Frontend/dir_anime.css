@@ -147,3 +147,79 @@ body {
     text-align: center;
     position: relative;
 }
+
+
+.container-anime {
+    position: relative;
+    width: 100%;
+    padding-left: 50px;
+    top: 50px;
+}
+
+.latest-animes {
+    position: relative;
+}
+
+.anime-title {
+    position: relative;
+    font-size: 19px;
+    border-radius: 0 0 5px 0;
+    color: white;
+    text-align: center;
+}
+
+.info-anime {
+    float: left;
+    width: 12%;
+    padding: 10px;
+}
+
+#anime-latest-image {
+    width: 100%;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 1385px) {
+    .info-anime {
+        width: 16%;
+    }
+}
+
+@media screen and (max-width: 1143px) {
+    .info-anime {
+        width: 20%;
+    }
+    .container-anime {
+        left: -25px;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    .info-anime {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .info-anime {
+        width: 30%;
+    }
+    .container-anime {
+        left: -5px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .info-anime {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 384px) {
+    .info-anime {
+        width: 100%;
+    }
+    .container-anime {
+        left: -25px;
+    }
+}
