@@ -11,18 +11,7 @@ body {
     background: #202125;
 }
 
-body::-webkit-scrollbar {
-    width: 0.8em;
-  }
-   
-  body::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-   
-  body::-webkit-scrollbar-thumb {
-    background-color: darkgrey;
-    outline: 1px solid slategrey;
-  }
+
 
   img {
     -webkit-user-drag: none;
@@ -70,40 +59,40 @@ body::-webkit-scrollbar {
 
 .ranking-number {
     position: absolute;
-    background: #2a2a2a;
     font-size: 30px;
     top: 100px;
     left: 40px;
     color: white;
     padding: 5px 10px;
     border-radius: 10px;
+    z-index: 24;
 }
 
 .title-name {
     position: absolute;
-    background: #2a2a2a;
     font-size: 60px;
     top: 170px;
     left: 40px;
     color: white;
     padding: 5px 10px;
     border-radius: 10px;
+    z-index: 24;
+
 }
 
 .anime-type {
     position: absolute;
-    background: #2a2a2a;
     font-size: 25px;
     top: 265px;
     left: 40px;
     color: white;
     padding: 1px 5px;
     border-radius: 5px;
+    z-index: 24;
 }
 
 .description {
     position: absolute;
-    background: #2a2a2a;
     font-size: 25px;
     top: 310px;
     left: 40px;
@@ -111,6 +100,7 @@ body::-webkit-scrollbar {
     padding: 1px 5px;
     border-radius: 5px;
     width: 900px;
+    z-index: 24;
 }
 
 .trending-anime {
@@ -121,6 +111,18 @@ body::-webkit-scrollbar {
     height: 550px;
     width: 100%;
     object-fit: cover;
+}
+
+.trending-anime::before {
+    box-shadow: inset 1000px 0 100px 0 #000;
+    opacity: 0.5;
+    bottom: 0;
+    content: " ";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
 }
 
 /* End Trending Animes */
@@ -138,6 +140,7 @@ body::-webkit-scrollbar {
     position: relative;
     font-size: 35px;
     margin-left: 20px;
+    
 }
 
 .latest-episodes {
@@ -153,24 +156,24 @@ body::-webkit-scrollbar {
 
 .title-episode{
     position: relative;
+    display: flex;
     float: right;
-    top: 24px;
-    left: 1px;
-    background-color: #ff7e00;
-    border-radius: 0 5px 0 0;
-    padding: 0 10px;
-    font-size: 20px;
-    width: 130px;
+    background: white;
+    color: black;
+    border-radius: 0px 0px 0px 5px;
+    padding: 5px;
+    top: 30px
 }
 
 .title-anime {
     position: relative;
-    top: -28px;
-    font-size: 20px;
-    padding:0 5px;
-    width: 100px;
-    border-radius: 0 5px 0 0;
-    background-color:#394257;
+    display: flex;
+    float: left;
+    background: white;
+    color: black;
+    border-radius: 0px 5px 0px 0px;
+    padding: 5px;
+    top: -35px;
 
 }
 
@@ -178,6 +181,7 @@ body::-webkit-scrollbar {
     width: 100%;
     margin: 1px;
     border-radius: 5px;
+    
 }
 
 /* End Latest Anime Episodes  */
@@ -292,7 +296,6 @@ body::-webkit-scrollbar {
     top: 24px;
     font-size: 20px;
     padding:0 5px;
-    width: 100px;
     border-radius: 0 0 5px 0;
     color: white;
     background-color:#000000;

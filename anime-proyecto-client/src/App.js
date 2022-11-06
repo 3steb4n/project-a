@@ -241,6 +241,7 @@ const NavBar = () => {
   }
   return (
     <>
+    
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
       <input type="checkbox" id="check" />
       <div class="sidebar">
@@ -291,6 +292,25 @@ const NavBar = () => {
           </div>
         </div>
       </div>
+
+      <div class="search-info">
+        <div class="search-anime">
+            <div class="search-anime-title">BLEACH: Sennen Kessen-hen</div>
+            <div class="search-anime-type">Anime</div>
+            <img src={video} alt="" id="search-anime-image"/>
+        </div>
+        <div class="search-anime">
+            <div class="search-anime-title">Sankarea</div>
+            <div class="search-anime-type">Anime</div>
+            <img src={video} alt="" id="search-anime-image"/>
+        </div>
+        <div class="search-anime">
+            <div class="search-anime-title">Sankarea</div>
+            <div class="search-anime-type">Anime</div>
+            <img src={video} alt="" id="search-anime-image"/>
+        </div>
+        <div class="more-information"><a href="#">Más Resultados</a></div>
+    </div>
     </>
   )
 }

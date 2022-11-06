@@ -127,10 +127,17 @@ img {
 .anime-description {
     position: relative;
     color: white;
-    width: 600px;
+    width: 800px;
     font-size: 17px;
-    top: 40px;
+    top: 20px;
 }
+
+@media screen and (max-width: 1169px) {
+    .anime-description {
+        width: 500px;
+    }
+}
+
 #more {display: none;}
 
 
