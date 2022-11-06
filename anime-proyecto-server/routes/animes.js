@@ -191,9 +191,9 @@ router.post('/create', async (req, res) => {
             url_preview: animeInformation.urlPreview,
             url_trailer: animeInformation.urlTrailer,
             number_chapter: animeInformation.numberEpisodes,
-            anime_type_id: animeInformation.typeAnimeId,
+            typeAnimeId: animeInformation.typeAnimeId,
             status_id: 1
-        }, { fields: ['name', 'description', 'season', 'year', 'url_preview', 'url_trailer', 'number_chapter', 'anime_type_id', 'status_id'] })
+        }, { fields: ['name', 'description', 'season', 'year', 'url_preview', 'url_trailer', 'number_chapter', 'typeAnimeId', 'status_id'] })
         .then(async result => {
             let bodyAnime = JSON.parse(JSON.stringify(result));
             try{
@@ -268,11 +268,14 @@ router.post("/search", async (req, res, next) => {
         type: req.body.type,
         status: req.body.status
     };
-
     if(filterFields.name !== undefined) {
         let minCaracters = 3;
         if(filterFields.name.length >= minCaracters) {
             await Models.anime.findAll({
+                include: {
+                    model: Models.typeAnime,
+                    attributes: ['name']
+                },
                 attributes: ['id', 'name', 'url_preview'],
                 order: [['createdAt', 'DESC']],
                 where: {
@@ -327,7 +330,7 @@ router.post("/search", async (req, res, next) => {
                     where: {
                         [Op.and]: [
                             { year: filterFields.year },
-                            { anime_type_id: filterFields.type },
+                            { typeAnimeId: filterFields.type },
                             { status_id: filterFields.status }
                         ]
                     },
@@ -340,7 +343,7 @@ router.post("/search", async (req, res, next) => {
                 }),
                 ...(filterFields.type.length > 0 && filterFields.year.length === 0 && filterFields.status.length === 0 && filterFields.genreId.length === 0 && {
                     where: {
-                        anime_type_id: filterFields.type
+                        typeAnimeId: filterFields.type
                     }
                 }),
                 ...(filterFields.year.length > 0 && filterFields.type.length === 0 && filterFields.status.length === 0 && filterFields.genreId.length === 0 && {
@@ -365,7 +368,7 @@ router.post("/search", async (req, res, next) => {
                 ...(filterFields.type.length > 0 && filterFields.year.length > 0 && filterFields.status.length === 0 && filterFields.genreId.length === 0 && {
                     where: {
                         [Op.and]: [
-                            { anime_type_id: filterFields.type },
+                            { typeAnimeId: filterFields.type },
                             { year: filterFields.year }
                         ]
                     }
@@ -373,7 +376,7 @@ router.post("/search", async (req, res, next) => {
                 ...(filterFields.type.length > 0 && filterFields.status.length > 0 && filterFields.year.length === 0 && filterFields.genreId.length === 0 && {
                     where: {
                         [Op.and]: [
-                            { anime_type_id: filterFields.type },
+                            { typeAnimeId: filterFields.type },
                             { status_id: filterFields.status }
                         ]
                     }
@@ -413,7 +416,7 @@ router.post("/search", async (req, res, next) => {
                 ...(filterFields.genreId.length > 0 && filterFields.type.length > 0 && filterFields.year.length === 0 && filterFields.status.length === 0 && {
                     include: Models.AnimeGenre,
                     where: {
-                        anime_type_id: filterFields.type
+                        typeAnimeId: filterFields.type
                     },
                     include: {
                         model: Models.Genre,
@@ -426,7 +429,7 @@ router.post("/search", async (req, res, next) => {
                     include: Model.AnimeGenre,
                     where: {
                         [Op.and]: [
-                            { anime_type_id: filterFields.type },
+                            { typeAnimeId: filterFields.type },
                             { year: filterFields.year }
                         ]
                     },
@@ -441,7 +444,7 @@ router.post("/search", async (req, res, next) => {
                     include: Models.AnimeGenre,
                     where: {
                         [Op.and]: [
-                            { anime_type_id: filterFields.type },
+                            { typeAnimeId: filterFields.type },
                             { status_id: filterFields.status }
                         ]
                     },

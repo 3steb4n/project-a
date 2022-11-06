@@ -17,13 +17,15 @@ import './auth.css'
 
 import { useNavigate } from 'react-router-dom';
 
-const { persistor, store } = configureStore()
+const { persistor, store } = configureStore();
+
+const URL_SERVICE = '//localhost:4000/';
 
 function App() {
   return (
     <>
       <div className="App">
-        <NavBar/>
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Login />} />
@@ -39,7 +41,7 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -49,7 +51,7 @@ const Register = () => {
   //display errors
   const displayErrors = (message) => {
     setErrorMessage(message);
-    setTimeout(() => {setErrorMessage('')}, 2000)
+    setTimeout(() => { setErrorMessage('') }, 2000)
   }
 
   const registerRequest = (e) => {
@@ -85,28 +87,28 @@ const Register = () => {
       }
     })
   }
-  
+
   return (
     <>
       <div className="center">
-          <h1>Registrate</h1>
-          <form>
-              <div className="text_field">
-                  <input type="text" required value={email} onChange={e => setEmail(e.target.value)}/>
-                  <label>Correo Electronico</label>
-              </div>
-              <div className="text_field">
-                  <input type="text" required value={username} onChange={e => setUsername(e.target.value)}/>
-                  <label>Username</label>
-              </div>
-              <div className="text_field">
-                  <input type="password" required value={password} onChange={e => setPassword(e.target.value)}/>
-                  <label>Contrasena</label>
-              </div>
-              <input type="submit" value="Registrarse" onClick={registerRequest}/>
-              <p className="error" style={{color: 'white', marginTop: '10px', marginBottom: '0px'}}> {errorMessage} </p>
-          </form>
-          <h1></h1>
+        <h1>Registrate</h1>
+        <form>
+          <div className="text_field">
+            <input type="text" required value={email} onChange={e => setEmail(e.target.value)} />
+            <label>Correo Electronico</label>
+          </div>
+          <div className="text_field">
+            <input type="text" required value={username} onChange={e => setUsername(e.target.value)} />
+            <label>Username</label>
+          </div>
+          <div className="text_field">
+            <input type="password" required value={password} onChange={e => setPassword(e.target.value)} />
+            <label>Contrasena</label>
+          </div>
+          <input type="submit" value="Registrarse" onClick={registerRequest} />
+          <p className="error" style={{ color: 'white', marginTop: '10px', marginBottom: '0px' }}> {errorMessage} </p>
+        </form>
+        <h1></h1>
       </div>
     </>
   )
@@ -117,10 +119,10 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const [errorMessage, setErrorMessage] = useState('');
-  
+
   const navigate = useNavigate();
 
-  console.log(store.getState().login,'holy')
+  console.log(store.getState().login, 'holy')
   // console.log(store)
   useEffect(() => {
     if (store.getState().login) navigate('/')
@@ -129,7 +131,7 @@ const Login = () => {
   //display errors
   const displayErrors = (message) => {
     setErrorMessage(message);
-    setTimeout(() => {setErrorMessage('')}, 2000)
+    setTimeout(() => { setErrorMessage('') }, 2000)
   }
   const loginRequest = (e) => {
     e.preventDefault();
@@ -156,11 +158,11 @@ const Login = () => {
         params.append('token', response.data.token);
         //verifica token
         axios.post('//localhost:4000/users/verify_token', params).then((response) => {
-          if(response.data.status == 200) {
+          if (response.data.status == 200) {
             console.log(response.data)
             const data = response.data.data
             displayErrors('Redirigiendo...');
-            store.dispatch({type: "loginIn", payload: {value: true, data: data}})
+            store.dispatch({ type: "loginIn", payload: { value: true, data: data } })
             navigate('/')
           }
         })
@@ -174,26 +176,26 @@ const Login = () => {
   return (
     <>
       <div className="center">
-          <h1>Login</h1>
-          <form action="post">
-              <div className="text_field">
-                  <input type="text" value={mixname} onChange={(e) => {setMixname(e.target.value)}}/>
-                  <span></span>
-                  <label>Username o email</label>
-              </div>
-              <div className="text_field">
-                  <input type="password" value={password} onChange={(e) => {setPassword(e.target.value)}} />
-                  <span></span>
-                  <label>Contrasena</label>
-              </div>
-              <div className="pass-forget"><a href="">Olvidaste&nbsp;la Contrasena?</a></div>
-              <input type="submit" value="Iniciar Sesion" onClick={loginRequest}/>
-              <p className="error" style={{color: 'white', marginTop: '10px', marginBottom: '0px'}}> {errorMessage} </p>
+        <h1>Login</h1>
+        <form action="post">
+          <div className="text_field">
+            <input type="text" value={mixname} onChange={(e) => { setMixname(e.target.value) }} />
+            <span></span>
+            <label>Username o email</label>
+          </div>
+          <div className="text_field">
+            <input type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
+            <span></span>
+            <label>Contrasena</label>
+          </div>
+          <div className="pass-forget"><a href="">Olvidaste&nbsp;la Contrasena?</a></div>
+          <input type="submit" value="Iniciar Sesion" onClick={loginRequest} />
+          <p className="error" style={{ color: 'white', marginTop: '10px', marginBottom: '0px' }}> {errorMessage} </p>
 
-              <div className="register_link">
-                  ¿No tiene una cuenta? <a href="register">Registrate</a>
-              </div>
-          </form>
+          <div className="register_link">
+            ¿No tiene una cuenta? <a href="register">Registrate</a>
+          </div>
+        </form>
       </div>
     </>
   )
@@ -201,76 +203,94 @@ const Login = () => {
 
 const NavBar = () => {
   const navigate = useNavigate();
+  const [animeName, setAnimeName] = useState('');
+
+  const searchAnime = event => {
+    let limitCharacters = 3; //Min valor mayor o igual a 3
+    
+    setAnimeName(event.target.value);
+
+    if (event.target.value.length >= limitCharacters) {
+      const animeRequest = { name: event.target.value };
+
+      console.log('Anime name: ' + event.target.value + event.target.value.length);
+      axios.post(`${URL_SERVICE}animes/search`, animeRequest).then(res => {
+        if (res.status != 200) {
+          return;
+        }
+        console.log(res.data);
+      }).catch(err => console.log(`Error ${err}`));
+    }
+  };
 
   const logOut = (e) => {
     e.preventDefault()
     alert('Jerman la mama xDDDD')
-    store.dispatch({type: 'logOut', payload: {}})
+    store.dispatch({ type: 'logOut', payload: {} })
     navigate('/')
-
   }
-  
+
   let logginButton;
   if (store.getState().login) {
     logginButton = [
-      <li className="btn"><a onClick={(e) => {e.preventDefault()}}>{store.getState().user.username}</a></li>,
+      <li className="btn"><a onClick={(e) => { e.preventDefault() }}>{store.getState().user.username}</a></li>,
       <li className="btn"><a href="register" onClick={logOut}>Logout</a></li>
     ]
   } else {
-    logginButton = [ <li key={1} className="btn"><a href="login">Iniciar Sesion</a></li>, <li key={2} className="btn"><a href="register">Registrarse</a></li> ]
+    logginButton = [<li key={1} className="btn"><a href="login">Iniciar Sesion</a></li>, <li key={2} className="btn"><a href="register">Registrarse</a></li>]
   }
   return (
     <>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-      <input type="checkbox" id="check"/>
-    <div class="sidebar">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+      <input type="checkbox" id="check" />
+      <div class="sidebar">
         <div class="close-menu">
-            <label for="check" class="closebtn">Cerrar Menu</label>
+          <label for="check" class="closebtn">Cerrar Menu</label>
         </div>
         <ul>
-            <div class="login-side">
+          <div class="login-side">
             <li><a href="#">{logginButton}</a></li>
-            </div>
-            <li><a href="/">Home</a></li>
-            <li><a href="#">Directorio Anime</a></li>
-            <li><a href="#">TV Series</a></li>
-            <li><a href="#">Peliculas</a></li>
-            <li><a href="#">ONAS</a></li>            
+          </div>
+          <li><a href="/">Home</a></li>
+          <li><a href="#">Directorio Anime</a></li>
+          <li><a href="#">TV Series</a></li>
+          <li><a href="#">Peliculas</a></li>
+          <li><a href="#">ONAS</a></li>
         </ul>
-    </div>
-    <div class="navbar">
+      </div>
+      <div class="navbar">
         <div class="section">
-            <div class="menu">
-                    <label for="check" class="open-side">
-                        <i class="fas fa-bars"></i>
-                    </label>
+          <div class="menu">
+            <label for="check" class="open-side">
+              <i class="fas fa-bars"></i>
+            </label>
+          </div>
+          <div class="logo">AnimexD</div>
+          <div class="search">
+            <input type="text" id="animeName" name="animeName" value={animeName} onChange={searchAnime} placeholder="Buscar Anime..." />
+            <span class="fas fa-search" id="searchIcon"></span>
+          </div>
+          <div class="social">
+            <div class="item">
+              <a href="#"><i class="fa-brands fa-discord" id="discord"></i></a>
             </div>
-            <div class="logo">AnimexD</div>
-            <div class="search">
-                <input type="text" placeholder="Buscar Anime..."/>
-                <span class="fas fa-search" id="searchIcon"></span>
+            <div class="item">
+              <a href="#"><i class="fa-brands fa-twitter" id="discord"></i></a>
             </div>
-            <div class="social">
-                <div class="item">
-                    <a href="#"><i class="fa-brands fa-discord" id="discord"></i></a>
-                </div>
-                <div class="item">
-                    <a href="#"><i class="fa-brands fa-twitter" id="discord"></i></a>
-                </div>
-                <div class="item">
-                    <a href="#"><i class="fa-brands fa-telegram" id="discord"></i></a>
-                </div>
-                
+            <div class="item">
+              <a href="#"><i class="fa-brands fa-telegram" id="discord"></i></a>
             </div>
+
+          </div>
         </div>
         <div class="section-2">
-            <div class="auth">
-                <ul>
-                    {logginButton}
-                </ul>
-            </div>
+          <div class="auth">
+            <ul>
+              {logginButton}
+            </ul>
+          </div>
         </div>
-    </div>
+      </div>
     </>
   )
 }
@@ -280,91 +300,91 @@ function Home() {
 
   return (
     <>
-       {/* <!-- Anime Slider  --> */}
+      {/* <!-- Anime Slider  --> */}
 
-    <div class="container-primary">
+      <div class="container-primary">
         <div class="trending-anime">
-            <a href="#"><div class="ranking-number">#1 Lo mas visto</div>
+          <a href="#"><div class="ranking-number">#1 Lo mas visto</div>
             <div class="title-name">Sankarea</div>
             <div class="anime-type">TV</div>
             <div class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste magnam ducimus impedit saepe optio esse veniam voluptates soluta possimus facilis ipsam, aut, rerum exercitationem, quisquam reiciendis tempore voluptas ut eum?</div>
-            <img src={video} alt=""/></a>
+            <img src={video} alt="" /></a>
         </div>
-        <a class="prev" onclick="plusSlides(-1)">❮</a>
-        <a class="next"onclick="plusSlides(1)">❯</a>
-    </div>
+        <a class="prev" onClick="plusSlides(-1)">❮</a>
+        <a class="next" onClick="plusSlides(1)">❯</a>
+      </div>
 
-    {/* <!-- End Anime Slider  --> */}
+      {/* <!-- End Anime Slider  --> */}
 
-    {/* <!-- Latest Episodes --> */}
+      {/* <!-- Latest Episodes --> */}
 
-    <div class="container-episodes">
+      <div class="container-episodes">
         <div class="episode-header">
-            Ultimos Episodios
+          Ultimos Episodios
         </div>
         <div class="latest-episodes">
-            <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
-                <a href="#"><img src={video} alt="" id="episode-latest-image"/></a>
-                <div class="title-anime">Sankarea</div>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
-                <a href="#"><img src={video} alt="" id="episode-latest-image"/></a>
-                <div class="title-anime">Sankarea</div>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
-                <a href="#"><img src={video} alt="" id="episode-latest-image"/></a>
-                <div class="title-anime">Sankarea</div>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
-                <a href="#"><img src={video} alt="" id="episode-latest-image"/></a>
-                <div class="title-anime">Sankarea</div>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
-                <a href="#"><img src={video} alt="" id="episode-latest-image"/></a>
-                <div class="title-anime">Sankarea</div>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
-                <a href="#"><img src={video} alt="" id="episode-latest-image"/></a>
-                <div class="title-anime">Sankarea</div>
-            </div>
+          <div class="episode-info">
+            <div class="title-episode">Episodio 1</div>
+            <a href="#"><img src={video} alt="" id="episode-latest-image" /></a>
+            <div class="title-anime">Sankarea</div>
+          </div>
+          <div class="episode-info">
+            <div class="title-episode">Episodio 1</div>
+            <a href="#"><img src={video} alt="" id="episode-latest-image" /></a>
+            <div class="title-anime">Sankarea</div>
+          </div>
+          <div class="episode-info">
+            <div class="title-episode">Episodio 1</div>
+            <a href="#"><img src={video} alt="" id="episode-latest-image" /></a>
+            <div class="title-anime">Sankarea</div>
+          </div>
+          <div class="episode-info">
+            <div class="title-episode">Episodio 1</div>
+            <a href="#"><img src={video} alt="" id="episode-latest-image" /></a>
+            <div class="title-anime">Sankarea</div>
+          </div>
+          <div class="episode-info">
+            <div class="title-episode">Episodio 1</div>
+            <a href="#"><img src={video} alt="" id="episode-latest-image" /></a>
+            <div class="title-anime">Sankarea</div>
+          </div>
+          <div class="episode-info">
+            <div class="title-episode">Episodio 1</div>
+            <a href="#"><img src={video} alt="" id="episode-latest-image" /></a>
+            <div class="title-anime">Sankarea</div>
+          </div>
         </div>
-        
-    </div>
 
-    {/* <!-- End Latest Episodes  --> */}
+      </div>
 
-    <div class="container-anime">
+      {/* <!-- End Latest Episodes  --> */}
+
+      <div class="container-anime">
         <div class="anime-header">
-            Ultimos Animes
+          Ultimos Animes
         </div>
         <div class="latest-animes">
-            <div class="info-anime">
-                <div class="anime-title">Sankarea</div>
-                <a href="#"><img src={pas} alt="" id="anime-latest-image"/></a>
-            </div>
+          <div class="info-anime">
+            <div class="anime-title">Sankarea</div>
+            <a href="#"><img src={pas} alt="" id="anime-latest-image" /></a>
+          </div>
         </div>
-    </div>
+      </div>
 
-    {/* <!-- Footer Start --> */}
+      {/* <!-- Footer Start --> */}
 
-    <div class="container-footer">
+      <div class="container-footer">
         <div class="logo">AnimexD</div>
         <div class="copyright">
-            Copyright © 2022 AnimexD. Todos los derechos reservados
+          Copyright © 2022 AnimexD. Todos los derechos reservados
         </div>
         <div class="disclaimer">
-            Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los contenidos son proporcionados por terceros no afiliados.
+          Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los contenidos son proporcionados por terceros no afiliados.
         </div>
-        <br/>
-    </div>
+        <br />
+      </div>
 
-    {/* <!-- Footer End --> */}
+      {/* <!-- Footer End --> */}
     </>
   );
 

@@ -11,8 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      *  dDall this method automatically.
      */
     static associate(models) {
-      this.belongsToMany(models.Genre, {through: models.AnimeGenre});
-      this.hasMany(models.AnimeGenre)
+      this.belongsToMany(models.Genre, { through: models.AnimeGenre });
+      this.belongsTo(models.typeAnime);
+      this.hasMany(models.AnimeGenre);
     }
   }
   anime.init({
@@ -41,9 +42,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    anime_type_id: {
+    typeAnimeId: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        key: 'id',
+        model: 'typeAnimes'
+      }
     },
     status_id: {
       type: DataTypes.INTEGER,

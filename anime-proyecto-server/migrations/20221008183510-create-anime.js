@@ -34,7 +34,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      anime_type_id: {
+      typeAnimeId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
