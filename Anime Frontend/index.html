@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +10,11 @@
     <link rel="stylesheet" href="header-side-footer.css">
     <title>Document</title>
 </head>
+
 <body>
-    
+
+    <!-- Sidebar and Navbar -->
+
     <input type="checkbox" id="check">
     <div class="sidebar">
         <div class="close-menu">
@@ -21,15 +25,15 @@
             <li><a href="#">Directorio Anime</a></li>
             <li><a href="#">TV Series</a></li>
             <li><a href="#">Peliculas</a></li>
-            <li><a href="#">ONAS</a></li>            
+            <li><a href="#">ONAS</a></li>
         </ul>
     </div>
     <div class="navbar">
         <div class="section">
             <div class="menu">
-                    <label for="check" class="checkbtn">
-                        <i class="fas fa-bars"></i>
-                    </label>
+                <label for="check" class="checkbtn">
+                    <i class="fas fa-bars"></i>
+                </label>
             </div>
             <div class="logo">AnimexD</div>
             <div class="search">
@@ -41,12 +45,8 @@
                     <a href=""><i class="fa-brands fa-discord" id="discord"></i></a>
                 </div>
                 <div class="item">
-                    <a href=""><i class="fa-brands fa-twitter" id="discord"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter" id="twitter"></i></a>
                 </div>
-                <div class="item">
-                    <a href=""><i class="fa-brands fa-telegram" id="discord"></i></a>
-                </div>
-                
             </div>
         </div>
         <div class="section-2">
@@ -61,95 +61,78 @@
 
     <div class="search-info">
         <div class="search-anime">
-            <div class="search-anime-title">BLEACH: Sennen Kessen-hen</div>
-            <div class="search-anime-type">Anime</div>
-            <img src="/Anime Frontend/images/sankarea.png" alt="" id="search-anime-image">
+            <a href="#">
+                <div class="search-anime-title">Sankarea</div>
+                <div class="search-anime-type">Anime</div>
+                <img src="/Anime Frontend/images/sankarea.png" alt="" id="search-anime-image">
+            </a>
         </div>
-        <div class="search-anime">
-            <div class="search-anime-title">Sankarea</div>
-            <div class="search-anime-type">Anime</div>
-            <img src="/Anime Frontend/images/One-piece.jpg" alt="" id="search-anime-image">
-        </div>
-        <div class="search-anime">
-            <div class="search-anime-title">Sankarea</div>
-            <div class="search-anime-type">Anime</div>
-            <img src="/Anime Frontend/images/pas.jpg" alt="" id="search-anime-image">
-        </div>
-        <div class="more-information"><a href="#">Más Resultados</a></div>
+        <a href="#"><div class="more-information">Más Resultados</div></a>
     </div>
 
+    <!-- End of Sidebar and Navbar -->
 
     <!-- Anime Slider  -->
-    
 
-    <div class="container-primary">
-        <div class="trending-anime">
-            <a href="#"><div class="ranking-number">#1 Lo mas visto</div>
-            <div class="title-name">Sankarea</div>
-            <div class="anime-type">TV</div>
-            <div class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste magnam ducimus impedit saepe optio esse veniam voluptates soluta possimus facilis ipsam, aut, rerum exercitationem, quisquam reiciendis tempore voluptas ut eum?</div>
-            <img src="images/1.png" alt=""></a>
+    <div class="anime-trending-container">
+        <div class="anime-trending-text">Recomendado para ti</div>
+        <div class="anime-trending-slider">
+            <img src="/Anime Frontend/images/1.png" alt="">
+            <div class="container-trending-info">
+                <div class="anime-trending-name">Bleach: Sennen Kessen-hen</div>
+                <a href="#">
+                    <div class="anime-trending-watchnow">Ver Ahora</div>
+                    <div class="anime-trending-watchnow2"><i class="fa-solid fa-play"></i></div>
+                </a>
+            </div>
         </div>
-        <a class="prev" onclick="plusSlides(-1)">❮</a>
-        <a class="next"onclick="plusSlides(1)">❯</a>
     </div>
 
     <!-- End Anime Slider  -->
 
     <!-- Latest Episodes -->
+    <div class="anime-container-flex">
+        <div class="anime-container-episodes">
+            <div class="anime-container-text">Ultimos episodios</div>
+            <div class="episode-info">
+                <a href="#">
+                    <div class="title-episode">Episodio 1</div>
+                    <img src="/Anime Frontend/images/1.png" alt="" id="episode-latest-image">
+                    <div class="title-anime">Sankarea</div>
+                </a>
+            </div>
+        </div>
 
-    <div class="container-episodes">
-        <div class="episode-header">
-            Ultimos Episodios
-        </div>
-        <div class="latest-episodes">
-            <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
-                <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
-                <div class="title-anime">Sankarea</div>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
-                <a href="#"><img src="images/2.png" alt="" id="episode-latest-image"></a>
-                <div class="title-anime">Sankarea</div>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
-                <a href="#"><img src="images/3.png" alt="" id="episode-latest-image"></a>
-                <div class="title-anime">Sankarea</div>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
-                <a href="#"><img src="images/4.png" alt="" id="episode-latest-image"></a>
-                <div class="title-anime">Sankarea</div>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
-                <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
-                <div class="title-anime">Sankarea</div>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
-                <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
-                <div class="title-anime">Sankarea</div>
+        <div class="anime-container-news">
+            <div class="anime-news-container">
+                <div class="anime-news-text">Ultimas Noticias</div>
+                <a href="#">
+                    <div class="news-text">Nueva version de AnimexD, es posible que errores ocurran asi porfavor
+                        reportar cualquier problema.</div>
+                </a>
             </div>
         </div>
-        
     </div>
 
     <!-- End Latest Episodes  -->
+
+    <!-- Latest Animes -->
 
     <div class="container-anime">
         <div class="anime-header">
             Ultimos Animes
         </div>
         <div class="latest-animes">
-            <div class="info-anime">
-                <div class="anime-title">Sankarea</div>
-                <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
-            </div>
+            <a href="#">
+                <div class="info-anime">
+                    <img src="images/One-piece.jpg" alt="" id="anime-latest-image">
+                    <div class="anime-title">Bleach: Sennen Kessen-hen</div>
+                </div>
+            </a>
         </div>
     </div>
+
+    <!-- End Latest Animes -->
 
     <!-- Footer Start -->
 
@@ -159,7 +142,8 @@
             Copyright © 2022 AnimexD. Todos los derechos reservados
         </div>
         <div class="disclaimer">
-            Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los contenidos son proporcionados por terceros no afiliados.
+            Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los
+            contenidos son proporcionados por terceros no afiliados.
         </div>
         <br>
     </div>
@@ -170,4 +154,5 @@
 
 
 </body>
+
 </html>

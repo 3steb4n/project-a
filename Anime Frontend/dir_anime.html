@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <title>Document</title>
 </head>
+
 <body>
     <input type="checkbox" id="check">
     <div class="sidebar">
@@ -20,15 +22,15 @@
             <li><a href="#">Directorio Anime</a></li>
             <li><a href="#">TV Series</a></li>
             <li><a href="#">Peliculas</a></li>
-            <li><a href="#">ONAS</a></li>            
+            <li><a href="#">ONAS</a></li>
         </ul>
     </div>
     <div class="navbar">
         <div class="section">
             <div class="menu">
-                    <label for="check" class="checkbtn">
-                        <i class="fas fa-bars"></i>
-                    </label>
+                <label for="check" class="checkbtn">
+                    <i class="fas fa-bars"></i>
+                </label>
             </div>
             <div class="logo">AnimexD</div>
             <div class="search">
@@ -45,7 +47,7 @@
                 <div class="item">
                     <a href=""><i class="fa-brands fa-telegram" id="discord"></i></a>
                 </div>
-                
+
             </div>
         </div>
         <div class="section-2">
@@ -58,140 +60,140 @@
         </div>
     </div>
 
-        <div class="container">
-            <div class="text-header">Lista completa de Animes</div>
-            <!-- Genres Button -->
-            <span class="multiselect-filter">
-                <button onclick="genres()" class="btn-multiselect">
+    <div class="container">
+        <div class="text-header">Lista completa de Animes</div>
+        <!-- Genres Button -->
+        <span class="multiselect-filter">
+            <button onclick="genres()" class="btn-multiselect">
+                <span class="multiselect-selected">
+                    <b>Generos: </b>
+                    Todos <i class="fa-solid fa-caret-down" id="caret"></i>
+                </span>
+            </button>
+            <div class="multiselect-container zoomIn" id="multiselect-container">
+                <div class="select-checkbox">
+                    <input type="checkbox" id="filter">
+                    <label for="filter" class="filter-select-checkbox">Accion</label>
+                </div>
+                <div class="select-checkbox">
+                    <input type="checkbox" id="filter2">
+                    <label for="filter2" class="filter-select-checkbox">Aventura</label>
+                </div>
+                <div class="select-checkbox">
+                    <input type="checkbox" id="filter3">
+                    <label for="filter3" class="filter-select-checkbox">Comedia</label>
+                </div>
+                <div class="select-checkbox">
+                    <input type="checkbox" id="filter4">
+                    <label for="filter4" class="filter-select-checkbox">Recuentos de la Vida</label>
+                </div>
+                <div class="select-checkbox">
+                    <input type="checkbox" id="filter5">
+                    <label for="filter5" class="filter-select-checkbox">Accion</label>
+                </div>
+            </div>
+            <!-- Year Button -->
+            <span class="multiselect-year">
+                <button onclick="years()" class="btn-multiselect">
                     <span class="multiselect-selected">
-                        <b>Generos: </b>
+                        <b>Anos: </b>
                         Todos <i class="fa-solid fa-caret-down" id="caret"></i>
                     </span>
                 </button>
-                <div class="multiselect-container zoomIn" id="multiselect-container">
+                <div class="multiselect-container zoomIn" id="multiselect-container2">
                     <div class="select-checkbox">
-                        <input type="checkbox" id="filter">
-                        <label for="filter" class="filter-select-checkbox">Accion</label>
+                        <input type="checkbox" id="year">
+                        <label for="year" class="filter-select-checkbox">1999</label>
                     </div>
                     <div class="select-checkbox">
-                        <input type="checkbox" id="filter2">
-                        <label for="filter2" class="filter-select-checkbox">Aventura</label>
+                        <input type="checkbox" id="year2">
+                        <label for="year2" class="filter-select-checkbox">2000</label>
                     </div>
                     <div class="select-checkbox">
-                        <input type="checkbox" id="filter3">
-                        <label for="filter3" class="filter-select-checkbox">Comedia</label>
+                        <input type="checkbox" id="year3">
+                        <label for="year3" class="filter-select-checkbox">2001</label>
                     </div>
                     <div class="select-checkbox">
-                        <input type="checkbox" id="filter4">
-                        <label for="filter4" class="filter-select-checkbox">Recuentos de la Vida</label>
+                        <input type="checkbox" id="year4">
+                        <label for="year4" class="filter-select-checkbox">2002</label>
                     </div>
                     <div class="select-checkbox">
-                        <input type="checkbox" id="filter5">
-                        <label for="filter5" class="filter-select-checkbox">Accion</label>
+                        <input type="checkbox" id="year5">
+                        <label for="year5" class="filter-select-checkbox">2003</label>
                     </div>
                 </div>
-                <!-- Year Button -->
-                <span class="multiselect-year">
-                    <button onclick="years()" class="btn-multiselect">
-                        <span class="multiselect-selected">
-                            <b>Anos: </b>
-                            Todos <i class="fa-solid fa-caret-down" id="caret"></i>
-                        </span>
-                    </button>
-                    <div class="multiselect-container zoomIn" id="multiselect-container2">
-                        <div class="select-checkbox">
-                            <input type="checkbox" id="year">
-                            <label for="year" class="filter-select-checkbox">1999</label>
-                        </div>
-                        <div class="select-checkbox">
-                            <input type="checkbox" id="year2">
-                            <label for="year2" class="filter-select-checkbox">2000</label>
-                        </div>
-                        <div class="select-checkbox">
-                            <input type="checkbox" id="year3">
-                            <label for="year3" class="filter-select-checkbox">2001</label>
-                        </div>
-                        <div class="select-checkbox">
-                            <input type="checkbox" id="year4">
-                            <label for="year4" class="filter-select-checkbox">2002</label>
-                        </div>
-                        <div class="select-checkbox">
-                            <input type="checkbox" id="year5">
-                            <label for="year5" class="filter-select-checkbox">2003</label>
-                        </div>
-                    </div>
-                </span>
-                <!-- Type Button -->
-                <span class="multiselect-year">
-                    <button onclick="" class="btn-multiselect">
-                        <span class="multiselect-selected">
-                            <b>Tipo: </b>
-                            Todos <i class="fa-solid fa-caret-down" id="caret"></i>
-                        </span>
-                    </button>
-                </span>
-                <!-- Status Button -->
-                <span class="multiselect-year">
-                    <button onclick="" class="btn-multiselect">
-                        <span class="multiselect-selected">
-                            <b>Estado: </b>
-                            Todos <i class="fa-solid fa-caret-down" id="caret"></i>
-                        </span>
-                    </button>
-                </span>
-                <!-- Order Button -->
-                <span class="multiselect-year">
-                    <button onclick="" class="btn-multiselect">
-                        <span class="multiselect-selected">
-                            <b>Orden: </b>
-                            Todos <i class="fa-solid fa-caret-down" id="caret"></i>
-                        </span>
-                    </button>
-                </span>
             </span>
-        </div>
+            <!-- Type Button -->
+            <span class="multiselect-year">
+                <button onclick="" class="btn-multiselect">
+                    <span class="multiselect-selected">
+                        <b>Tipo: </b>
+                        Todos <i class="fa-solid fa-caret-down" id="caret"></i>
+                    </span>
+                </button>
+            </span>
+            <!-- Status Button -->
+            <span class="multiselect-year">
+                <button onclick="" class="btn-multiselect">
+                    <span class="multiselect-selected">
+                        <b>Estado: </b>
+                        Todos <i class="fa-solid fa-caret-down" id="caret"></i>
+                    </span>
+                </button>
+            </span>
+            <!-- Order Button -->
+            <span class="multiselect-year">
+                <button onclick="" class="btn-multiselect">
+                    <span class="multiselect-selected">
+                        <b>Orden: </b>
+                        Todos <i class="fa-solid fa-caret-down" id="caret"></i>
+                    </span>
+                </button>
+            </span>
+        </span>
+    </div>
 
-        <div class="container-anime">
-            <div class="latest-animes">
-                <div class="info-anime">
-                    <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
-                    <div class="anime-title">Sankarea</div>
-                </div>
-                <div class="info-anime">
-                    <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
-                    <div class="anime-title">Sankarea</div>
-                </div>
-                <div class="info-anime">
-                    <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
-                    <div class="anime-title">Sankarea</div>
-                </div>
-                <div class="info-anime">
-                    <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
-                    <div class="anime-title">Sankarea</div>
-                </div>
-                <div class="info-anime">
-                    <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
-                    <div class="anime-title">Sankarea</div>
-                </div>
-                <div class="info-anime">
-                    <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
-                    <div class="anime-title">Sankarea</div>
-                </div>
-                <div class="info-anime">
-                    <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
-                    <div class="anime-title">Sankarea</div>
-                </div>
-                <div class="info-anime">
-                    <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
-                    <div class="anime-title">Sankarea</div>
-                </div>
+    <div class="container-anime">
+        <div class="latest-animes">
+            <div class="info-anime">
+                <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
+                <div class="anime-title">Sankarea</div>
+            </div>
+            <div class="info-anime">
+                <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
+                <div class="anime-title">Sankarea</div>
+            </div>
+            <div class="info-anime">
+                <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
+                <div class="anime-title">Sankarea</div>
+            </div>
+            <div class="info-anime">
+                <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
+                <div class="anime-title">Sankarea</div>
+            </div>
+            <div class="info-anime">
+                <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
+                <div class="anime-title">Sankarea</div>
+            </div>
+            <div class="info-anime">
+                <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
+                <div class="anime-title">Sankarea</div>
+            </div>
+            <div class="info-anime">
+                <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
+                <div class="anime-title">Sankarea</div>
+            </div>
+            <div class="info-anime">
+                <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
+                <div class="anime-title">Sankarea</div>
+            </div>
 
-                <div class="info-anime">
-                    <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
-                    <div class="anime-title">Sankarea</div>
-                </div>
+            <div class="info-anime">
+                <a href="#"><img src="images/One-piece.jpg" alt="" id="anime-latest-image"></a>
+                <div class="anime-title">Sankarea</div>
             </div>
         </div>
+    </div>
 
     <script src="js/index.js"></script>
 
@@ -199,4 +201,5 @@
 
 
 </body>
+
 </html>

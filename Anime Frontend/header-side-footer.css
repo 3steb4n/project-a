@@ -1,15 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 body::-webkit-scrollbar {
     width: 0.8em;
-  }
-   
-  body::-webkit-scrollbar-track {
+}
+
+body::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-   
-  body::-webkit-scrollbar-thumb {
+}
+
+body::-webkit-scrollbar-thumb {
     background-color: darkgrey;
     outline: 1px solid slategrey;
-  }
+}
 
 /* Start of Sidebar */
 
@@ -18,7 +24,7 @@ body::-webkit-scrollbar {
     width: 320px;
     background: #2a2c31;
     position: absolute;
-    z-index: 1000;
+    z-index: 9000;
     transition: 0.5s ease;
     transform: translateX(-420px);
 }
@@ -68,10 +74,10 @@ body::-webkit-scrollbar {
 }
 
 .sidebar ul li:hover a {
-    color: rgb(7, 121, 149);
+    color: rgb(231, 218, 25);
 }
 
-#check:checked ~ .sidebar{
+#check:checked~.sidebar {
     transform: translateX(0);
 }
 
@@ -88,8 +94,8 @@ body::-webkit-scrollbar {
 }
 
 #check {
-        visibility: hidden;
-        display: none;
+    visibility: hidden;
+    display: none;
 }
 
 .section {
@@ -110,7 +116,7 @@ body::-webkit-scrollbar {
 
 }
 
-.checkbtn{
+.checkbtn {
     font-size: 30px;
     padding: 0;
     color: #fff;
@@ -118,7 +124,7 @@ body::-webkit-scrollbar {
     height: 10px;
     margin-top: 5px;
     margin-left: 25px;
-    
+
 }
 
 .logo {
@@ -143,16 +149,18 @@ body::-webkit-scrollbar {
     text-align: center;
     background: white;
     padding: 10px;
+    color: black;
 }
 
-.more-information a {
-    color: black;
+.more-information:hover {
+    color: white;
+    background: rgb(19, 20, 16);
 }
 
 .search-info {
     position: absolute;
     top: 65px;
-    left: 265px;
+    left: 270px;
     width: 300px;
     border-radius: 5px;
     z-index: 5000;
@@ -168,14 +176,13 @@ body::-webkit-scrollbar {
     position: absolute;
     right: 0;
     top: 0;
-    z-index: 1;
-  }
-  
+    z-index: 2;
+}
+
 .search-anime {
     position: relative;
     z-index: 1;
 }
-
 
 #search-anime-image {
     position: relative;
@@ -185,6 +192,7 @@ body::-webkit-scrollbar {
     background-position: center;
     height: 100px;
     border-radius: 5px;
+    z-index: 1;
 }
 
 .search-anime-title {
@@ -210,8 +218,7 @@ body::-webkit-scrollbar {
     font-size: 20px;
     color: white;
     border-radius: 5px;
-    z-index: 3;
-
+    z-index: 2;
 }
 
 #searchIcon {
@@ -231,15 +238,20 @@ body::-webkit-scrollbar {
 }
 
 #discord {
-    color: white;
+    color: #7289da;
     font-size: 30px;
 }
 
-.auth ul li{
+#twitter {
+    color: #1DA1F2;
+    font-size: 30px;
+}
+
+.auth ul li {
     position: relative;
     display: inline-block;
     margin: 0px 5px;
-    
+
 }
 
 .auth ul li a {
@@ -249,7 +261,7 @@ body::-webkit-scrollbar {
     color: black;
 }
 
-.auth ul li a:hover{
+.auth ul li a:hover {
     color: white;
     background: green;
     padding: 20px;
@@ -268,9 +280,11 @@ body::-webkit-scrollbar {
     .search {
         display: none;
     }
+
     .section-2 {
         margin-left: 0%;
     }
+
     .search-info {
         display: none;
     }
@@ -297,7 +311,7 @@ body::-webkit-scrollbar {
     color: white;
 }
 
-.disclaimer { 
+.disclaimer {
     color: white;
 }
 
