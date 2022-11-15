@@ -2,6 +2,9 @@
 
 * {
     font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
 }
 
 body::-webkit-scrollbar {
@@ -103,7 +106,6 @@ body::-webkit-scrollbar-thumb {
     top: 5px;
     display: flex;
     justify-content: flex-start;
-
 }
 
 .section-2 {
@@ -127,10 +129,11 @@ body::-webkit-scrollbar-thumb {
 
 }
 
-.logo {
-    font-size: 40px;
-    margin-left: 30px;
-    color: white;
+#logo {
+    position: relative;
+    height: 55px;
+    margin-left: 20px;
+    top: 5px;
 }
 
 .search input {
@@ -160,7 +163,7 @@ body::-webkit-scrollbar-thumb {
 .search-info {
     position: absolute;
     top: 65px;
-    left: 270px;
+    left: 236px;
     width: 300px;
     border-radius: 5px;
     z-index: 5000;
@@ -314,5 +317,6 @@ body::-webkit-scrollbar-thumb {
 .disclaimer {
     color: white;
 }
+
 
 /* End Footer */

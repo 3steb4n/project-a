@@ -34,7 +34,7 @@
                 <i class="fas fa-bars"></i>
             </label>
         </div>
-        <div class="logo">AnimexD</div>
+        <div class="logo"><img src="/Anime Frontend/images/logo.webp" alt="" id="logo"></div>
         <div class="search">
             <input type="text" placeholder="Buscar Anime...">
             <span class="fas fa-search" id="searchIcon"></span>
@@ -44,12 +44,8 @@
                 <a href=""><i class="fa-brands fa-discord" id="discord"></i></a>
             </div>
             <div class="item">
-                <a href=""><i class="fa-brands fa-twitter" id="discord"></i></a>
+                <a href=""><i class="fa-brands fa-twitter" id="twitter"></i></a>
             </div>
-            <div class="item">
-                <a href=""><i class="fa-brands fa-telegram" id="discord"></i></a>
-            </div>
-
         </div>
     </div>
     <div class="section-2">
@@ -67,84 +63,72 @@
 
 <!-- Anime Info -->
 
-<div class="anime-info">
-    <div class="anime-background">
-        <img src="images/One-piece.jpg" alt="" id="background-anime">
+<div class="anime-container">
+    <div class="anime-image-feature">
+        <img src="/Anime Frontend/images/sankarea-portrait.jpg" alt="">
     </div>
-    <div class="anime-content">
-        <div class="anime-details">
-            <div class="anime-title">Sankarea</div>
-            <div class="anime-stats">
-                <div class="anime-genres">
-                    <div class="genres">Accion</div>
-                    <div class="genres">Aventura</div>
-                    <div class="genres">Recuentos de la Vida</div>
-                    <div class="genres">Recuentos de la Vida</div>
-                    <div class="genres">Recuentos de la Vida</div>
-                    <div class="genres">Recuentos de la Vida</div>
-                </div>
-                <div class="stats2">
-                    <div class="rating">PG-13</div>
-                    <div class="anime-type">TV</div>
-                    <div class="anime-episodes">Episodios: 11 </div>
-                    <div class="anime-seasonal"><i class="fa fa-leaf" id="text"
-                            aria-hidden="true">&nbsp;Otono&nbsp;2022</i></div>
-                </div>
-                <div class="anime-description">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum
-                        interdum, nisi lorem egestas vitae scel<span id="dots">...</span><span id="more">erisque enim
-                            ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.
-                            Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum
-                            dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui
-                            eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus
-                            pulvinar nibh tempor Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem quis
-                            adipisci velit ratione incidunt itaque provident voluptatibus in doloribus accusantium ipsam
-                            veritatis ea eos quod, placeat et nobis similique. Voluptatibus. porta.</span> <span
-                            onclick="expand()" id="myBtn" class="myBtn">Mostrar mas</span></p>
+    <div class="anime-image-portrait">
+        <img src="/Anime Frontend/images/sankarea.png" alt="">
+    </div>
+    <div class="anime-info">
+        <div class="anime-title">Sankarea</div>
+        <div class="anime-stats">
+            <div class="anime-genres">
+                <div class="genres">Accion</div>
+                <div class="genres">Aventura</div>
+                <div class="genres">Recuentos de la Vida</div>
+                <div class="genres">Fantasia</div>
+                <div class="genres">Ciencia Ficcion</div>
+                <div class="genres">Romance</div>
+            </div>
+            <div class="stats2">
+                <div class="rating">PG-13</div>
+                <div class="rating">TV</div>
+                <div class="rating">Episodios: 11 </div>
+                <div class="rating"><i class="fa fa-leaf" id="text" aria-hidden="true">&nbsp;Otono&nbsp;2022</i>
                 </div>
             </div>
-
-            <div class="image-portrait">
-                <img src="images/One-piece.jpg" alt="" id="anime-poster">
+            <div class="anime-description">Furuya no está interesado en los vivos, ¡tiene zombis en el cerebro!
+                Cuando el gato de Furuya muere, decide que intentará devolverlo a la vida.En el proceso, se topa
+                con una chica que está involucrada en un accidente y se convierte en un verdadero zombi. ¿Qué va a
+                hacer Furuya ahora que lo que más ama está justo frente a sus ojos?
             </div>
         </div>
     </div>
-</div>
 
-<div class="season-info">
-    <div class="container">
-        <div class="title">
-            Mas Temporadas
-        </div>
+    <div class="anime-info-container">
+        <div class="info-title">Mas Temporadas</div>
         <div class="seasons">
-            <label class="season-btn">Temporada 1</label>
+            <a href=""><div class="season-btn">Temporada 1</div></a>
+            <a href=""><div class="season-btn">Temporada 2</div></a>
+            <a href=""><div class="season-btn">Temporada 3</div></a>
+            <a href=""><div class="season-btn">Temporada 4</div></a>
         </div>
-        <div class="title">
-            Episodios
-        </div>
+        
+        <div class="episode-title">Episodios</div>
         <div class="container-episodes">
             <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
+                <div class="title-episode">Episodio 7</div>
                 <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
             </div>
             <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
+                <div class="title-episode">Episodio 6</div>
                 <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
             </div>
             <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
+                <div class="title-episode">Episodio 5</div>
                 <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
             </div>
             <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
+                <div class="title-episode">Episodio 4</div>
                 <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
             </div>
             <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
+                <div class="title-episode">Episodio 3</div>
                 <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
             </div>
             <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
+                <div class="title-episode">Episodio 2</div>
                 <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
             </div>
             <div class="episode-info">
@@ -154,41 +138,24 @@
         </div>
     </div>
 </div>
-
-<script>
-    function expand() {
-        var dots = document.getElementById("dots");
-        var moreText = document.getElementById("more");
-        var btnText = document.getElementById("myBtn");
-
-        if (dots.style.display === "none") {
-            dots.style.display = "inline";
-            btnText.innerHTML = "Mostrar mas";
-            moreText.style.display = "none";
-        } else {
-            dots.style.display = "none";
-            btnText.innerHTML = "Mostrar menos";
-            moreText.style.display = "inline";
-        }
-    }
-</script>
-
 
 <!-- End of Anime Info  -->
 
 <!-- Footer Start -->
 
 <div class="container-footer">
-    <div class="logo">AnimexD</div>
+    <div class="logo"><img src="/Anime Frontend/images/logo.webp" alt="" id="logo"></div>
     <div class="copyright">
         Copyright © 2022 AnimexD. Todos los derechos reservados
     </div>
     <div class="disclaimer">
-        Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los contenidos
+        Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los
+        contenidos
         son proporcionados por terceros no afiliados.
     </div>
     <br>
 </div>
+
 
 <body>
 
