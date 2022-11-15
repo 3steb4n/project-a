@@ -13,151 +13,215 @@
 
 <!-- Navbar and Sidebar -->
 
-<input type="checkbox" id="check">
-<div class="sidebar">
-    <div class="close-menu">
-        <label for="check" class="closebtn">Cerrar Menu</label>
+<body>
+    <input type="checkbox" id="check">
+    <div class="sidebar">
+        <div class="close-menu">
+            <label for="check" class="closebtn">Cerrar Menu</label>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Directorio Anime</a></li>
+            <li><a href="#">TV Series</a></li>
+            <li><a href="#">Peliculas</a></li>
+            <li><a href="#">ONAS</a></li>
+        </ul>
     </div>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Directorio Anime</a></li>
-        <li><a href="#">TV Series</a></li>
-        <li><a href="#">Peliculas</a></li>
-        <li><a href="#">ONAS</a></li>
-    </ul>
-</div>
 
-<div class="navbar">
-    <div class="section">
-        <div class="menu">
-            <label for="check" class="checkbtn">
-                <i class="fas fa-bars"></i>
-            </label>
-        </div>
-        <div class="logo"><img src="/Anime Frontend/images/logo.webp" alt="" id="logo"></div>
-        <div class="search">
-            <input type="text" placeholder="Buscar Anime...">
-            <span class="fas fa-search" id="searchIcon"></span>
-        </div>
-        <div class="social">
-            <div class="item">
-                <a href=""><i class="fa-brands fa-discord" id="discord"></i></a>
+    <div class="navbar">
+        <div class="section">
+            <div class="menu">
+                <label for="check" class="checkbtn">
+                    <i class="fas fa-bars"></i>
+                </label>
             </div>
-            <div class="item">
-                <a href=""><i class="fa-brands fa-twitter" id="twitter"></i></a>
+            <div class="logo"><img src="/Anime Frontend/images/logo.webp" alt="" id="logo"></div>
+            <div class="search">
+                <input type="text" placeholder="Buscar Anime...">
+                <span class="fas fa-search" id="searchIcon"></span>
             </div>
-        </div>
-    </div>
-    <div class="section-2">
-        <div class="auth">
-            <ul>
-                <li><a href="#">Iniciar Sesion</a></li>
-                <li><a href="#">Registrarse</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- End of Navbar and Sidebar -->
-
-
-<!-- Anime Info -->
-
-<div class="anime-container">
-    <div class="anime-image-feature">
-        <img src="/Anime Frontend/images/sankarea-portrait.jpg" alt="">
-    </div>
-    <div class="anime-image-portrait">
-        <img src="/Anime Frontend/images/sankarea.png" alt="">
-    </div>
-    <div class="anime-info">
-        <div class="anime-title">Sankarea</div>
-        <div class="anime-stats">
-            <div class="anime-genres">
-                <div class="genres">Accion</div>
-                <div class="genres">Aventura</div>
-                <div class="genres">Recuentos de la Vida</div>
-                <div class="genres">Fantasia</div>
-                <div class="genres">Ciencia Ficcion</div>
-                <div class="genres">Romance</div>
-            </div>
-            <div class="stats2">
-                <div class="rating">PG-13</div>
-                <div class="rating">TV</div>
-                <div class="rating">Episodios: 11 </div>
-                <div class="rating"><i class="fa fa-leaf" id="text" aria-hidden="true">&nbsp;Otono&nbsp;2022</i>
+            <div class="social">
+                <div class="item">
+                    <a href=""><i class="fa-brands fa-discord" id="discord"></i></a>
+                </div>
+                <div class="item">
+                    <a href=""><i class="fa-brands fa-twitter" id="twitter"></i></a>
                 </div>
             </div>
-            <div class="anime-description">Furuya no está interesado en los vivos, ¡tiene zombis en el cerebro!
-                Cuando el gato de Furuya muere, decide que intentará devolverlo a la vida.En el proceso, se topa
-                con una chica que está involucrada en un accidente y se convierte en un verdadero zombi. ¿Qué va a
-                hacer Furuya ahora que lo que más ama está justo frente a sus ojos?
+        </div>
+        <div class="section-2">
+            <div class="auth">
+                <ul>
+                    <li><a href="#">Iniciar Sesion</a></li>
+                    <li><a href="#">Registrarse</a></li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <div class="anime-info-container">
-        <div class="info-title">Mas Temporadas</div>
-        <div class="seasons">
-            <a href=""><div class="season-btn">Temporada 1</div></a>
-            <a href=""><div class="season-btn">Temporada 2</div></a>
-            <a href=""><div class="season-btn">Temporada 3</div></a>
-            <a href=""><div class="season-btn">Temporada 4</div></a>
+    <!-- End of Navbar and Sidebar -->
+
+
+    <!-- Anime Info -->
+
+    <div class="anime-container">
+        <div class="anime-image-feature">
+            <img src="/Anime Frontend/images/sankarea-portrait.jpg" alt="">
         </div>
-        
-        <div class="episode-title">Episodios</div>
-        <div class="container-episodes">
-            <div class="episode-info">
-                <div class="title-episode">Episodio 7</div>
-                <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 6</div>
-                <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 5</div>
-                <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 4</div>
-                <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 3</div>
-                <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 2</div>
-                <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
-            </div>
-            <div class="episode-info">
-                <div class="title-episode">Episodio 1</div>
-                <a href="#"><img src="images/1.png" alt="" id="episode-latest-image"></a>
+        <div class="anime-image-portrait">
+            <img src="/Anime Frontend/images/sankarea.png" alt="">
+        </div>
+        <div class="anime-info">
+            <div class="anime-title">Sankarea</div>
+            <div class="anime-stats">
+                <div class="anime-genres">
+                    <div class="genres">Comedia</div>
+                    <div class="genres">Ecchi</div>
+                    <div class="genres">Horror</div>
+                    <div class="genres">Romance</div>
+                    <div class="genres">Shounen</div>
+                    <div class="genres">Sobrenatural</div>
+                </div>
+                <div class="stats2">
+                    <div class="rating">R+</div>
+                    <div class="rating">TV</div>
+                    <div class="rating">Episodios: 12 </div>
+                    <div class="rating">&nbsp;Primavera&nbsp;2012&nbsp;</i>
+                    </div>
+                </div>
+                <div class="anime-description">Furuya no está interesado en los vivos, ¡tiene zombis en el cerebro!
+                    Cuando el gato de Furuya muere, decide que intentará devolverlo a la vida.En el proceso, se topa
+                    con una chica que está involucrada en un accidente y se convierte en un verdadero zombi. ¿Qué va a
+                    hacer Furuya ahora que lo que más ama está justo frente a sus ojos?
+                </div>
             </div>
         </div>
+
+        <div class="anime-info-container">
+            <div class="info-title">Mas Temporadas</div>
+            <div class="seasons">
+                <a href="">
+                    <div class="season-btn">Temporada 1</div>
+                </a>
+            </div>
+
+            <div class="episode-title">Episodios</div>
+            <div class="container-episodes">
+                <div class="episode-info">
+                    <a href="#">
+                        <div class="title-episode">Episodio 12</div>
+                        <img src="episodes/sankarea-12.png" alt="" id="episode-latest-image">
+                    </a>
+                </div>
+                <div class="episode-info">
+                    <a href="#">
+                        <div class="title-episode">Episodio 11</div>
+                        <img src="episodes/sankarea-11.png" alt="" id="episode-latest-image">
+                    </a>
+                </div>
+                <div class="episode-info">
+                    <a href="#">
+                        <div class="title-episode">Episodio 10</div>
+                        <img src="episodes/sankarea-10.png" alt="" id="episode-latest-image">
+                    </a>
+                </div>
+                <div class="episode-info">
+                    <a href="#">
+                        <div class="title-episode">Episodio 9</div>
+                        <img src="episodes/sankarea-9.png" alt="" id="episode-latest-image">
+                    </a>
+                </div>
+                <div class="episode-info">
+                    <a href="#">
+                        <div class="title-episode">Episodio 8</div>
+                        <img src="episodes/sankarea-8.png" alt="" id="episode-latest-image">
+                    </a>
+                </div>
+                <div class="episode-info">
+                    <a href="#">
+                        <div class="title-episode">Episodio 7</div>
+                        <img src="episodes/sankarea-7.png" alt="" id="episode-latest-image">
+                    </a>
+                </div>
+                <div class="episode-info">
+                    <a href="#">
+                        <div class="title-episode">Episodio 6</div>
+                        <img src="episodes/sankarea-6.png" alt="" id="episode-latest-image">
+                    </a>
+                </div>
+                <div class="episode-info">
+                    <a href="#">
+                        <div class="title-episode">Episodio 5</div>
+                        <img src="episodes/sankarea-5.png" alt="" id="episode-latest-image">
+                    </a>
+                </div>
+                <div class="episode-info">
+                    <a href="#">
+                        <div class="title-episode">Episodio 4</div>
+                        <img src="episodes/sankarea-4.png" alt="" id="episode-latest-image">
+                    </a>
+                </div>
+                <div class="episode-info">
+                    <a href="#">
+                        <div class="title-episode">Episodio 3</div>
+                        <img src="episodes/sankarea-3.png" alt="" id="episode-latest-image">
+                    </a>
+                </div>
+                <div class="episode-info">
+                    <a href="#">
+                        <div class="title-episode">Episodio 2</div>
+                        <img src="episodes/sankarea-2.png" alt="" id="episode-latest-image">
+                    </a>
+                </div>
+                <div class="episode-info">
+                    <a href="#">
+                        <div class="title-episode">Episodio 1</div>
+                        <img src="episodes/sankarea-1.png" alt="" id="episode-latest-image">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- End of Anime Info  -->
+
+        <!-- Anime Comments -->
+
+        <div class="container-comments">
+            <div class="comments-title">Comentarios</div>
+            <div class="section-comments">
+                <div class="user-profile"><img src="/Anime Frontend/images/lappland.jpg" alt=""></div>
+                <div class="section2-comments">
+                    <div class="error-login">Debes&nbsp;<a href="#">Iniciar sesión</a> para publicar un comentario.
+                    </div>
+                    <textarea name="" id="textarea" cols="100" rows="5" placeholder="Escribe aqui"></textarea>
+                </div>
+                <!-- <div class="user-comments">
+                <div class="user-profile"><img src="/Anime Frontend/images/lappland.jpg" alt=""></div>
+                <div class="user-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum repellat,
+                    eligendi maxime, maiores quisquam sapiente adipisci esse provident, rerum inventore fuga dolorum
+                    consequuntur quae quasi necessitatibus natus! In, voluptatibus alias.</div>
+            </div> -->
+            </div>
+        </div>
+
+        <!-- End of Anime Comments  -->
     </div>
-</div>
 
-<!-- End of Anime Info  -->
 
-<!-- Footer Start -->
 
-<div class="container-footer">
-    <div class="logo"><img src="/Anime Frontend/images/logo.webp" alt="" id="logo"></div>
-    <div class="copyright">
-        Copyright © 2022 AnimexD. Todos los derechos reservados
+    <!-- Footer Start -->
+
+    <div class="container-footer">
+        <div class="logo"><img src="/Anime Frontend/images/logo.webp" alt="" id="logo"></div>
+        <div class="copyright">
+            Copyright © 2022 AnimexD. Todos los derechos reservados
+        </div>
+        <div class="disclaimer">
+            Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los
+            contenidos
+            son proporcionados por terceros no afiliados.
+        </div>
+        <br>
     </div>
-    <div class="disclaimer">
-        Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los
-        contenidos
-        son proporcionados por terceros no afiliados.
-    </div>
-    <br>
-</div>
-
-
-<body>
 
 </body>
 

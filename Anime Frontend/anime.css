@@ -14,15 +14,14 @@ img {
 .anime-container {
     position: relative;
     padding: 0 25px;
-    margin-top: 50px;
+    margin-top: 25px;
 }
 
 .anime-container::before {
     content: "";
     clear: both;
     display: table;
-  }
-
+}
 
 .anime-image-feature img {
     height: 350px;
@@ -43,7 +42,7 @@ img {
     height: 350px;
 }
 
-.anime-info{
+.anime-info {
     position: absolute;
     top: 370px;
     margin-left: 320px;
@@ -55,8 +54,6 @@ img {
     color: white;
     font-size: 30px;
 }
-
-
 
 .genres {
     position: relative;
@@ -73,9 +70,7 @@ img {
     content: "";
     clear: both;
     display: table;
-  }
-
-
+}
 
 .rating {
     position: relative;
@@ -93,9 +88,10 @@ img {
     content: "";
     clear: both;
     display: table;
-  }
+}
 
 .anime-description {
+    margin-top: 10px;
     position: relative;
     color: white;
 }
@@ -136,16 +132,16 @@ img {
     position: relative;
     display: flex;
     float: left;
-    width: 18%;
-    padding: 10px;
+    width: 16%;
+    margin: 5px;
 }
 
 .title-episode {
     position: absolute;
     background: white;
-    border-radius: 0 0 3px 0;
+    border-radius: 5px 0 5px 0;
     padding: 3px;
-    
+    color: black;
 }
 
 #episode-latest-image {
@@ -158,8 +154,7 @@ img {
     content: "";
     clear: both;
     display: table;
-  }
-
+}
 
 @media screen and (max-width: 1140px) {
     .episode-info {
@@ -167,11 +162,11 @@ img {
     }
 }
 
-
 @media screen and (max-width: 858px) {
     .anime-image-portrait {
         display: none;
     }
+
     .anime-info {
         position: relative;
         top: 0;
@@ -192,4 +187,56 @@ img {
     .episode-info {
         width: 100%;
     }
+}
+
+.container-comments {
+    position: relative;
+}
+
+.comments-title {
+    position: relative;
+    color: white;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.user-profile img {
+    width: 5%;
+    border-radius: 10px;
+}
+
+.section2-comments {
+    position: relative;
+}
+
+#textarea {
+    resize: none;
+    background-color: #4c4f57;
+    color: white;
+    border-radius: 0.3rem;
+    font-size: 15px;
+    border: none!important;
+    overflow: hidden;
+    padding: 0.375rem 0.75rem;
+}
+
+.error-login {
+    color: white;
+}
+
+.error-login a {
+    color: black;
+}
+
+.user-comments {
+    position: relative;
+    margin-top: 30px;
+    margin-right: 500px;
+}
+
+.user-comment {
+    position: absolute;
+    top: 10px;
+    left: 100px;
+    color: #c8c8c8;
 }
