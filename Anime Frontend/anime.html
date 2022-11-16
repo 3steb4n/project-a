@@ -188,30 +188,58 @@
         <div class="container-comments">
             <div class="comments-title">Comentarios</div>
             <div class="section-comments">
-                <div class="user-profile"><img src="/Anime Frontend/images/lappland.jpg" alt=""></div>
+                <div class="user-profile"><img src="/Anime Frontend/images/lappland.jpg" alt="" id="user-profile"></div>
                 <div class="section2-comments">
                     <div class="error-login">Debes&nbsp;<a href="#">Iniciar sesión</a> para publicar un comentario.
                     </div>
-                    <textarea name="" id="textarea" cols="100" rows="5" placeholder="Escribe aqui"></textarea>
+                    <textarea name="" rows="4" cols="100" id="textarea" placeholder="Escribe aqui"></textarea>
                 </div>
-                <!-- <div class="user-comments">
-                <div class="user-profile"><img src="/Anime Frontend/images/lappland.jpg" alt=""></div>
-                <div class="user-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum repellat,
-                    eligendi maxime, maiores quisquam sapiente adipisci esse provident, rerum inventore fuga dolorum
-                    consequuntur quae quasi necessitatibus natus! In, voluptatibus alias.</div>
-            </div> -->
+                <div class="user-container-commented">
+                    <div class="user-commented">
+                        <div class="user-profile"><img src="/Anime Frontend/images/lappland.jpg" alt=""
+                                id="user-profile"></div>
+                        <div class="user-username">Tadokiari</div>
+                        <div class="user-comment">
+                            <p class="text-l">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum ipsum,
+                                neque quo odio debitis magni eos voluptates.</p>
+                            <p class="text-l">Fugit, reprehenderit numquam consectetur asperiores adipisci quibusdam
+                                accusantium laudantium, quasi perspiciatis sequi at?</p>
+                        </div>
+                    </div>
+                    <div class="user-commented">
+                        <div class="user-profile"><img src="/Anime Frontend/images/lappland.jpg" alt=""
+                                id="user-profile"></div>
+                        <div class="user-username">Tadokiari</div>
+                        <div class="user-comment">
+                            <p class="text-l">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum ipsum,
+                                neque quo odio debitis magni eos voluptates.</p>
+                            <p class="text-l">Fugit, reprehenderit numquam consectetur asperiores adipisci quibusdam
+                                accusantium laudantium, quasi perspiciatis sequi at?</p>
+                        </div>
+                    </div>
+                    <div class="user-commented">
+                        <div class="user-profile"><img src="/Anime Frontend/images/lappland.jpg" alt=""
+                                id="user-profile"></div>
+                        <div class="user-username">Tadokiari</div>
+                        <div class="user-comment">
+                            <p class="text-l">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum ipsum,
+                                neque quo odio debitis magni eos voluptates.</p>
+                            <p class="text-l">Fugit, reprehenderit numquam consectetur asperiores adipisci quibusdam
+                                accusantium laudantium, quasi perspiciatis sequi at?</p>
+                        </div>
+                    </div>
+                    <button id="more-comments">Cargar mas comentarios</button>
+                </div>
             </div>
         </div>
-
         <!-- End of Anime Comments  -->
     </div>
-
 
 
     <!-- Footer Start -->
 
     <div class="container-footer">
-        <div class="logo"><img src="/Anime Frontend/images/logo.webp" alt="" id="logo"></div>
+        <div class="logo"><img src="/Anime Frontend/images/logo.webp" alt="logo" id="logo"></div>
         <div class="copyright">
             Copyright © 2022 AnimexD. Todos los derechos reservados
         </div>
@@ -222,6 +250,17 @@
         </div>
         <br>
     </div>
+
+    <script>
+        textarea = document.querySelector("#textarea");
+        textarea.addEventListener('input', autoResize, false);
+
+        function autoResize() {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        }
+
+    </script>
 
 </body>
 
