@@ -1,18 +1,17 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Noto Sans Mono', monospace;
-    box-sizing: border-box;
-    text-decoration: none;
-}
 
 body {
     background: #202125;
 }
 
+.main-container {
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+
 .episode-container {
     position: relative;
-    padding: 0 15px;
 }
 
 .title-episode {
@@ -26,16 +25,98 @@ body {
     width: 50%;
 }
 
-.video-controllers {
-    color: white;
-    font-size: 20px;
-}
-
-
 .container-comments {
     position: relative;
-    left: 20px;
-    width: 900px;
-    height: 500px;
-    background-color: aliceblue;
+}
+
+.comments-title {
+    position: relative;
+    color: white;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.user-profile img {
+    border-radius: 10px;
+    min-width: 90px;
+}
+
+.section-comments {
+    position: relative;
+}
+
+.section2-comments {
+    position: relative;
+    margin-left: 100px;
+    top: -10px;
+}
+
+#textarea {
+    resize: none;
+    background-color: #4c4f57;
+    color: white;
+    border-radius: 0.3rem;
+    font-size: 15px;
+    border: none!important;
+    padding: 0 5px;
+}
+
+#textarea::placeholder {
+    color: white;
+    padding: 5px;
+}
+
+.error-login {
+    color: white;
+}
+
+.error-login a {
+    color: black;
+}
+
+.user-profile {
+    position: absolute;
+}
+
+#user-profile {
+    width: 13%;
+}
+
+.user-container-commented {
+    position: relative;
+}
+
+.user-commented {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.user-username {
+    margin-left: 100px;
+    color: white;
+}
+
+.user-comment {
+    margin-left: 100px;
+}
+
+p.text-l {
+    color: white;
+}
+
+#more-comments {
+    position: relative;
+    margin-left: 350px;
+    font-size: 20px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    border-style: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 953px) {
+    #textarea {
+        width: 100%;
+    }
 }

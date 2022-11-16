@@ -13,7 +13,6 @@
 
 <body>
     <!-- Navbar and Sidebar -->
-
     <input type="checkbox" id="check">
     <div class="sidebar">
         <div class="close-menu">
@@ -35,7 +34,7 @@
                     <i class="fas fa-bars"></i>
                 </label>
             </div>
-            <div class="logo">AnimexD</div>
+            <div class="logo"><img src="/Anime Frontend/images/logo.webp" alt="" id="logo"></div>
             <div class="search">
                 <input type="text" placeholder="Buscar Anime...">
                 <span class="fas fa-search" id="searchIcon"></span>
@@ -45,12 +44,8 @@
                     <a href=""><i class="fa-brands fa-discord" id="discord"></i></a>
                 </div>
                 <div class="item">
-                    <a href=""><i class="fa-brands fa-twitter" id="discord"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter" id="twitter"></i></a>
                 </div>
-                <div class="item">
-                    <a href=""><i class="fa-brands fa-telegram" id="discord"></i></a>
-                </div>
-
             </div>
         </div>
         <div class="section-2">
@@ -65,46 +60,98 @@
 
     <!-- End of Navbar and Sidebar -->
 
-    <div class="episode-container">
-        <div class="title-episode">
-            Sankarea Capitulo 1
+    <div class="main-container">
+        <!-- End of Navbar and Sidebar -->
+        <div class="episode-container">
+            <div class="title-episode">
+                Sankarea Episodio 1
+            </div>
+            <div class="episode-video">
+                <video width="850" controls id="video-player">
+                    <source
+                        src="https://bafybeifevc67pwnogqkf35pbvrr5ly5yygcwcnkulsx32lhw7nsxuwp4hu.ipfs.4everland.io/The%20Prince%20of%20Tennis%20II%20U-17%20World%20Cup%20-%20S01E13%20%5B1080p%5D.mp4"
+                        type="video/mp4">
+                </video>
+            </div>
         </div>
-        <div class="episode-video">
-            <video width="850" controls id="video-player">
-                <source
-                    src="https://bafybeifevc67pwnogqkf35pbvrr5ly5yygcwcnkulsx32lhw7nsxuwp4hu.ipfs.4everland.io/The%20Prince%20of%20Tennis%20II%20U-17%20World%20Cup%20-%20S01E13%20%5B1080p%5D.mp4"
-                    type="video/mp4">
-            </video>
+        <!-- Comments -->
+        <div class="container-comments">
+            <div class="comments-title">Comentarios</div>
+            <div class="section-comments">
+                <div class="user-profile"><img src="/Anime Frontend/images/lappland.jpg" alt="" id="user-profile"></div>
+                <div class="section2-comments">
+                    <div class="error-login">Debes&nbsp;<a href="#">Iniciar sesión</a> para publicar un comentario.
+                    </div>
+                    <textarea name="" rows="4" cols="100" id="textarea" placeholder="Escribe aqui"></textarea>
+                </div>
+                <div class="user-container-commented">
+                    <div class="user-commented">
+                        <div class="user-profile"><img src="/Anime Frontend/images/lappland.jpg" alt=""
+                                id="user-profile">
+                        </div>
+                        <div class="user-username">Tadokiari</div>
+                        <div class="user-comment">
+                            <p class="text-l">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum ipsum,
+                                neque quo odio debitis magni eos voluptates.</p>
+                            <p class="text-l">Fugit, reprehenderit numquam consectetur asperiores adipisci quibusdam
+                                accusantium laudantium, quasi perspiciatis sequi at?</p>
+                        </div>
+                    </div>
+                    <div class="user-commented">
+                        <div class="user-profile"><img src="/Anime Frontend/images/lappland.jpg" alt=""
+                                id="user-profile">
+                        </div>
+                        <div class="user-username">Tadokiari</div>
+                        <div class="user-comment">
+                            <p class="text-l">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum ipsum,
+                                neque quo odio debitis magni eos voluptates.</p>
+                            <p class="text-l">Fugit, reprehenderit numquam consectetur asperiores adipisci quibusdam
+                                accusantium laudantium, quasi perspiciatis sequi at?</p>
+                        </div>
+                    </div>
+                    <div class="user-commented">
+                        <div class="user-profile"><img src="/Anime Frontend/images/lappland.jpg" alt=""
+                                id="user-profile">
+                        </div>
+                        <div class="user-username">Tadokiari</div>
+                        <div class="user-comment">
+                            <p class="text-l">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum ipsum,
+                                neque quo odio debitis magni eos voluptates.</p>
+                            <p class="text-l">Fugit, reprehenderit numquam consectetur asperiores adipisci quibusdam
+                                accusantium laudantium, quasi perspiciatis sequi at?</p>
+                        </div>
+                    </div>
+                    <button id="more-comments">Cargar mas comentarios</button>
+                </div>
+            </div>
         </div>
-        <div class="video-controllers">
-            <span>Expand</span>
-            <span>Auto Play</span>
-            <span>Auto Next</span>
-        </div>
+        <!-- End of Comments  -->
     </div>
-
-    <!-- Comments  -->
-
-    <div class="container-comments">
-    </div>
-
-    <!-- End of Comments  -->
 
     <!-- Footer Start -->
-
     <div class="container-footer">
-        <div class="logo">AnimexD</div>
+        <div class="logo"><img src="/Anime Frontend/images/logo.webp" alt="logo" id="logo"></div>
         <div class="copyright">
             Copyright © 2022 AnimexD. Todos los derechos reservados
         </div>
         <div class="disclaimer">
             Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los
-            contenidos son proporcionados por terceros no afiliados.
+            contenidos
+            son proporcionados por terceros no afiliados.
         </div>
         <br>
     </div>
-
     <!-- Footer End -->
+
+    <script>
+        textarea = document.querySelector("#textarea");
+        textarea.addEventListener('input', autoResize, false);
+
+        function autoResize() {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        }
+    </script>
 </body>
 
 </html>
