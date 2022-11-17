@@ -10,6 +10,7 @@ import axios from 'axios'
 //imagenes
 import pas from './public/pas.jpg';
 import video from './public/video.png'
+import logo from './public/logo.webp'
 
 //login register
 
@@ -249,7 +250,6 @@ const NavBar = () => {
   }
   return (
     <>
-
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
       <input type="checkbox" id="check" />
       <div class="sidebar">
@@ -257,10 +257,9 @@ const NavBar = () => {
           <label for="check" class="closebtn">Cerrar Menu</label>
         </div>
         <ul>
-          <div class="login-side">
-            <li><a href="#">{logginButton}</a></li>
-          </div>
-          <li><a href="/">Home</a></li>
+          <li><a id="login" href="#">Iniciar Sesion</a></li>
+          <li><a id="login" href="#">Registrarse</a></li>
+          <li><a href="#">Home</a></li>
           <li><a href="#">Directorio Anime</a></li>
           <li><a href="#">TV Series</a></li>
           <li><a href="#">Peliculas</a></li>
@@ -270,26 +269,22 @@ const NavBar = () => {
       <div class="navbar">
         <div class="section">
           <div class="menu">
-            <label for="check" class="open-side">
+            <label for="check" class="checkbtn-1">
               <i class="fas fa-bars"></i>
             </label>
           </div>
-          <div class="logo">AnimexD</div>
+          <div class="logo"><img src={logo} alt="" id="logo" /></div>
           <div class="search">
             <input type="text" id="animeName" name="animeName" value={animeName} onChange={searchAnime} placeholder="Buscar Anime..." />
             <span class="fas fa-search" id="searchIcon"></span>
           </div>
           <div class="social">
             <div class="item">
-              <a href="#"><i class="fa-brands fa-discord" id="discord"></i></a>
+              <a href=""><i class="fa-brands fa-discord" id="discord"></i></a>
             </div>
             <div class="item">
-              <a href="#"><i class="fa-brands fa-twitter" id="discord"></i></a>
+              <a href=""><i class="fa-brands fa-twitter" id="twitter"></i></a>
             </div>
-            <div class="item">
-              <a href="#"><i class="fa-brands fa-telegram" id="discord"></i></a>
-            </div>
-
           </div>
         </div>
         <div class="section-2">
@@ -344,88 +339,72 @@ function Home() {
   return (
     <>
       {/* <!-- Anime Slider  --> */}
-
-      <div class="container-primary">
-        <div class="trending-anime">
-          <a href="#"><div class="ranking-number">#1 Lo mas visto</div>
-            <div class="title-name">Sankarea</div>
-            <div class="anime-type">TV</div>
-            <div class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste magnam ducimus impedit saepe optio esse veniam voluptates soluta possimus facilis ipsam, aut, rerum exercitationem, quisquam reiciendis tempore voluptas ut eum?</div>
-            <img src={video} alt="" /></a>
+      <div class="anime-trending-container">
+        <div class="anime-trending-text">Recomendado para ti</div>
+        <div class="anime-trending-slider">
+            <img src={video} alt=""/>
+            <div class="container-trending-info">
+                <div class="anime-trending-name">Sankarea</div>
+                <a href="#">
+                    <div class="anime-trending-watchnow">Ver Ahora</div>
+                    <div class="anime-trending-watchnow2"><i class="fa-solid fa-play"></i></div>
+                </a>
+            </div>
         </div>
-        <a class="prev" onClick="plusSlides(-1)">❮</a>
-        <a class="next" onClick="plusSlides(1)">❯</a>
-      </div>
-
+    </div>
       {/* <!-- End Anime Slider  --> */}
 
       {/* <!-- Latest Episodes --> */}
 
-      <div class="container-episodes">
-        <div class="episode-header">
-          Ultimos Episodios
+      <div class="anime-container-flex">
+        <div class="anime-container-episodes">
+            <div class="anime-container-text">Ultimos episodios</div>
+            <div class="episode-info">
+                <a href="#">
+                    <div class="title-episode">Episodio 1</div>
+                    <img src={video} alt="" id="episode-latest-image"/>
+                    <div class="title-anime">Sankarea</div>
+                </a>
+            </div>
         </div>
-        <div class="latest-episodes">
-          <div class="episode-info">
-            <div class="title-episode">Episodio 1</div>
-            <a href="#"><img src={video} alt="" id="episode-latest-image" /></a>
-            <div class="title-anime">Sankarea</div>
-          </div>
-          <div class="episode-info">
-            <div class="title-episode">Episodio 1</div>
-            <a href="#"><img src={video} alt="" id="episode-latest-image" /></a>
-            <div class="title-anime">Sankarea</div>
-          </div>
-          <div class="episode-info">
-            <div class="title-episode">Episodio 1</div>
-            <a href="#"><img src={video} alt="" id="episode-latest-image" /></a>
-            <div class="title-anime">Sankarea</div>
-          </div>
-          <div class="episode-info">
-            <div class="title-episode">Episodio 1</div>
-            <a href="#"><img src={video} alt="" id="episode-latest-image" /></a>
-            <div class="title-anime">Sankarea</div>
-          </div>
-          <div class="episode-info">
-            <div class="title-episode">Episodio 1</div>
-            <a href="#"><img src={video} alt="" id="episode-latest-image" /></a>
-            <div class="title-anime">Sankarea</div>
-          </div>
-          <div class="episode-info">
-            <div class="title-episode">Episodio 1</div>
-            <a href="#"><img src={video} alt="" id="episode-latest-image" /></a>
-            <div class="title-anime">Sankarea</div>
-          </div>
+        <div class="anime-container-news">
+            <div class="anime-news-container">
+                <div class="anime-news-text">Ultimas Noticias</div>
+                <a href="#">
+                    <div class="news-text">Nueva version de AnimexD, es posible que errores ocurran asi porfavor
+                        reportar cualquier problema.</div>
+                </a>
+            </div>
         </div>
-
-      </div>
-
+    </div>
       {/* <!-- End Latest Episodes  --> */}
-
       <div class="container-anime">
         <div class="anime-header">
-          Ultimos Animes
+            Ultimos Animes
         </div>
         <div class="latest-animes">
-          <div class="info-anime">
-            <div class="anime-title">Sankarea</div>
-            <a href="#"><img src={pas} alt="" id="anime-latest-image" /></a>
-          </div>
+            <a href="#">
+                <div class="info-anime">
+                    <img src={pas} alt="" id="anime-latest-image"/>
+                    <div class="anime-title">Sankarea</div>
+                </div>
+            </a>
         </div>
-      </div>
+    </div>
 
       {/* <!-- Footer Start --> */}
 
       <div class="container-footer">
-        <div class="logo">AnimexD</div>
+        <div class="logo"><img src={logo} alt="" id="logo"/></div>
         <div class="copyright">
-          Copyright © 2022 AnimexD. Todos los derechos reservados
+            Copyright © 2022 AnimexD. Todos los derechos reservados
         </div>
         <div class="disclaimer">
-          Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los contenidos son proporcionados por terceros no afiliados.
+            Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los
+            contenidos son proporcionados por terceros no afiliados.
         </div>
-        <br />
-      </div>
+        <br/>
+    </div>
 
       {/* <!-- Footer End --> */}
     </>

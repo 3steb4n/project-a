@@ -38,7 +38,7 @@
             </div>
             <div class="logo"><img src="./images/logo.webp" alt="" id="logo"></div>
             <div class="search">
-                <input type="text" placeholder="Buscar Anime...">
+                <input type="text" id="animeName" name="animeName" value={animeName} onChange={searchAnime} placeholder="Buscar Anime..." />
                 <span class="fas fa-search" id="searchIcon"></span>
             </div>
             <div class="social">
@@ -53,6 +53,7 @@
         <div class="section-2">
             <div class="auth">
                 <ul>
+                    {logginButton}
                     <li><a href="#">Iniciar Sesion</a></li>
                     <li><a href="#">Registrarse</a></li>
                 </ul>
