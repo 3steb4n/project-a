@@ -271,6 +271,19 @@ body::-webkit-scrollbar-thumb {
     transition: padding .3s
 }
 
+#login {
+    background: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#login:hover {
+    background: black;
+    color: white;
+}
+
 /* End of NavBar */
 
 @media screen and (max-width: 1031px) {
