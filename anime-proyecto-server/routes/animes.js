@@ -7,7 +7,7 @@ var router = express.Router();
 router.post('/create', async (req, res) => {
     let animeInformation = {}
 
-    if(Object.keys(req.body).length === 0) {
+    if (Object.keys(req.body).length === 0) {
         res.status(200).json({
             error: 400,
             message: 'Error. Request empty'
@@ -28,7 +28,7 @@ router.post('/create', async (req, res) => {
         }
     }
 
-    if(animeInformation.name === undefined || animeInformation.name === null || animeInformation.name == "") {
+    if (animeInformation.name === undefined || animeInformation.name === null || animeInformation.name == "") {
         res.status(200).json({ 
             status: 400,
             message: 'Error. name is empty'
@@ -36,7 +36,7 @@ router.post('/create', async (req, res) => {
         return;
     }
 
-    if(isNaN(animeInformation.numberEpisodes) || animeInformation.numberEpisodes < 0 || !Number.isInteger(animeInformation.numberEpisodes)) {
+    if (isNaN(animeInformation.numberEpisodes) || animeInformation.numberEpisodes < 0 || !Number.isInteger(animeInformation.numberEpisodes)) {
         res.status(200).json({
             status: 400,
             message: 'Error. numberChapter has a invalide value'
@@ -44,15 +44,15 @@ router.post('/create', async (req, res) => {
         return;
     }
 
-    if(animeInformation.season !== undefined) {
+    if (animeInformation.season !== undefined) {
         const seasons = ['Primavera', 'Verano', 'Otoño', 'Invierno'];
         
-        for(let i = 0; i < seasons.length; i++){
-            if(animeInformation.season === seasons[i]) {
+        for (let i = 0; i < seasons.length; i++) {
+            if (animeInformation.season === seasons[i]) {
                 break;
             }
 
-            if(i === (seasons.length - 1)) {
+            if (i === (seasons.length - 1)) {
                 res.status(200).json({ 
                     status: 400, 
                     message: 'Error. Season invalid' 
@@ -62,15 +62,15 @@ router.post('/create', async (req, res) => {
         }
     }
 
-    if(animeInformation.year === undefined) {
+    if (animeInformation.year === undefined) {
         res.status(200).json({
             status:400,
             message: 'Error. year is empty'
         });
         return;
-    }else{
+    } else {
         //console.log(animeInformation.year.toString()[0]);
-        if(isNaN(animeInformation.year) || !Number.isInteger(animeInformation.year) || animeInformation.year.toString().length < 4 
+        if (isNaN(animeInformation.year) || !Number.isInteger(animeInformation.year) || animeInformation.year.toString().length < 4 
         || animeInformation.year.toString().length > 4 || animeInformation.year.toString()[0] > 2) {
             res.status(200).json({ 
                 status: 400,
@@ -80,17 +80,15 @@ router.post('/create', async (req, res) => {
         }
     }
 
-    if(animeInformation.urlPreview !== undefined) {
-        try {
-            new URL(animeInformation.urlPreview);
-        }catch{
+    if (animeInformation.urlPreview !== undefined) {
+        if (!isNaN(animeInformation.urlPreview)) {
             res.status(200).json({
                 error: 400,
                 message: 'Error. urlPreview is not valid' 
             });
             return;
         }
-    }else{
+    } else {
         res.status(200).json({ 
             error: 400, 
             message: 'Error. urlPreview is empty'
@@ -98,10 +96,10 @@ router.post('/create', async (req, res) => {
         return;
     }
 
-    if(animeInformation.urlTrailer !== undefined) {
-        try{
+    if (animeInformation.urlTrailer !== undefined) {
+        try {
             new URL(animeInformation.urlTrailer);
-        }catch{
+        } catch {
             res.status(200).json({
                 error: 400,
                 message: 'Error. urlTrailer is not validate'
@@ -110,13 +108,13 @@ router.post('/create', async (req, res) => {
         }
     }
 
-    if(animeInformation.typeAnimeId !== undefined) {
-        if(isNaN(animeInformation.typeAnimeId) || animeInformation.typeAnimeId <= 0 || !Number.isInteger(animeInformation.typeAnimeId)) {
+    if (animeInformation.typeAnimeId !== undefined) {
+        if (isNaN(animeInformation.typeAnimeId) || animeInformation.typeAnimeId <= 0 || !Number.isInteger(animeInformation.typeAnimeId)) {
             res.status(200).json({ 
                 error: 400,  message: 'Error. typeAnimeId has a invalide value'
             });
             return;
-        }else{
+        } else {
             try {
                 let typeAnime = await Models.typeAnime.findOne({ where: { id: animeInformation.typeAnimeId} });
                 if(typeAnime == null) {
@@ -125,7 +123,7 @@ router.post('/create', async (req, res) => {
                     });
                     return;
                 }
-            }catch{
+            } catch {
                 res.status(200).json({ 
                     status: 400,
                     message: 'Internal error'
@@ -135,7 +133,7 @@ router.post('/create', async (req, res) => {
         }
     }
 
-    if(!Array.isArray(animeInformation.genresList)) {
+    if (!Array.isArray(animeInformation.genresList)) {
         res.status(200).json({ 
             status: 400,
             message: 'Error. genresList must be array'
@@ -143,15 +141,15 @@ router.post('/create', async (req, res) => {
         return;
     }
 
-    if(Array.isArray(animeInformation.genresList)) {
-        if(animeInformation.genresList.length === 0) {
+    if (Array.isArray(animeInformation.genresList)) {
+        if (animeInformation.genresList.length === 0) {
             res.status(200).json({ 
                 status: 400,
                 message: 'Error. The genresList array is empty'
              });
             return;
-        }else{
-            for(let i = 0; i  < animeInformation.genresList.length; i++) {
+        } else {
+            for (let i = 0; i  < animeInformation.genresList.length; i++) {
                 if(isNaN(animeInformation.genresList[i]) || animeInformation.genresList[i] === 0 || !Number.isInteger(animeInformation.genresList[i])) {
                     res.status(200).json({ 
                         status: 400,
@@ -161,11 +159,11 @@ router.post('/create', async (req, res) => {
                 }
             }
             try {
-                for(let i = 0; i  < animeInformation.genresList.filter((subject, index) => animeInformation.genresList.indexOf(subject) === index).length; i++) {
+                for (let i = 0; i  < animeInformation.genresList.filter((subject, index) => animeInformation.genresList.indexOf(subject) === index).length; i++) {
                     let listGenre = await Models.Genre.findOne({ 
                         where: { id: animeInformation.genresList.filter((subject, index) => animeInformation.genresList.indexOf(subject) === index)[i] } 
                 });
-                    if(listGenre == null) {
+                    if (listGenre == null) {
                         res.status(200).json({
                             status: 400,
                             message: 'Error. The genre dont exists'
@@ -173,7 +171,7 @@ router.post('/create', async (req, res) => {
                         return;
                     }
                 }
-            }catch{
+            } catch {
                 res.status(400).json({ 
                     status: 400,
                     message: 'Internal error'
@@ -182,7 +180,7 @@ router.post('/create', async (req, res) => {
             }
         }
     }
-    try{
+    try {
         const animeGenerated = async () => Models.anime.create({
             name: animeInformation.name,
             description: animeInformation.sinopsis,
@@ -209,15 +207,15 @@ router.post('/create', async (req, res) => {
             return bodyAnime;
         });
 
-        if(animeInformation.precuelaSecuela !== undefined) {
-            if(isNaN(animeInformation.precuelaSecuela.idAnimeRelacion) || !Number.isInteger(animeInformation.precuelaSecuela.idAnimeRelacion) || animeInformation.precuelaSecuela.idAnimeRelacion <= 0) {
+        if (animeInformation.precuelaSecuela !== undefined) {
+            if (isNaN(animeInformation.precuelaSecuela.idAnimeRelacion) || !Number.isInteger(animeInformation.precuelaSecuela.idAnimeRelacion) || animeInformation.precuelaSecuela.idAnimeRelacion <= 0) {
                 res.status(200).json({
                     error: 400,
                     message: 'Error. idAnimeRelacion is invalide'
                 });
                 return;
             }
-            if(animeInformation.precuelaSecuela.seasonNumber !== undefined) {
+            if (animeInformation.precuelaSecuela.seasonNumber !== undefined) {
                 if(isNaN(animeInformation.precuelaSecuela.seasonNumber) || !Number.isInteger(animeInformation.precuelaSecuela.seasonNumber) || animeInformation.precuelaSecuela.seasonNumber <= 0) {
                     res.status(200).json({
                         error: 400,
@@ -229,7 +227,7 @@ router.post('/create', async (req, res) => {
             let idAnimeExists = await Models.anime.findOne({
                 where: {id: animeInformation.precuelaSecuela.idAnimeRelacion}
             });
-            if(idAnimeExists == null) {
+            if (idAnimeExists == null) {
                 res.status(200).json({
                     status: 400,
                     message: 'Error. idAnimeRelacion dont exists'
@@ -251,7 +249,7 @@ router.post('/create', async (req, res) => {
             message: 'Anime registrado!'
         });
         return;
-    }catch{
+    } catch {
         res.status(400).json({
             status: 400,
             message: 'Internal error'
@@ -268,10 +266,10 @@ router.post("/search", async (req, res, next) => {
         type: req.body.type,
         status: req.body.status
     };
-    if(filterFields.name !== undefined) {
+    if (filterFields.name !== undefined) {
         let minCaracters = 3;
         if(filterFields.name.length >= minCaracters) {
-            await Models.anime.findAll({
+            await Models.anime.findAndCountAll({
                 include: {
                     model: Models.typeAnime,
                     attributes: ['name']
@@ -303,7 +301,7 @@ router.post("/search", async (req, res, next) => {
         }
     }
 
-    if(filterFields.genreId !== undefined && filterFields.year !== undefined && filterFields.type !== undefined && filterFields.status !== undefined) {
+    if (filterFields.genreId !== undefined && filterFields.year !== undefined && filterFields.type !== undefined && filterFields.status !== undefined) {
         if (filterFields.genreId.length === 0 && filterFields.year.length === 0 && filterFields.type.length === 0 && filterFields.status.length === 0) {
             await Models.anime.findAndCountAll({
                 attributes: ['id', 'name', 'url_preview'],

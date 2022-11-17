@@ -204,21 +204,29 @@ const Login = () => {
 const NavBar = () => {
   const navigate = useNavigate();
   const [animeName, setAnimeName] = useState('');
+  const [resultAnime, setResultAnime] = useState([]);
 
   const searchAnime = event => {
     let limitCharacters = 3; //Min valor mayor o igual a 3
-    
+
     setAnimeName(event.target.value);
 
+    if (event.target.value.length == 0) {
+      document.getElementById('search-info').style.display = 'none';
+    }
+
     if (event.target.value.length >= limitCharacters) {
+      document.getElementById('search-info').style.display = 'block';
       const animeRequest = { name: event.target.value };
 
       console.log('Anime name: ' + event.target.value + event.target.value.length);
       axios.post(`${URL_SERVICE}animes/search`, animeRequest).then(res => {
-        if (res.status != 200) {
+        if (res.data.result.count == 0) {
+          setResultAnime(['No hay resultados']);
           return;
         }
-        console.log(res.data);
+        setResultAnime(res.data.result.rows);
+        console.log(res.data.result.rows);
       }).catch(err => console.log(`Error ${err}`));
     }
   };
@@ -241,7 +249,7 @@ const NavBar = () => {
   }
   return (
     <>
-    
+
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
       <input type="checkbox" id="check" />
       <div class="sidebar">
@@ -292,25 +300,40 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-
-      <div class="search-info">
-        <div class="search-anime">
-            <div class="search-anime-title">BLEACH: Sennen Kessen-hen</div>
-            <div class="search-anime-type">Anime</div>
-            <img src={video} alt="" id="search-anime-image"/>
-        </div>
-        <div class="search-anime">
-            <div class="search-anime-title">Sankarea</div>
-            <div class="search-anime-type">Anime</div>
-            <img src={video} alt="" id="search-anime-image"/>
-        </div>
-        <div class="search-anime">
-            <div class="search-anime-title">Sankarea</div>
-            <div class="search-anime-type">Anime</div>
-            <img src={video} alt="" id="search-anime-image"/>
-        </div>
-        <div class="more-information"><a href="#">Más Resultados</a></div>
-    </div>
+      <div id="search-info" class="search-info">
+        {resultAnime.map(item => {
+          { console.log(`${resultAnime.length}`) }
+          {
+            if (resultAnime.length == 1 && item == 'No hay resultados') {
+              console.log(item);
+              return (
+                <div class="search-anime">
+                  <div class="search-anime-title">No hay resultados</div>
+                  <img src={video} alt="" id="search-anime-image" />
+                </div>
+              );
+            }
+          }
+          {
+            if (resultAnime.length > 1) {
+              return (
+                <div key={item.id} class="search-anime">
+                  <div class="search-anime-title">{item.name}</div>
+                  <div class="search-anime-type">{item.typeAnime.name}</div>
+                  <img src={video} alt="" id="search-anime-image" />
+                </div>
+              );
+            }
+            {
+              if (resultAnime.length > 5) {
+                return (
+                  <div class="more-information"><a href="#">Más Resultados</a></div>
+                )
+              }
+            }
+          }
+        })}
+      </div>
     </>
   )
 }
