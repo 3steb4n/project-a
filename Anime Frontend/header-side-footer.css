@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@500&display=swap');
 
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'IBM Plex Sans JP', sans-serif;
     padding: 0;
     margin: 0;
     text-decoration: none;
@@ -53,6 +53,19 @@ body::-webkit-scrollbar-thumb {
     background: rgb(67, 67, 67);
 }
 
+#login {
+    background: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#login:hover {
+    background: black;
+    color: white;
+}
+
 .sidebar ul {
     width: 100%;
     list-style: none;
@@ -89,7 +102,6 @@ body::-webkit-scrollbar-thumb {
 /* Start of Navbar */
 
 .navbar {
-    background: rgb(37, 37, 37);
     height: 80px;
     width: 100%;
     line-height: 70px;
@@ -126,7 +138,6 @@ body::-webkit-scrollbar-thumb {
     height: 10px;
     margin-top: 5px;
     margin-left: 25px;
-
 }
 
 #logo {
@@ -148,11 +159,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 .more-information {
+    position: relative;
     border-radius: 0px 0px 5px 5px;
     text-align: center;
     background: white;
     padding: 10px;
     color: black;
+    bottom: 4px;
+    z-index: 25;
 }
 
 .more-information:hover {
@@ -165,8 +179,7 @@ body::-webkit-scrollbar-thumb {
     top: 65px;
     left: 236px;
     width: 300px;
-    border-radius: 5px;
-    z-index: 5000;
+    z-index: 3;
 }
 
 .search-anime:before {
@@ -191,10 +204,8 @@ body::-webkit-scrollbar-thumb {
     position: relative;
     width: 100%;
     object-fit: cover;
-    background-size: cover;
-    background-position: center;
     height: 100px;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0 ;
     z-index: 1;
 }
 
@@ -254,34 +265,29 @@ body::-webkit-scrollbar-thumb {
     position: relative;
     display: inline-block;
     margin: 0px 5px;
-
+    bottom: 3px;
 }
 
 .auth ul li a {
     background: #fff;
-    padding: 15px;
     border-radius: 2px;
+    padding: 15px;
     color: black;
 }
 
-.auth ul li a:hover {
+
+.fa-gear {
+    position: relative;
     color: white;
-    background: green;
-    padding: 20px;
-    transition: padding .3s
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin: 0 5px;
 }
 
-#login {
-    background: white;
-    color: black;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-#login:hover {
-    background: black;
-    color: white;
+.fa-gear:hover {
+    font-size: 35px;
+    color: #0c70de;
 }
 
 /* End of NavBar */
