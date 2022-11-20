@@ -1,4 +1,4 @@
-# ![screencapture-127-0-0-1-5501-Anime-Frontend-index-html-2022-11-15-22_03_00](https://user-images.githubusercontent.com/78386551/202073406-1519f226-e77b-49c3-b648-0239571ad5db.png)
+# ![screencapture-file-C-Users-mehei-Documents-GitHub-project-a-Anime-Frontend-index-html-2022-11-20-16_07_55](https://user-images.githubusercontent.com/78386551/202926272-d5006985-991e-429f-96e8-ddc6fc49c39e.png)
 
 # Project-A
 <table>
@@ -14,12 +14,13 @@
 Currently working on Frontend
 
 ### Anime
-![screencapture-127-0-0-1-5501-Anime-Frontend-anime-html-2022-11-15-22_07_10](https://user-images.githubusercontent.com/78386551/202073948-230bf8cc-9826-4a01-a0f0-6c8896497d4f.png)
+![screencapture-file-C-Users-mehei-Documents-GitHub-project-a-Anime-Frontend-anime-html-2022-11-20-16_08_47](https://user-images.githubusercontent.com/78386551/202926319-2170ab04-084f-4252-82ba-d07ffe96f040.png)
+
+### Episode
+
+![screencapture-file-C-Users-mehei-Documents-GitHub-project-a-Anime-Frontend-episode-html-2022-11-20-16_11_10](https://user-images.githubusercontent.com/78386551/202926417-3ed399d3-89b6-4188-9f32-ccaf0c2eb388.png)
 
 ## Mobile support
 The WebApp is compatible with devices of all sizes and all OS's, and consistent improvements are being made.
-
-# iPhone XR
-![screencapture-127-0-0-1-5501-Anime-Frontend-index-html-2022-11-15-22_10_53](https://user-images.githubusercontent.com/78386551/202074432-d84b4ba1-6e11-4d1f-8114-909d6cc9395d.png)
 
 
