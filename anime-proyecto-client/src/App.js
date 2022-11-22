@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 // import VideoJs from './components/videoJS';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useParams } from "react-router-dom";
 // import videojs from 'video.js'
 import React, { useState, useEffect } from 'react';
 // import { useSelector } from "react-redux";
@@ -31,7 +31,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          <Route path="search" element={<AnimeDirectory />} />
+          <Route path="search/:page" element={<AnimeDirectory />} />
         </Routes>
       </div>
     </>
@@ -261,7 +261,7 @@ const NavBar = () => {
           <li><a id="login" href="#">Iniciar Sesion</a></li>
           <li><a id="login" href="#">Registrarse</a></li>
           <li><a href="#">Home</a></li>
-          <li><a href="search">Directorio Anime</a></li>
+          <li><a href="search/">Directorio Anime</a></li>
           <li><a href="#">TV Series</a></li>
           <li><a href="#">Peliculas</a></li>
           <li><a href="#">ONAS</a></li>
@@ -334,7 +334,18 @@ const NavBar = () => {
   )
 }
 
-function AnimeDirectory() {
+function AnimeDirectory () {
+  const [resultGenres, setResultGenres] = useState([]);
+  const params = useParams();
+  console.log(params.page);
+
+  const gen = () => {
+    axios.get(`${URL_SERVICE}genres/search`).then(resp => {
+      setResultGenres(resp.data.result);
+    }).catch(error => console.log(`${error}`));
+  
+    document.getElementById("dropdown").classList.toggle("show");
+  };
 
 
   return (
