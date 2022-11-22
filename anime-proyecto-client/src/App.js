@@ -342,69 +342,104 @@ function Home() {
       <div class="anime-trending-container">
         <div class="anime-trending-text">Recomendado para ti</div>
         <div class="anime-trending-slider">
-            <img src={video} alt=""/>
+          <img src="https://bafkreigfffty3r6ym63d2rn6zandfpr6af4hnc2pggujttbzs24n4hpsvi.ipfs.nftstorage.link/" alt=""/>
             <div class="container-trending-info">
-                <div class="anime-trending-name">Sankarea</div>
-                <a href="#">
-                    <div class="anime-trending-watchnow">Ver Ahora</div>
-                    <div class="anime-trending-watchnow2"><i class="fa-solid fa-play"></i></div>
-                </a>
+              <div class="anime-trending-name">Sankarea</div>
+              <a href="#">
+                <div class="anime-trending-watchnow">Ver Ahora</div>
+                <div class="anime-trending-watchnow2"><i class="fa-solid fa-play"></i></div>
+              </a>
             </div>
         </div>
-    </div>
+      </div>
       {/* <!-- End Anime Slider  --> */}
 
       {/* <!-- Latest Episodes --> */}
-
       <div class="anime-container-flex">
         <div class="anime-container-episodes">
-            <div class="anime-container-text">Ultimos episodios</div>
-            <div class="episode-info">
-                <a href="#">
-                    <div class="title-episode">Episodio 1</div>
-                    <img src={video} alt="" id="episode-latest-image"/>
-                    <div class="title-anime">Sankarea</div>
-                </a>
-            </div>
+          <div class="anime-container-text">Ultimos episodios</div>
+          <div class="episode-info">
+            <a href="#">
+              <div class="title-episode">Episodio 20</div>
+              <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-9430.jpg" alt=""
+                id="episode-latest-image"/>
+                <div class="anime-type">TV</div>
+                <div class="title-anime">Spy x Family</div>
+            </a>
+          </div>
+          <div class="episode-info">
+            <a href="#">
+              <div class="title-episode">Episodio 8</div>
+              <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-6969.jpg" alt=""
+                id="episode-latest-image"/>
+                <div class="anime-type">TV</div>
+                <div class="title-anime">Boku no Hero Academia 6th Season</div>
+            </a>
+          </div>
         </div>
         <div class="anime-container-news">
-            <div class="anime-news-container">
-                <div class="anime-news-text">Ultimas Noticias</div>
-                <a href="#">
-                    <div class="news-text">Nueva version de AnimexD, es posible que errores ocurran asi porfavor
-                        reportar cualquier problema.</div>
-                </a>
-            </div>
+          <div class="anime-news-container">
+            <div class="anime-news-text">Ultimas Noticias</div>
+            <a href="#">
+              <div class="news-text">Nueva version de AnimexD, es posible que errores ocurran asi porfavor
+                reportar cualquier problema.</div>
+            </a>
+          </div>
         </div>
-    </div>
+      </div>
       {/* <!-- End Latest Episodes  --> */}
+
+      {/* <!-- Latest Animes --> */}
       <div class="container-anime">
-        <div class="anime-header">
-            Ultimos Animes
+        <div class="anime-container-text">
+          Ultimos Animes
         </div>
         <div class="latest-animes">
-            <a href="#">
-                <div class="info-anime">
-                    <img src={pas} alt="" id="anime-latest-image"/>
-                    <div class="anime-title">Sankarea</div>
-                </div>
-            </a>
+          <a href="#">
+            <div class="info-anime">
+              <img src="https://animeui.com/wp-content/uploads/2022/11/1668294814-2656-106930.jpg" alt=""
+                id="anime-latest-image"/>
+                <div class="anime-type">ONA</div>
+                <div class="anime-title">All Saint Street</div>
+            </div>
+          </a>
         </div>
-    </div>
+      </div>
+      {/* <!-- End Latest Animes --> */}
+
+      {/* <!-- Trending Anime --> */}
+
+      <div class="container-anime">
+        <div class="anime-container-text">
+          Tendencias actuales
+        </div>
+        <div class="latest-animes">
+          <a href="#">
+            <div class="info-anime">
+              <img src="https://animeui.com/wp-content/uploads/2022/11/1668294814-2656-106930.jpg" alt=""
+                id="anime-latest-image"/>
+                <div class="anime-type">ONA</div>
+                <div class="anime-title">All Saint Street</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      {/* <!-- End Trending Anime --> */}
 
       {/* <!-- Footer Start --> */}
 
       <div class="container-footer">
-        <div class="logo"><img src={logo} alt="" id="logo"/></div>
+        <div class="logo"><img src={logo} alt="" id="logo" /></div>
         <div class="copyright">
-            Copyright © 2022 AnimexD. Todos los derechos reservados
+          Copyright © 2022 AnimexD. Todos los derechos reservados
         </div>
         <div class="disclaimer">
-            Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los
-            contenidos son proporcionados por terceros no afiliados.
+          Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los
+          contenidos son proporcionados por terceros no afiliados.
         </div>
-        <br/>
-    </div>
+        <br />
+      </div>
 
       {/* <!-- Footer End --> */}
     </>
