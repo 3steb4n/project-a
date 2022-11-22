@@ -334,154 +334,152 @@ const NavBar = () => {
   )
 }
 
-function AnimeDirectory () {
-  const gen = () => {
-    document.getElementById("dropdown").classList.toggle("show");
-  };
+function AnimeDirectory() {
 
-  const year = () => {
-    document.getElementById("dropdown-year").classList.toggle("show");
-  };
-
-  const types = () => {
-    document.getElementById("dropdown-type").classList.toggle("show");
-  };
-
-  const status = () => {
-    document.getElementById("dropdown-status").classList.toggle("show");
-  };
 
   return (
     <>
-      <div class="filter-container">
-        <button class="select-filter" onClick={gen}>
-          Genero:
-          Todos
-        </button>
-        <button class="select-filter" onClick={year}>
-          Ano:
-          Todos
-        </button>
-        <button class="select-filter" onClick={types}>
-          Tipos:
-          Todos
-        </button>
-        <button class="select-filter" onClick={status}>
-          Estado:
-          Todos
-        </button>
-        <button class="select-filter2">
-          Filtrar
-        </button>
-        <div class="container-filters zoomIn" id="dropdown">
-          <div class="selected-box">
-            <input type="checkbox" id="genre" />
-            <label for="genre" class="filter-selected-checkbox">Accion</label>
+      <div class="directory-anime-container">
+        <div class="filter-container">
+          <button class="select-filter" onclick="gen()">
+            Genero:
+            Todos
+          </button>
+          <button class="select-filter" onclick="year()">
+            Ano:
+            Todos
+          </button>
+          <button class="select-filter" onclick="types()">
+            Tipos:
+            Todos
+          </button>
+          <button class="select-filter" onclick="status()">
+            Estado:
+            Todos
+          </button>
+          <button class="select-filter2">
+            Filtrar
+          </button>
+          {/* <!-- Genres container --> */}
+          <div class="container-filters zoomIn" id="dropdown">
+            <div class="selected-box">
+              <input type="checkbox" id="genre" />
+              <label for="genre" class="filter-selected-checkbox">Accion</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="genre2" />
+              <label for="genre2" class="filter-selected-checkbox">Aventura</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="genre3" />
+              <label for="genre3" class="filter-selected-checkbox">Comedia</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="genre4" />
+              <label for="genre4" class="filter-selected-checkbox">Recuentos de la Vida</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="genre5" />
+              <label for="genre5" class="filter-selected-checkbox">Romance</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="genre6" />
+              <label for="genre6" class="filter-selected-checkbox">Escolar</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="genre7" />
+              <label for="genre7" class="filter-selected-checkbox">Ecchi</label>
+            </div>
           </div>
-          <div class="selected-box">
-            <input type="checkbox" id="genre2" />
-            <label for="genre2" class="filter-selected-checkbox">Aventura</label>
+          {/* <!-- End of Genres Container --> */}
+          {/* <!-- Year Container  --> */}
+          <div class="container-filters zoomIn" id="dropdown-year">
+            <div class="selected-box">
+              <input type="checkbox" id="year" />
+              <label for="year" class="filter-selected-checkbox">1999</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="year1" />
+              <label for="year1" class="filter-selected-checkbox">2000</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="year2" />
+              <label for="year2" class="filter-selected-checkbox">2001</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="year3" />
+              <label for="year3" class="filter-selected-checkbox">2002</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="year4" />
+              <label for="year4" class="filter-selected-checkbox">2003</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="year5" />
+              <label for="year5" class="filter-selected-checkbox">2004</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="year6" />
+              <label for="year6" class="filter-selected-checkbox">2005</label>
+            </div>
           </div>
-          <div class="selected-box">
-            <input type="checkbox" id="genre3" />
-            <label for="genre3" class="filter-selected-checkbox">Comedia</label>
+          {/* <!-- End of Year Container --> */}
+          {/* <!-- Type Container  --> */}
+          <div class="container-filters zoomIn" id="dropdown-type">
+            <div class="selected-box">
+              <input type="checkbox" id="TV" />
+              <label for="TV" class="filter-selected-checkbox">TV</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="movie" />
+              <label for="movie" class="filter-selected-checkbox">Pelicula</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="Special" />
+              <label for="Special" class="filter-selected-checkbox">Especial</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="OVA" />
+              <label for="OVA" class="filter-selected-checkbox">OVA</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="ONA" />
+              <label for="ONA" class="filter-selected-checkbox">ONA</label>
+            </div>
           </div>
-          <div class="selected-box">
-            <input type="checkbox" id="genre4" />
-            <label for="genre4" class="filter-selected-checkbox">Recuentos de la Vida</label>
+          {/* <!-- End of Type Container --> */}
+          {/* <!-- Status Container  --> */}
+          <div class="container-filters zoomIn" id="dropdown-status">
+            <div class="selected-box">
+              <input type="checkbox" id="ongoing" />
+              <label for="ongoing" class="filter-selected-checkbox">En Emision</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="completed" />
+              <label for="completed" class="filter-selected-checkbox">Finalizado</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="soon" />
+              <label for="soon" class="filter-selected-checkbox">Proximamente</label>
+            </div>
           </div>
-          <div class="selected-box">
-            <input type="checkbox" id="genre5" />
-            <label for="genre5" class="filter-selected-checkbox">Romance</label>
+          {/* <!-- End of Status Container --> */}
+          {/* <!-- Status Container  --> */}
+          <div class="container-filters zoomIn" id="dropdown-status">
+            <div class="selected-box">
+              <input type="checkbox" id="ongoing" />
+              <label for="ongoing" class="filter-selected-checkbox">En Emision</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="completed" />
+              <label for="completed" class="filter-selected-checkbox">Finalizado</label>
+            </div>
+            <div class="selected-box">
+              <input type="checkbox" id="soon" />
+              <label for="soon" class="filter-selected-checkbox">Proximamente</label>
+            </div>
           </div>
-          <div class="selected-box">
-            <input type="checkbox" id="genre6" />
-            <label for="genre6" class="filter-selected-checkbox">Escolar</label>
-          </div>
-          <div class="selected-box">
-            <input type="checkbox" id="genre7" />
-            <label for="genre7" class="filter-selected-checkbox">Ecchi</label>
-          </div>
-        </div>
-        <div class="container-filters zoomIn" id="dropdown-year">
-          <div class="selected-box">
-            <input type="checkbox" id="year" />
-            <label for="year" class="filter-selected-checkbox">1999</label>
-          </div>
-          <div class="selected-box">
-            <input type="checkbox" id="year1" />
-            <label for="year1" class="filter-selected-checkbox">2000</label>
-          </div>
-          <div class="selected-box">
-            <input type="checkbox" id="year2" />
-            <label for="year2" class="filter-selected-checkbox">2001</label>
-          </div>
-          <div class="selected-box">
-            <input type="checkbox" id="year3" />
-            <label for="year3" class="filter-selected-checkbox">2002</label>
-          </div>
-          <div class="selected-box">
-            <input type="checkbox" id="year4" />
-            <label for="year4" class="filter-selected-checkbox">2003</label>
-          </div>
-          <div class="selected-box">
-            <input type="checkbox" id="year5" />
-            <label for="year5" class="filter-selected-checkbox">2004</label>
-          </div>
-          <div class="selected-box">
-            <input type="checkbox" id="year6" />
-            <label for="year6" class="filter-selected-checkbox">2005</label>
-          </div>
-        </div>
-        <div class="container-filters zoomIn" id="dropdown-type">
-          <div class="selected-box">
-            <input type="checkbox" id="TV" />
-            <label for="TV" class="filter-selected-checkbox">TV</label>
-          </div>
-          <div class="selected-box">
-            <input type="checkbox" id="movie" />
-            <label for="movie" class="filter-selected-checkbox">Pelicula</label>
-          </div>
-          <div class="selected-box">
-            <input type="checkbox" id="Special" />
-            <label for="Special" class="filter-selected-checkbox">Especial</label>
-          </div>
-          <div class="selected-box">
-            <input type="checkbox" id="OVA" />
-            <label for="OVA" class="filter-selected-checkbox">OVA</label>
-          </div>
-          <div class="selected-box">
-            <input type="checkbox" id="ONA" />
-            <label for="ONA" class="filter-selected-checkbox">ONA</label>
-          </div>
-        </div>
-        <div class="container-filters zoomIn" id="dropdown-status">
-          <div class="selected-box">
-            <input type="checkbox" id="ongoing" />
-            <label for="ongoing" class="filter-selected-checkbox">En Emision</label>
-          </div>
-          <div class="selected-box">
-            <input type="checkbox" id="completed" />
-            <label for="completed" class="filter-selected-checkbox">Finalizado</label>
-          </div>
-          <div class="selected-box">
-            <input type="checkbox" id="soon" />
-            <label for="soon" class="filter-selected-checkbox">Proximamente</label>
-          </div>
-        </div>
-        <div class="container-filters zoomIn" id="dropdown-status">
-          <div class="selected-box">
-            <input type="checkbox" id="ongoing" />
-            <label for="ongoing" class="filter-selected-checkbox">En Emision</label>
-          </div>
-          <div class="selected-box">
-            <input type="checkbox" id="completed" />
-            <label for="completed" class="filter-selected-checkbox">Finalizado</label>
-          </div>
-          <div class="selected-box">
-            <input type="checkbox" id="soon" />
-            <label for="soon" class="filter-selected-checkbox">Proximamente</label>
-          </div>
+          {/* <!-- End of Status Container --> */}
         </div>
       </div>
       <div class="container-anime">
