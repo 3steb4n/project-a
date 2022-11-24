@@ -5,16 +5,12 @@
 }
 
 body {
-    font-family: "Inter", sans-serif;
-  }
+    background: #0e0e0e;
+}
 
-.image-upload{
-    width: 11%;
+.image-select{
     position: relative;
-    left: 60px;
-    top: 40px;
-    border-style: groove;
-    width: 200px;
+    color: white;
 }
 
 .imagePortrait{
@@ -29,22 +25,147 @@ body {
     border-radius: 2%;
 }
 
-
-.trailer{
-    position: absolute;
-    top: -40px;
-}
-
 .container{
-    position: relative;
-    top: -500px;
-    left: 500px;
+    top: 120px;
+    left: 450px;
+    position: absolute;
     border-style: groove;
-    width: 1200px;
-    height: 500px;
+    border-radius: 10px;
+    padding: 8px 10px;
 }
 
+.title {
+    color: white;
+}
 
+.header-text {
+    position: relative;
+    margin-top: 10px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+#textarea {
+    resize: none;
+    background-color: #4c4f57;
+    color: white;
+    border-radius: 0.3rem;
+    font-size: 15px;
+    border: none!important;
+    padding: 0 5px;
+}
 
+.xla {
+    position: relative;
+    display: flex;
+    float: left;
+}
 
+#ela142 {
+    margin: 0 10px 0 0;
+}
+
+.xla input {
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    text-indent: 10px;
+    font-size: 15px;
+}
+
+.container .search input {
+    margin-left: 0;
+}
+
+.container .container-info2  {
+    width: 300px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.container .container-info2 input[type="checkbox"] {
+    position: relative;
+    width: 20px;
+
+}
+
+.container .container-info2 .text {
+    position: relative;
+    left: -35px;
+    top: 7px;
+}
+
+.button {
+    position: relative;
+    background: #0c70de;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.container-info {
+    position: absolute;
+    background: white;
+    width: 300px;
+    border-radius: 0 0 5px 5px;
+    z-index: 1;
+    padding: 5px;
+}
+.container-info2 {
+    position: absolute;
+    background: white;
+    z-index: 1;
+    padding: 5px;
+}
+
+.box-info {
+    position: relative;
+    cursor: pointer;
+}
+
+.box-info:hover {
+    color: white;
+    background: #0c70de;
+    border-radius: 0 0 5px 5px;
+
+}
+
+.item-added {
+    position: relative;
+    display: flex;
+    float: left;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    padding: 2px 2px;
+    margin: 5px 5px;
+}
+
+.anime-info {
+    position: relative;
+    margin-top: 50px;
+}
+
+.upload-ss {
+    text-align: center;
+}
+
+.upload {
+    position: relative;
+    background: #0c70de;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.clear-fix {
+    content: "";
+    clear: both;
+    display: table;
+}
 

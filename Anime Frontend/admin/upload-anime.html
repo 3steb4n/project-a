@@ -1,73 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="upload-anime.css">
+    <link rel="stylesheet" href="./../header-side-footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
     <title>Upload anime</title>
 </head>
+
 <body>
 
-<div class="image-upload">
-  <div class="image-select">
-    <div class="image-select-button" id="imageName">Choose image</div>
-    <input type="file" name="chooseimage" id="chooseimage" accept="video/">
-  </div>
-</div>
-
-
- <div class="imagePortrait">
-    <div class="image">
-        <img src="/Anime Frontend/images/One-piece.jpg" alt="">
+    <!-- Navbar and Sidebar -->
+    <input type="checkbox" id="check">
+    <div class="sidebar">
+        <div class="close-menu">
+            <label for="check" class="closebtn">Cerrar Menu</label>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Directorio Anime</a></li>
+            <li><a href="#">TV Series</a></li>
+            <li><a href="#">Peliculas</a></li>
+            <li><a href="#">ONAS</a></li>
+        </ul>
     </div>
- </div>
+    <div class="navbar">
+        <div class="section">
+            <div class="menu">
+                <label for="check" class="checkbtn">
+                    <i class="fas fa-bars"></i>
+                </label>
+            </div>
+            <div class="logo"><img src="/Anime Frontend/images/logo.webp" alt="" id="logo"></div>
+            <div class="search">
+                <input type="text" placeholder="Buscar Anime...">
+                <span class="fas fa-search" id="searchIcon"></span>
+            </div>
+            <div class="social">
+                <div class="item">
+                    <a href=""><i class="fa-brands fa-discord" id="discord"></i></a>
+                </div>
+                <div class="item">
+                    <a href=""><i class="fa-brands fa-twitter" id="twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="section-2">
+            <div class="auth">
+                <ul>
+                    <li><a href="#">Iniciar Sesion</a></li>
+                    <li><a href="#">Registrarse</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End of Navbar and Sidebar -->
+
+    <div class="imagePortrait">
+        <div class="image">
+            <img src="/Anime Frontend/images/One-piece.jpg" alt="">
+        </div>
+        <div class="image-select">
+            <div class="image-select-button">Choose image</div>
+            <input type="file" name="chooseimage" id="chooseimage" accept="video/">
+        </div>
+    </div>
 
 
 
- <div class="container">
-    <div class="title">Anime Name</div>
-    <input type="text" id="anime-name" placeholder="Nombre del Anime"/>
-    
-    <div class="sinopsis">Sinopsis</div>
-    <input type="text" id="sinopsis" placeholder="Nombre del Anime"/>
-    <div class="Episodes">Episodio</div>
-    <input type="text" id="episodios" placeholder="Nombre del Anime"/>
-    <div class="genres">
-        <div class="title">Selecciona Generos</div>
-            <select  multiple="multiple">
-                <option>Accion</option>
-            </select>
+    <div class="container">
+        <div class="clear-fix">
+            <div class="xla">
+                <div class="anime" id="ela142">
+                    <div class="title">Nombre del Anime</div>
+                    <input type="text" placeholder="Nombre del Anime" />
+                </div>
+                <div id="ela142">
+                    <div class="title">Numero de Episodios</div>
+                    <input type="number" placeholder="Numero de Episodios" />
+                </div>
+                <div id="ela142">
+                    <div class="title">Url de Trailer</div>
+                    <input type="text" placeholder="Trailer del Anime" />
+                </div>
+                <div class="date-created">
+                    <div class="title">Fecha de Estreno</div>
+                    <input type="date">
+                </div>
+            </div>
         </div>
-        <div class="types">
-            <div class="title">Selecciona Tipo Estreno</div>
-                <select  multiple="multiple">
-                    <option>TV</option>
-                </select>
+        <div class="clear-fix">
+            <div class="header-text">Titulos Alternativos</div>
+            <div class="xla">
+                <div class="anime" id="ela142">
+                    <div class="title">Sinonimos</div>
+                    <input type="text" placeholder="Sinonimos del Anime" />
+                </div>
+                <div id="ela142">
+                    <div class="title">Japones</div>
+                    <input type="text" placeholder="Nombre Japones del Anime" />
+                </div>
+                <div id="ela142">
+                    <div class="title">Ingles</div>
+                    <input type="text" placeholder="Nombre Ingles del Anime" />
+                </div>
+            </div>
         </div>
-        <div class="status">
-            <div class="title">Selecciona Estado del Anime</div>
-                <select  multiple="multiple">
-                    <option>En Emision</option>
-                </select>
+        <div class="sinopsis">
+            <div class="title">Sinopsis</div>
+            <textarea name="" rows="8" cols="140" id="textarea" placeholder="Escribe aqui"></textarea>
         </div>
-        <div class="types">
-            <div class="title">Temporada</div>
-                <select  multiple="multiple">
-                    <option>S1</option>
-                </select>
+        <div class="search">
+            <input type="text" placeholder="Generos" />
+            <button class="button">Anadir </button>
+            <div class="container-info">
+                <div class="box-info">Accion</div>
+            </div>
+            <div class="clear-fix">
+                <div class="item-added">Accion</div>
+            </div>
         </div>
-        <div class="types">
-
-            <div class="title">Selecciona Secuela o Precuela</div>
-                <input type="checkbox">Secuela
-                <input type="checkbox">Precuela
-                <select  multiple="multiple">
-                    <option>Boruto</option>
-                </select>
-                
+        <div class="search">
+            <input type="text" placeholder="Tipo Estreno" />
+            <button class="button">Anadir </button>
+            <div class="container-info">
+                <div class="box-info">TV</div>
+            </div>
+            <div class="clear-fix">
+                <div class="item-added">TV</div>
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Estado del Anime" />
+            <button class="button">Anadir </button>
+            <div class="container-info">
+                <div class="box-info">En Emision</div>
+            </div>
+            <div class="clear-fix">
+                <div class="item-added">En Emision</div>
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Estacion del Ano" />
+            <button class="button">Anadir </button>
+            <div class="container-info">
+                <div class="box-info">Verano</div>
+            </div>
+            <div class="clear-fix">
+                <div class="item-added">Otono</div>
+                <div class="item-added">Verano</div>
+                <div class="item-added">Invierno</div>
+                <div class="item-added">Primavera</div>
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Temporada del Anime" />
+            <button class="button">Anadir </button>
+            <div class="container-info">
+                <div class="box-info">Temporada 2</div>
+            </div>
+            <div class="clear-fix">
+                <div class="item-added">Temporada 1</div>
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Temporada del Anime" />
+            <button class="button">Anadir </button>
+            <div class="container-info2">
+                <input type="checkbox">
+                <div class="text">Secuela</div>
+                <input type="checkbox">
+                <div class="text">Secuela</div>
+            </div>
+            <div class="anime-info">
+                <div class="container-info">
+                    <div class="box-info">One Piece</div>
+                </div>
+            </div>
+            <div class="clear-fix">
+                <div class="item-added">One Piece</div>
+            </div>
+        </div>
+        <div class="upload-ss">
+            <button class="upload">Subir Anime</button>
         </div>
     </div>
 
 </body>
+
 </html>

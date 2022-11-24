@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="upload-anime.css">
+    <link rel="stylesheet" href="./../header-side-footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <title>Upload Episode</title>
+</head>
+
+<body>
+
+    <!-- Navbar and Sidebar -->
+    <input type="checkbox" id="check">
+    <div class="sidebar">
+        <div class="close-menu">
+            <label for="check" class="closebtn">Cerrar Menu</label>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Directorio Anime</a></li>
+            <li><a href="#">TV Series</a></li>
+            <li><a href="#">Peliculas</a></li>
+            <li><a href="#">ONAS</a></li>
+        </ul>
+    </div>
+    <div class="navbar">
+        <div class="section">
+            <div class="menu">
+                <label for="check" class="checkbtn">
+                    <i class="fas fa-bars"></i>
+                </label>
+            </div>
+            <div class="logo"><img src="/Anime Frontend/images/logo.webp" alt="" id="logo"></div>
+            <div class="search">
+                <input type="text" placeholder="Buscar Anime...">
+                <span class="fas fa-search" id="searchIcon"></span>
+            </div>
+            <div class="social">
+                <div class="item">
+                    <a href=""><i class="fa-brands fa-discord" id="discord"></i></a>
+                </div>
+                <div class="item">
+                    <a href=""><i class="fa-brands fa-twitter" id="twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="section-2">
+            <div class="auth">
+                <ul>
+                    <li><a href="#">Iniciar Sesion</a></li>
+                    <li><a href="#">Registrarse</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End of Navbar and Sidebar -->
+
+    <div class="imagePortrait">
+        <div class="image">
+            <img src="/Anime Frontend/images/One-piece.jpg" alt="">
+        </div>
+        <div class="image-select">
+            <div class="image-select-button">Choose image</div>
+            <input type="file" name="chooseimage" id="chooseimage" accept="video/">
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="clear-fix">
+            <div class="xla">
+                <div id="ela142">
+                    <div class="title">Numero del Episodio</div>
+                    <input type="number" placeholder="Numero de Episodio" />
+                </div>
+                <div id="ela142">
+                    <div class="title">Titulo del Episodio</div>
+                    <input type="text" placeholder="Titulo del Episodio" />
+                </div>
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Nombre del Anime" />
+            <button class="button">Anadir </button>
+            <div class="container-info">
+                <div class="box-info">One Piece</div>
+            </div>
+            <div class="clear-fix">
+                <div class="item-added">One Piece</div>
+            </div>
+        </div>
+        <div class="upload-ss">
+            <button class="upload">Subir Episodio</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
