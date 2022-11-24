@@ -2,7 +2,7 @@
 // import VideoJs from './components/videoJS';
 import { Routes, Route, Link, useParams } from "react-router-dom";
 // import videojs from 'video.js'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 // import { useSelector } from "react-redux";
 import configureStore from "./store";
 import axios from 'axios'
@@ -336,35 +336,60 @@ const NavBar = () => {
 
 function AnimeDirectory () {
   const [resultGenres, setResultGenres] = useState([]);
+  const [resultYears, setResultYears] = useState([]);
+  const [resultTypeAnime, setTypeAnime] = useState([]);
+
   const params = useParams();
+
+  //Get id DOM Lists
+  const genreRef = useRef(null);
+  const yearRef = useRef(null);
+  const typeRef = useRef(null);
+  const statusRef = useRef(null);
+
   console.log(params.page);
 
-  const gen = () => {
+  useEffect(() => {
     axios.get(`${URL_SERVICE}genres/search`).then(resp => {
-      setResultGenres(resp.data.result);
+      setResultGenres(resp.data.message);
     }).catch(error => console.log(`${error}`));
-  
-    document.getElementById("dropdown").classList.toggle("show");
-  };
 
+    axios.get(`${URL_SERVICE}animes/search-years`).then(resp => {
+      setResultYears(resp.data.years)
+    }).catch(error => console.log(`${error}`));
+
+    axios.get(`${URL_SERVICE}typeanime/search`).then(resp => {
+      setTypeAnime(resp.data.message)
+    }).catch(error => console.log(`${error}`));
+  }, []);
+
+  console.log(resultGenres);
 
   return (
     <>
       <div class="directory-anime-container">
         <div class="filter-container">
-          <button class="select-filter" onclick="gen()">
+          <button class="select-filter" onClick={() => {
+            genreRef.current.classList.toggle("show");
+          }}>
             Genero:
             Todos
           </button>
-          <button class="select-filter" onclick="year()">
+          <button class="select-filter" onClick={() => {
+            yearRef.current.classList.toggle("show");
+          }}>
             Ano:
             Todos
           </button>
-          <button class="select-filter" onclick="types()">
+          <button class="select-filter" onClick={() => {
+            typeRef.current.classList.toggle("show");
+          }}>
             Tipos:
             Todos
           </button>
-          <button class="select-filter" onclick="status()">
+          <button class="select-filter" onClick={() => {
+            statusRef.current.classList.toggle("show");
+          }}>
             Estado:
             Todos
           </button>
@@ -372,111 +397,55 @@ function AnimeDirectory () {
             Filtrar
           </button>
           {/* <!-- Genres container --> */}
-          <div class="container-filters zoomIn" id="dropdown">
-            <div class="selected-box">
-              <input type="checkbox" id="genre" />
-              <label for="genre" class="filter-selected-checkbox">Accion</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="genre2" />
-              <label for="genre2" class="filter-selected-checkbox">Aventura</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="genre3" />
-              <label for="genre3" class="filter-selected-checkbox">Comedia</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="genre4" />
-              <label for="genre4" class="filter-selected-checkbox">Recuentos de la Vida</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="genre5" />
-              <label for="genre5" class="filter-selected-checkbox">Romance</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="genre6" />
-              <label for="genre6" class="filter-selected-checkbox">Escolar</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="genre7" />
-              <label for="genre7" class="filter-selected-checkbox">Ecchi</label>
-            </div>
+          <div ref={genreRef} class="container-filters zoomIn" id="dropdown">
+            {
+              resultGenres.map(item => {
+                return(
+                  <>
+                    <div class="selected-box">
+                      <input type="checkbox" key={item.id} id={`${item.id}-genre`} />
+                      <label for={`${item.id}-genre`} class="filter-selected-checkbox">{item.name}</label>
+                    </div>
+                  </>
+                )
+              })
+            }
           </div>
           {/* <!-- End of Genres Container --> */}
           {/* <!-- Year Container  --> */}
-          <div class="container-filters zoomIn" id="dropdown-year">
-            <div class="selected-box">
-              <input type="checkbox" id="year" />
-              <label for="year" class="filter-selected-checkbox">1999</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="year1" />
-              <label for="year1" class="filter-selected-checkbox">2000</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="year2" />
-              <label for="year2" class="filter-selected-checkbox">2001</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="year3" />
-              <label for="year3" class="filter-selected-checkbox">2002</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="year4" />
-              <label for="year4" class="filter-selected-checkbox">2003</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="year5" />
-              <label for="year5" class="filter-selected-checkbox">2004</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="year6" />
-              <label for="year6" class="filter-selected-checkbox">2005</label>
-            </div>
+          <div ref={yearRef} class="container-filters zoomIn" id="dropdown-year">
+            {
+              resultYears.map(item => {
+                return(
+                  <>
+                    <div class="selected-box">
+                      <input type="checkbox" id={item} key={item} />
+                      <label for={item} class="filter-selected-checkbox">{item}</label>
+                    </div>
+                  </>
+                )
+              })
+            }
           </div>
           {/* <!-- End of Year Container --> */}
           {/* <!-- Type Container  --> */}
-          <div class="container-filters zoomIn" id="dropdown-type">
-            <div class="selected-box">
-              <input type="checkbox" id="TV" />
-              <label for="TV" class="filter-selected-checkbox">TV</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="movie" />
-              <label for="movie" class="filter-selected-checkbox">Pelicula</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="Special" />
-              <label for="Special" class="filter-selected-checkbox">Especial</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="OVA" />
-              <label for="OVA" class="filter-selected-checkbox">OVA</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="ONA" />
-              <label for="ONA" class="filter-selected-checkbox">ONA</label>
-            </div>
+          <div ref={typeRef} class="container-filters zoomIn" id="dropdown-type">
+            {
+              resultTypeAnime.map(item => {
+                return(
+                  <>
+                    <div class="selected-box">
+                      <input type="checkbox" id={item.name} key={item.id} />
+                      <label for={item.name} class="filter-selected-checkbox">{item.name}</label>
+                    </div>
+                  </>
+                )
+              })
+            }
           </div>
           {/* <!-- End of Type Container --> */}
           {/* <!-- Status Container  --> */}
-          <div class="container-filters zoomIn" id="dropdown-status">
-            <div class="selected-box">
-              <input type="checkbox" id="ongoing" />
-              <label for="ongoing" class="filter-selected-checkbox">En Emision</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="completed" />
-              <label for="completed" class="filter-selected-checkbox">Finalizado</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="soon" />
-              <label for="soon" class="filter-selected-checkbox">Proximamente</label>
-            </div>
-          </div>
-          {/* <!-- End of Status Container --> */}
-          {/* <!-- Status Container  --> */}
-          <div class="container-filters zoomIn" id="dropdown-status">
+          <div ref={statusRef} class="container-filters zoomIn" id="dropdown-status">
             <div class="selected-box">
               <input type="checkbox" id="ongoing" />
               <label for="ongoing" class="filter-selected-checkbox">En Emision</label>

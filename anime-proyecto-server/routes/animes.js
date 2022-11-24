@@ -471,4 +471,25 @@ router.post("/search", async (req, res, next) => {
     }
 });
 
+router.get("/search-years", async (req, res) => {
+    await Models.anime.findAll({
+        attributes: ['year']
+    }).then(value => {
+        let listYears = [];
+        value.map(item => {
+            listYears.push(item.year)
+        });
+        res.status(200).json({
+            code: 200,
+            years: listYears.filter((subject, index) => listYears.indexOf(subject) === index)
+        });
+    }).catch(err => {
+        res.status(200).json({
+            code: 400,
+            message: 'Internal error'
+        });
+        console.log(err);
+    })
+})
+
 module.exports = router
