@@ -83,6 +83,16 @@ img {
     margin: 5px 5px;
 }
 
+.anime-matured {
+    position: absolute;
+    left: 11px;
+    top: 11px;
+    background: #ff5700;
+    color: #fff;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
 .stats2::after {
     content: "";
     clear: both;
@@ -137,10 +147,10 @@ img {
 
 .title-episode {
     position: absolute;
-    background: white;
+    background: #0c70de;
     border-radius: 5px 0 5px 0;
-    padding: 3px;
-    color: black;
+    color: white;
+    padding: 1px 5px;
 }
 
 #episode-latest-image {

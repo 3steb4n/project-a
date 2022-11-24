@@ -56,13 +56,13 @@ body::-webkit-scrollbar-thumb {
 #login {
     background: white;
     color: black;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin: 15px 20px;
 }
 
 #login:hover {
-    background: black;
+    background: #0c70de;
     color: white;
 }
 
@@ -90,7 +90,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .sidebar ul li:hover a {
-    color: rgb(231, 218, 25);
+    color: #0c70de;
 }
 
 #check:checked~.sidebar {
@@ -165,13 +165,13 @@ body::-webkit-scrollbar-thumb {
     background: white;
     padding: 10px;
     color: black;
-    bottom: 4px;
+    bottom: 7px;
     z-index: 25;
 }
 
 .more-information:hover {
-    color: white;
-    background: rgb(19, 20, 16);
+    color:white;
+    background: #0c70de;
 }
 
 .search-info {
@@ -180,7 +180,6 @@ body::-webkit-scrollbar-thumb {
     left: 236px;
     width: 300px;
     z-index: 3;
-    display: none;
 }
 
 .search-anime:before {
@@ -274,6 +273,12 @@ body::-webkit-scrollbar-thumb {
     border-radius: 2px;
     padding: 15px;
     color: black;
+    transition: 0.2s;
+}
+
+.auth ul li a:hover {
+    background: #0c70de;
+    color: white;
 }
 
 
@@ -282,7 +287,7 @@ body::-webkit-scrollbar-thumb {
     color: white;
     font-size: 30px;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.2s;
     margin: 0 5px;
 }
 
