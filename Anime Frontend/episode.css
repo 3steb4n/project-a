@@ -25,6 +25,7 @@ body {
     margin: 5px;
     margin-top: 10px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .server-name:hover {
@@ -36,32 +37,33 @@ body {
     position: relative;
 }
 
-.jwplayer {
-    position: relative;
-    border-radius: 5px;
-    color: white;
-}
 
-#container1 .jw-settings-content-item:hover {
+/* #container1 .jw-reset .jw-settings-content-item:hover {
     color: #0c70de;
 }
 
-#container1 .jw-button-color:hover:not(.jw-icon-cast) {
-    color: white;
+#container1 .jw-reset .jw-button-container .jw-button-color:hover:not(.jw-icon-cast) {
+    color: #0c70de;
 }
 
 .jw-button-color {
     color: white;
+} */
+
+
+.jwplayer .jw-logo-button {
+    display: none;
 }
 
-.jw-logo-button {
-    display:none;
+.jw-preview  .jw-reset{
+    background-size: cover;
 }
 
 .controllers {
     position: relative;
-    display: flex;
-    background: red;
+    background: rgb(12, 12, 12);
+    width: 900px;
+    height: 35px;
 }
 
 .control {
@@ -69,6 +71,35 @@ body {
     color: white;
     cursor: pointer;
     margin: 0 15px;
+    padding-top: 5px;
+    float: left;
+    transition: 0.2s;
+}
+
+.control2 {
+    position: relative;
+    color: white;
+    cursor: pointer;
+    margin: 0 15px;
+    padding-top: 5px;
+    float: right;
+    transition: 0.2s;
+}
+
+#resize:hover {
+    color: #0c70de;
+}
+
+.control-text {
+    font-size: 15px;
+}
+
+.control2:hover {
+    color: #0c70de;
+}
+
+.auto {
+    color: red;
 }
 
 .controller-content::after {
@@ -121,7 +152,7 @@ body {
     color: white;
     border-radius: 0.3rem;
     font-size: 15px;
-    border: none!important;
+    border: none !important;
     padding: 0 5px;
 }
 
@@ -170,7 +201,6 @@ p.text-l {
 
 #more-comments {
     position: relative;
-    margin-left: 350px;
     font-size: 20px;
     margin-bottom: 25px;
     border-radius: 5px;
@@ -179,10 +209,17 @@ p.text-l {
     cursor: pointer;
 }
 
+
+
 @media screen and (max-width: 953px) {
     #textarea {
         width: 100%;
     }
+}
+
+#container1 {
+    width: 900px;
+    height: 500px;
 }
 
 
@@ -226,7 +263,7 @@ p.text-l {
     }
 }
 
-@media screen and (max-width: 1220px ) {
+@media screen and (max-width: 1220px) {
     #video-player {
         width: 100%;
     }
@@ -245,11 +282,39 @@ p.text-l {
     }
 }
 
+@media screen and (max-width: 920px) {
+    .controllers {
+        width: 100%;
+    }
+
+    #container1 {
+        width: 100%;
+    }
+
+    .jwplayer {
+        width: 100%;
+    }
+}
+
+#player-icon {
+    display: none;
+}
+
 @media screen and (max-width: 789px) {
     .episode-info {
         width: 48%;
     }
 }
+
+@media screen and (max-width: 571px) {
+    .control2 .control-text {
+        display: none;
+    }
+    #player-icon {
+        display: block;
+    }
+}
+
 
 @media screen and (max-width: 858px) {
     .anime-info {
@@ -273,4 +338,3 @@ p.text-l {
         width: 100%;
     }
 }
-
