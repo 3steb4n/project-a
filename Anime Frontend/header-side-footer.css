@@ -328,6 +328,7 @@ body::-webkit-scrollbar-thumb {
     position: static;
     background: #2a2c31 url('./images/footer2.jpg');
     background-position: 100%;
+    margin-top: 50px
 }
 
 .footer-about {
