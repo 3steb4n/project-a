@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="header-side-footer.css">
     <link rel="stylesheet" href="dir_anime.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -386,17 +387,12 @@
     <!-- End of Directory Anime -->
 
     <!-- Footer Start -->
-    <div class="container-footer">
-        <div class="logo"><img src="./images/logo.webp" alt="" id="logo"></div>
-        <div class="copyright">
-            Copyright © 2022 AnimexD. Todos los derechos reservados
-        </div>
-        <div class="disclaimer">
-            Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los
-            contenidos son proporcionados por terceros no afiliados.
-        </div>
-        <br>
-    </div>
+    <script>
+        $(function () {
+            $("#footer").load("footer.html");
+        });
+    </script>
+    <div id="footer"></div>
     <!-- Footer End -->
 
     <script src="js/index.js"></script>

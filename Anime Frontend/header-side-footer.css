@@ -170,7 +170,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .more-information:hover {
-    color:white;
+    color: white;
     background: #0c70de;
 }
 
@@ -205,7 +205,7 @@ body::-webkit-scrollbar-thumb {
     width: 100%;
     object-fit: cover;
     height: 100px;
-    border-radius: 5px 5px 0 0 ;
+    border-radius: 5px 5px 0 0;
     z-index: 1;
 }
 
@@ -249,16 +249,11 @@ body::-webkit-scrollbar-thumb {
 .item {
     float: left;
     padding: 0 5px;
+    font-size: 30px;
 }
 
 #discord {
     color: #7289da;
-    font-size: 30px;
-}
-
-#twitter {
-    color: #1DA1F2;
-    font-size: 30px;
 }
 
 .auth ul li {
@@ -331,17 +326,162 @@ body::-webkit-scrollbar-thumb {
     bottom: 0;
     width: 100%;
     position: static;
-    background: #111;
-    text-align: center;
+    background: #2a2c31 url('./images/footer2.jpg');
+    background-position: 100%;
+}
+
+.footer-about {
+    padding: 30px;
+}
+
+.footer-top {
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, .15);
+    width: 400px;
+    margin-left: 20px;
+}
+
+.logo-footer {
+    position: relative;
+    float: left;
+    margin: 0 40px 0 0;
+}
+
+.item-footer {
+    position: relative;
+    float: left;
+    margin-top: 1rem;
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.clear-fix {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+.footer-group .footer-line {
+    margin-top: 25px;
+    position: relative;
+    float: left;
+    padding: 0 5px 0 10px;
+    border-left: 1px solid rgba(255, 255, 255, .15);
+    font-size: 17px;
+    color: white;
+}
+
+.footer-az {
+    margin-left: 20px;
+    margin-bottom: 10px;
+
+}
+
+.footer-az-info {
+    margin-bottom: 1rem !important;
+}
+
+.az {
+    display: inline-block;
+    padding-right: 20px;
+    margin-right: 20px;
+    border-right: 1px solid rgba(255, 255, 255, .3);
+    line-height: 1em;
+    font-size: 1.2em;
+    color: white;
+    margin-left: 20px;
+
+}
+
+.az-info {
+    color: white;
+    font-size: 14px;
+}
+
+.az-bottons .button {
+    position: relative;
+    background: white;
+    float: left;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 0 10px 10px;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.az-bottons .button:hover {
+    background: #0c70de;
+    color: white;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.url-links ul {
+    list-style: none;
+    margin: 0 0 0 30px;
+}
+
+.footer-links ul li {
+    float: left;
+}
+
+.footer-links ul li a {
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    padding-right: 40px;
+    color: white;
+    transition: 0.25s;
+    font-size: 14px;
+}
+
+.footer-links ul li a:hover {
+    color: #0c70de;
+}
+
+.about-text {
+    margin: 0 auto 5px;
+    line-height: 1.4em;
+    margin-left: 30px;
+    color: white;
+    opacity: 0.5;
 }
 
 .copyright {
+    position: relative;
+    margin-left: 30px;
+    opacity: 0.5;
     color: white;
 }
 
-.disclaimer {
-    color: white;
+.logo-mobile {
+    text-align: center;
+    display: none;
 }
 
+@media screen and (max-width: 700px) {
+    .container-footer {
+        background-position: -1300px;
+
+    }
+}
+
+@media screen and (max-width: 657px) {
+    .footer-az {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 471px) {
+    .footer-top {
+        display: none;
+    }
+}
 
 /* End Footer */

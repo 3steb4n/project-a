@@ -13,26 +13,65 @@
 <body>
 
 
-    <div class="header">
-        <nav class="header-content">
-            <ul class="nav-links">
-                <input type="checkbox" id="check">
+    <!-- Sidebar and Navbar -->
+    <input type="checkbox" id="check">
+    <div class="sidebar">
+        <div class="close-menu">
+            <label for="check" class="closebtn">Cerrar Menu</label>
+        </div>
+        <ul>
+            <li><a id="login" href="#">Iniciar Sesion</a></li>
+            <li><a id="login" href="#">Registrarse</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Directorio Anime</a></li>
+            <li><a href="#">TV Series</a></li>
+            <li><a href="#">Peliculas</a></li>
+            <li><a href="#">ONAS</a></li>
+        </ul>
+    </div>
+    <div class="navbar">
+        <div class="section">
+            <div class="menu">
                 <label for="check" class="checkbtn">
-                    <i class="fas fa-bars"></i>
-                    Menu
+                    <i class="fa-sharp fa-solid fa-bars"></i>
                 </label>
-                <div class="links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="">Movies</a></li>
-                    <li><a href="">TV Series</a></li>
-                    <li><a href="">Most Popular</a></li>
-                    <li class="btn"><a href="login.html">Login</a></li>
-                    <li class="btn"><a href="register.html">Register</a></li>
+            </div>
+            <div class="logo"><img src="./images/logo.webp" alt="" id="logo"></div>
+            <div class="search">
+                <input type="text" id="animeName" name="animeName" value=sankarea onChange={searchAnime}
+                    placeholder="Buscar Anime..." />
+                <span class="fas fa-search" id="searchIcon"></span>
+            </div>
+            <div class="social">
+                <div class="item">
+                    <a href=""><i class="fa-brands fa-discord" id="discord"></i></a>
                 </div>
-            </ul>
-        </nav>
+            </div>
+        </div>
+        <div class="section-2">
+            <div class="auth">
+                <ul>
+                    <li><a href="#">Iniciar Sesion</a></li>
+                    <li><a href="#">Registrarse</a></li>
+                    <i class="fa-solid fa-gear"></i>
+                </ul>
+            </div>
+        </div>
     </div>
 
+    <div class="search-info">
+        <div class="search-anime">
+            <a href="#">
+                <div class="search-anime-title">Sankarea</div>
+                <div class="search-anime-type">Anime</div>
+                <img src="./images/sankarea.png" alt="" id="search-anime-image">
+            </a>
+        </div>
+        <a href="#">
+            <div class="more-information">Más Resultados</div>
+        </a>
+    </div>
+    <!-- End of Sidebar and Navbar -->
 
     <div class="center">
         <h1>Registrate</h1>

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="header-side-footer.css">
     <link rel="stylesheet" href="episode.css">
     <script src="http://jwpsrv.com/library/5V3tOP97EeK2SxIxOUCPzg.js"></script>
@@ -205,18 +206,12 @@
         <!-- End of Comments  -->
     </div>
     <!-- Footer Start -->
-    <div class="container-footer">
-        <div class="logo"><img src="./images/logo.webp" alt="logo" id="logo"></div>
-        <div class="copyright">
-            Copyright © 2022 AnimexD. Todos los derechos reservados
-        </div>
-        <div class="disclaimer">
-            Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los
-            contenidos
-            son proporcionados por terceros no afiliados.
-        </div>
-        <br>
-    </div>
+    <script>
+        $(function(){
+            $("#footer").load("footer.html");
+        });
+    </script>
+    <div id="footer"></div>
     <!-- Footer End -->
     <script>
         textarea = document.querySelector("#textarea");

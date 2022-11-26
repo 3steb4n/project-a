@@ -55,7 +55,7 @@ body {
     display: none;
 }
 
-.jw-preview  .jw-reset{
+.jw-preview .jw-reset {
     background-size: cover;
 }
 
@@ -310,6 +310,7 @@ p.text-l {
     .control2 .control-text {
         display: none;
     }
+
     #player-icon {
         display: block;
     }
@@ -330,11 +331,5 @@ p.text-l {
 @media screen and (max-width: 650px) {
     .episode-info {
         width: 45%;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .episode-info {
-        width: 100%;
     }
 }
