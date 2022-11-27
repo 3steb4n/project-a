@@ -1,4 +1,4 @@
-# ![screencapture-file-C-Users-mehei-Documents-GitHub-project-a-Anime-Frontend-index-html-2022-11-20-16_07_55](https://user-images.githubusercontent.com/78386551/202926272-d5006985-991e-429f-96e8-ddc6fc49c39e.png)
+# ![screencapture-127-0-0-1-5501-Anime-Frontend-index-html-2022-11-26-21_49_14](https://user-images.githubusercontent.com/78386551/204117067-ef76c20e-dcd4-4685-b8da-c39c7281252b.png)
 
 # Project-A
 <table>
@@ -14,11 +14,12 @@
 Currently working on Frontend
 
 ### Anime
-![screencapture-file-C-Users-mehei-Documents-GitHub-project-a-Anime-Frontend-anime-html-2022-11-20-16_08_47](https://user-images.githubusercontent.com/78386551/202926319-2170ab04-084f-4252-82ba-d07ffe96f040.png)
+![screencapture-127-0-0-1-5501-Anime-Frontend-anime-html-2022-11-26-21_52_15](https://user-images.githubusercontent.com/78386551/204117128-7c845695-4986-48a3-860c-9460b46561ab.png)
+
 
 ### Episode
+![screencapture-127-0-0-1-5501-Anime-Frontend-episode-html-2022-11-26-21_50_56](https://user-images.githubusercontent.com/78386551/204117101-242192f9-99a1-4e3f-a649-ec3fb814159b.png)
 
-![screencapture-file-C-Users-mehei-Documents-GitHub-project-a-Anime-Frontend-episode-html-2022-11-20-16_11_10](https://user-images.githubusercontent.com/78386551/202926417-3ed399d3-89b6-4188-9f32-ccaf0c2eb388.png)
 
 ## Mobile support
 The WebApp is compatible with devices of all sizes and all OS's, and consistent improvements are being made.
