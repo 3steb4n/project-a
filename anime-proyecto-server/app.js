@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 let animeRouter = require('./routes/animes')
 let genreRouter = require('./routes/genres')
 let typeAnimeRouter = require('./routes/typeanime');
+let animeStatus = require('./routes/animestatus');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/users', usersRouter);
 app.use('/animes', animeRouter);
 app.use('/genres', genreRouter);
 app.use('/typeanime', typeAnimeRouter);
+app.use('/anime-status', animeStatus);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

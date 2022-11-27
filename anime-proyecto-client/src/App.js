@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 // import VideoJs from './components/videoJS';
-import { Routes, Route, Link, useParams } from "react-router-dom";
+import { Routes, Route, useNavigate, useSearchParams, useLocation } from "react-router-dom";
 // import videojs from 'video.js'
 import React, { useState, useEffect, useRef } from 'react';
 // import { useSelector } from "react-redux";
@@ -16,8 +16,6 @@ import logo from './public/logo.webp'
 
 import './auth.css'
 
-import { useNavigate } from 'react-router-dom';
-
 const { persistor, store } = configureStore();
 
 const URL_SERVICE = '//localhost:4000/';
@@ -31,7 +29,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          <Route path="search/:page" element={<AnimeDirectory />} />
+          <Route path="/search" element={<AnimeDirectory />} />
         </Routes>
       </div>
     </>
@@ -260,8 +258,8 @@ const NavBar = () => {
         <ul>
           <li><a id="login" href="#">Iniciar Sesion</a></li>
           <li><a id="login" href="#">Registrarse</a></li>
-          <li><a href="#">Home</a></li>
-          <li><a href="search/">Directorio Anime</a></li>
+          <li><a href="http://localhost:3000/">Home</a></li>
+          <li><a href="/search?page=1">Directorio Anime</a></li>
           <li><a href="#">TV Series</a></li>
           <li><a href="#">Peliculas</a></li>
           <li><a href="#">ONAS</a></li>
@@ -338,8 +336,12 @@ function AnimeDirectory () {
   const [resultGenres, setResultGenres] = useState([]);
   const [resultYears, setResultYears] = useState([]);
   const [resultTypeAnime, setTypeAnime] = useState([]);
+  const [resulAnimeStatus, setAnimeStatus] = useState([]);
+  const [resultAnime, setAnime] = useState([]);
+  const [countResultAnime, setCountResultAnime] = useState([]);
 
-  const params = useParams();
+  let animePerPage = 20;
+  const navigateAnime = useNavigate();
 
   //Get id DOM Lists
   const genreRef = useRef(null);
@@ -347,7 +349,9 @@ function AnimeDirectory () {
   const typeRef = useRef(null);
   const statusRef = useRef(null);
 
-  console.log(params.page);
+  const [getParams, setParams] = useSearchParams();
+
+  //console.log(params.page);
 
   useEffect(() => {
     axios.get(`${URL_SERVICE}genres/search`).then(resp => {
@@ -361,9 +365,36 @@ function AnimeDirectory () {
     axios.get(`${URL_SERVICE}typeanime/search`).then(resp => {
       setTypeAnime(resp.data.message)
     }).catch(error => console.log(`${error}`));
+
+    axios.get(`${URL_SERVICE}anime-status/search`).then(resp => {
+      setAnimeStatus(resp.data.message);
+    }).catch(error => console.log(`${error}`));
+
+    try {
+      const queryParams = Object.fromEntries([...getParams]);
+      const returnPages = (count) => {
+        let countArr = [];
+        for (let i = 1; i <= Math.ceil(count / animePerPage); i++) {
+          countArr.push(i);
+        }
+        return countArr;
+      }
+      console.log(queryParams.page);
+
+      if (queryParams.name === undefined) {
+        axios.get(`${URL_SERVICE}animes/search-all`).then(resp => {
+          setAnime(resp.data.result.rows.slice((queryParams.page == 1) ? (queryParams.page - 1) : (queryParams.page - 1) * animePerPage),(queryParams.page * animePerPage));
+          setCountResultAnime(returnPages(resp.data.result.count));
+        }).catch(error => console.log(`${error}`));
+      } else {
+
+      }
+    } catch(err) {
+      console.log(err);
+    }
   }, []);
 
-  console.log(resultGenres);
+  console.log(resultAnime);
 
   return (
     <>
@@ -446,18 +477,18 @@ function AnimeDirectory () {
           {/* <!-- End of Type Container --> */}
           {/* <!-- Status Container  --> */}
           <div ref={statusRef} class="container-filters zoomIn" id="dropdown-status">
-            <div class="selected-box">
-              <input type="checkbox" id="ongoing" />
-              <label for="ongoing" class="filter-selected-checkbox">En Emision</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="completed" />
-              <label for="completed" class="filter-selected-checkbox">Finalizado</label>
-            </div>
-            <div class="selected-box">
-              <input type="checkbox" id="soon" />
-              <label for="soon" class="filter-selected-checkbox">Proximamente</label>
-            </div>
+            {
+              resulAnimeStatus.map(item => {
+                return(
+                  <>
+                    <div class="selected-box">
+                      <input type="checkbox" id={item.id} key={item.id} />
+                      <label for={item.id} class="filter-selected-checkbox">{item.name}</label>
+                    </div>
+                  </>
+                )
+              })
+            }
           </div>
           {/* <!-- End of Status Container --> */}
         </div>
@@ -467,22 +498,38 @@ function AnimeDirectory () {
           Lista de Animes
         </div>
         <div class="latest-animes">
-          <a href="#">
-            <div class="info-anime">
-              <img src="https://animeui.com/wp-content/uploads/2022/11/1668294814-2656-106930.jpg" alt=""
-                id="anime-latest-image" />
-              <div class="anime-type">ONA</div>
-              <div class="anime-title">All Saint Street</div>
-            </div>
-          </a>
+          {
+            resultAnime.map(item => {
+              return(
+                <>
+                  <a href="#">
+                    <div class="info-anime">
+                      <img src="https://animeui.com/wp-content/uploads/2022/11/1668294814-2656-106930.jpg" alt=""
+                        id="anime-latest-image" />
+                      <div class="anime-type">{item.typeAnime.name}</div>
+                      <div class="anime-title">{item.name}</div>
+                    </div>
+                  </a>
+                </>
+              )
+            })
+          }
         </div>
       </div>
       <div class="pagination">
         <a><i class="fa-solid fa-arrow-left"></i></a>
-        <a>1</a>
-        <a>2</a>
-        <a>3</a>
-        <a>4</a>
+        {
+          countResultAnime.map(item => {
+            return (
+              <>
+              <a onClick={() => {
+                setParams({page: item});
+                window.location.reload(false);
+              }}>{item}</a>
+              </>
+            )
+          })
+        }
         <a><i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </>
