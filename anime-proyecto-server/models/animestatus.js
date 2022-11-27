@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'AnimeStatus',
   });
   const generateAnimeStatus = () => {
-    const animeStatus = ['En emisión', "Finalizado"];
+    const animeStatus = ['En emisión', "Proximamente", "Finalizado"];
     animeStatus.map(value => {
       AnimeStatus.count({
         where: {name: value}

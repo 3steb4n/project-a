@@ -456,7 +456,7 @@ router.post("/search", async (req, res, next) => {
             }).then(re => {
                 res.status(200).json({
                     status: 200,
-                    message: JSON.parse(JSON.stringify(re))
+                    result: JSON.parse(JSON.stringify(re))
                 });
                 return;
             }).catch(err => {
@@ -470,6 +470,24 @@ router.post("/search", async (req, res, next) => {
         }
     }
 });
+
+router.get('/search-all', async (req, res) => {
+    Models.anime.findAndCountAll({
+        include: {
+            model: Models.typeAnime,
+            attributtes: ['name']
+        },
+        attributtes: ['id', 'name', 'url_preview'],
+        order: [['createdAt', 'DESC']]
+    }).then(value => {
+        res.status(200).json({
+            code: 200,
+            result: value
+        });
+    }).catch(error => {
+        console.log(error);
+    });
+})
 
 router.get("/search-years", async (req, res) => {
     await Models.anime.findAll({
