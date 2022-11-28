@@ -135,7 +135,7 @@ img {
   font-size: 16px;
 }
 
-.anime-type {
+.episode-info .anime-type {
   position: absolute;
   background: #0c70de;
   bottom: 43px;

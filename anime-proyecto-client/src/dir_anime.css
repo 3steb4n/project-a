@@ -103,10 +103,10 @@ body {
 }
 
 .selected-box input[type="checkbox"] {
-    display: none;    
+    display: none;
 }
 
-.selected-box input[type="checkbox"] + .filter-selected-checkbox {
+.selected-box input[type="checkbox"]+.filter-selected-checkbox {
     position: relative;
     line-height: 30px;
     padding: 5px 10px 5px 25px;
@@ -119,7 +119,7 @@ body {
     color: #333;
 }
 
-.selected-box input[type="checkbox"]:checked + .filter-selected-checkbox {
+.selected-box input[type="checkbox"]:checked+.filter-selected-checkbox {
     position: relative;
     transition: .2s;
     font-size: 15px;
@@ -127,6 +127,16 @@ body {
     background-color: white;
     vertical-align: middle;
     line-height: 30px;
+}
+
+.selected-box input[type="checkbox"]:checked+.filter-selected-checkbox::after {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 11px;
+    color: white;
+    position: absolute;
+    left: 5px;
 }
 
 .selected-box input[type="checkbox"]:checked+.filter-selected-checkbox::before {
@@ -182,7 +192,7 @@ body {
     position: relative;
 }
 
-.film-details{
+.film-details {
     position: relative;
     font-size: 12px;
     padding: 10px;
@@ -221,10 +231,21 @@ body {
 }
 
 .anime-info {
+    position: relative;
     opacity: 0.8;
     display: flex;
-    justify-content: space-between;
     color: #aaa;
+    justify-content: space-around;
+}
+
+.film-details .anime-info .anime-type {
+    position: relative;
+    left: -10px;
+}
+
+.anime-year {
+    position: relative;
+    right: -10px;
 }
 
 .film-poster {

@@ -16,13 +16,13 @@ body {
 .imagePortrait{
     position: relative;
     top: 70px;
-    left: 10px;
     width: 410px;
-    min-width: 40px
+    margin-left: 50px;
 }
 
 .imagePortrait img{
     border-radius: 2%;
+    width: 70%;
 }
 
 .container{

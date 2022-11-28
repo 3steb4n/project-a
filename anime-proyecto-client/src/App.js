@@ -14,7 +14,6 @@ import logo from './public/logo.webp'
 
 //login register
 
-
 const { persistor, store } = configureStore();
 
 const URL_SERVICE = '//localhost:4000/';
@@ -337,7 +336,7 @@ function AnimeDirectory() {
   const [resultAnime, setAnime] = useState([]);
   const [countResultAnime, setCountResultAnime] = useState([]);
 
-  let animePerPage = 20;
+  let animePerPage = 30;
   const navigateAnime = useNavigate();
 
   //Get id DOM Lists
@@ -535,15 +534,16 @@ function AnimeDirectory() {
                   <a href="#">
                     <div class="info-anime">
                       <div class="film-poster">
-                        <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx11499-SeYog5nP4Uks.png"
+                        <img src={item.url_preview}
                           alt="" id="anime-latest-image" />
                         <div class="anime-matured">+18</div>
                       </div>
                       <div class="film-details">
                         <div class="anime-title">{item.name}</div>
                         <div class="anime-info">
-                        <div class="anime-type-i">{item.typeAnime.name}</div>
-                        <div class="anime-year">{item.year}</div>
+                          <div class="anime-type-i">{item.typeAnime.name}</div>
+                          <div class="anime-ep">Ep: {item.number_chapter}</div>
+                          <div class="anime-year">{item.year}</div>
                         </div>
                       </div>
                     </div>
@@ -571,8 +571,8 @@ function AnimeDirectory() {
         <a><i class="fa-solid fa-arrow-right"></i></a>
       </div>
 
-           {/* <!-- Footer Start --> */}
-           <div class="container-footer">
+      {/* <!-- Footer Start --> */}
+      <div class="container-footer">
         <div class="footer-about">
           <div class="footer-top">
             <div class="logo-footer"><img src={logo} alt="logo" id="logo" /></div>
@@ -705,7 +705,11 @@ function Home() {
               </div>
               <div class="film-details">
                 <div class="anime-title">Chainsaw Man</div>
-                <div class="anime-type-i">TV</div>
+                <div class="anime-info">
+                  <div class="anime-type">TV</div>
+                  <div class="anime-ep">Ep: 20</div>
+                  <div class="anime-year">2022</div>
+                </div>
               </div>
             </div>
           </a>
@@ -728,7 +732,11 @@ function Home() {
               </div>
               <div class="film-details">
                 <div class="anime-title">Chainsaw Man</div>
-                <div class="anime-type-i">TV</div>
+                <div class="anime-info">
+                  <div class="anime-type">TV</div>
+                  <div class="anime-ep">Ep: 20</div>
+                  <div class="anime-year">2022</div>
+                </div>
               </div>
             </div>
           </a>
