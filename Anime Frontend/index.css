@@ -145,16 +145,6 @@ img {
     right: 9px;
 }
 
-.anime-matured {
-    position: absolute;
-    left: 11px;
-    top: 11px;
-    background: #ff5700;
-    color: #fff;
-    border-radius: 5px 0 5px;
-    padding: 2px 5px;
-}
-
 .title-anime {
     position: relative;
     color: white;
@@ -288,6 +278,13 @@ img {
 
 /* Latest Animes Added */
 
+.anime-container-text {
+    color: white;
+    position: relative;
+    font-size: 35px;
+    margin-left: 20px;
+}
+
 .container-anime {
     position: relative;
     width: 100%;
@@ -298,48 +295,105 @@ img {
 }
 
 .info-anime {
-    position: relative;
+    width: calc(10% - 16px);
+    margin: 0 7px 14px;
     float: left;
-    width: 11%;
-    padding: 10px;
-    left: 15px;
+    background: #2a2c31;
+    border-radius: 0;
+    position: relative;
 }
 
-.info-anime .anime-type {
-    bottom: 48px;
+.film-details{
+    position: relative;
+    font-size: 12px;
+    padding: 10px;
+    min-height: 84px;
+    background: #2a2c31;
+}
+
+.anime-title {
+    font-size: 14px;
+    line-height: 1.3em;
+    margin: 0;
+    font-weight: 500;
+    margin-bottom: 10px;
+    height: 37px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: white;
+}
+
+.anime-matured {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    bottom: auto;
+    background: #ff5700;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 4px 6px;
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 30%);
+    min-width: 36px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.anime-type-i {
+    opacity: 0.8;
+    color: #aaa;
+}
+
+.film-poster {
+    border-radius: 0;
+    padding-bottom: 130%;
+    font-size: 0;
 }
 
 #anime-latest-image {
+    position: absolute;
     width: 100%;
-    height: 250px;
-    margin: 1px;
-    border-radius: 5px;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 /* End of Latest Animes Added  */
 
-@media screen and (max-width: 1409px) {
+@media screen and (max-width: 1526px) {
     .info-anime {
-        width: 19%;
+        width: 13%;
     }
 }
 
 @media screen and (max-width: 1250px) {
     .info-anime {
-        width: 25%;
+        width: calc(19% - 5px);
         left: 0;
     }
 }
 
-@media screen and (max-width: 828px) {
+@media screen and (max-width: 899px) {
     .info-anime {
-        width: 32%;
+        width: 23%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .info-anime {
+        width: 30%;
     }
 }
 
 @media screen and (max-width: 500px) {
     .info-anime {
-        width: 49%;
+        width: 43%;
+        left: 10px;
     }
 }
 

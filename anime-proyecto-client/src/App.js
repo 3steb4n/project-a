@@ -14,7 +14,6 @@ import logo from './public/logo.webp'
 
 //login register
 
-import './auth.css'
 
 const { persistor, store } = configureStore();
 
@@ -268,7 +267,7 @@ const NavBar = () => {
       <div class="navbar">
         <div class="section">
           <div class="menu">
-            <label for="check" class="checkbtn-1">
+            <label for="check" class="checkbtn">
               <i class="fas fa-bars"></i>
             </label>
           </div>
@@ -281,15 +280,13 @@ const NavBar = () => {
             <div class="item">
               <a href=""><i class="fa-brands fa-discord" id="discord"></i></a>
             </div>
-            <div class="item">
-              <a href=""><i class="fa-brands fa-twitter" id="twitter"></i></a>
-            </div>
           </div>
         </div>
         <div class="section-2">
           <div class="auth">
             <ul>
               {logginButton}
+              <i class="fa-solid fa-gear"></i>
             </ul>
           </div>
         </div>
@@ -332,7 +329,7 @@ const NavBar = () => {
   )
 }
 
-function AnimeDirectory () {
+function AnimeDirectory() {
   const [resultGenres, setResultGenres] = useState([]);
   const [resultYears, setResultYears] = useState([]);
   const [resultTypeAnime, setTypeAnime] = useState([]);
@@ -386,7 +383,7 @@ function AnimeDirectory () {
 
       //Return results by pages
       const sliceArrayPagesAnime = animeObject => {
-        setAnime(animeObject.slice((queryParams.page == 1) ? (queryParams.page - 1) : (queryParams.page - 1) * animePerPage),(queryParams.page * animePerPage));
+        setAnime(animeObject.slice((queryParams.page == 1) ? (queryParams.page - 1) : (queryParams.page - 1) * animePerPage), (queryParams.page * animePerPage));
       };
 
       if (queryParams.name === undefined) {
@@ -398,7 +395,7 @@ function AnimeDirectory () {
       }
 
       if (queryParams.name !== undefined && queryParams.genres === undefined && queryParams.year === undefined && queryParams.type === undefined && queryParams.status === undefined) {
-        axios.post(`${URL_SERVICE}animes/search`, {name: queryParams.name}).then(resp => {
+        axios.post(`${URL_SERVICE}animes/search`, { name: queryParams.name }).then(resp => {
           sliceArrayPagesAnime(resp.data.result.rows);
           setCountResultAnime(returnPages(resp.data.result.rows.length));
         }).catch(error => console.log(`${error}`));
@@ -411,7 +408,7 @@ function AnimeDirectory () {
       } else if (queryParams.genres.split('-').length > 0 || queryParams.year.split('-').length > 0 || queryParams.type.split('-').length > 0 || queryParams.status.split('-').length > 0) {
         const filters = {
           genres: () => {
-            
+
           }
         }
         axios.post(`${URL_SERVICE}animes/search`, {
@@ -424,11 +421,11 @@ function AnimeDirectory () {
           setCountResultAnime(returnPages(resp.data.result.rows.length));
         }).catch(error => console.log(`${error}`));
       }
-    } catch(err) {
+    } catch (err) {
       console.log(err);
     }
   }, []);
-  
+
   return (
     <>
       <div class="directory-anime-container">
@@ -464,7 +461,7 @@ function AnimeDirectory () {
           <div ref={genreRef} class="container-filters zoomIn" id="dropdown">
             {
               resultGenres.map(item => {
-                return(
+                return (
                   <>
                     <div class="selected-box">
                       <input type="checkbox" key={item.id} id={`${item.id}-genre`} />
@@ -480,7 +477,7 @@ function AnimeDirectory () {
           <div ref={yearRef} class="container-filters zoomIn" id="dropdown-year">
             {
               resultYears.map(item => {
-                return(
+                return (
                   <>
                     <div class="selected-box">
                       <input type="checkbox" id={item} key={item} />
@@ -496,7 +493,7 @@ function AnimeDirectory () {
           <div ref={typeRef} class="container-filters zoomIn" id="dropdown-type">
             {
               resultTypeAnime.map(item => {
-                return(
+                return (
                   <>
                     <div class="selected-box">
                       <input type="checkbox" id={item.name} key={item.id} />
@@ -512,7 +509,7 @@ function AnimeDirectory () {
           <div ref={statusRef} class="container-filters zoomIn" id="dropdown-status">
             {
               resulAnimeStatus.map(item => {
-                return(
+                return (
                   <>
                     <div class="selected-box">
                       <input type="checkbox" id={item.id} key={item.id} />
@@ -533,14 +530,19 @@ function AnimeDirectory () {
         <div class="latest-animes">
           {
             resultAnime.map(item => {
-              return(
+              return (
                 <>
                   <a href="#">
                     <div class="info-anime">
-                      <img src="https://animeui.com/wp-content/uploads/2022/11/1668294814-2656-106930.jpg" alt=""
-                        id="anime-latest-image" />
-                      <div class="anime-type">{item.typeAnime.name}</div>
-                      <div class="anime-title">{item.name}</div>
+                      <div class="film-poster">
+                        <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx11499-SeYog5nP4Uks.png"
+                          alt="" id="anime-latest-image" />
+                        <div class="anime-matured">+18</div>
+                      </div>
+                      <div class="film-details">
+                        <div class="anime-title">{item.name}</div>
+                        <div class="anime-type-i">{item.typeAnime.name}</div>
+                      </div>
                     </div>
                   </a>
                 </>
@@ -555,16 +557,85 @@ function AnimeDirectory () {
           countResultAnime.map(item => {
             return (
               <>
-              <a onClick={() => {
-                setParams({page: item});
-                window.location.reload(false);
-              }}>{item}</a>
+                <a onClick={() => {
+                  setParams({ page: item });
+                  window.location.reload(false);
+                }}>{item}</a>
               </>
             )
           })
         }
         <a><i class="fa-solid fa-arrow-right"></i></a>
       </div>
+
+           {/* <!-- Footer Start --> */}
+           <div class="container-footer">
+        <div class="footer-about">
+          <div class="footer-top">
+            <div class="logo-footer"><img src={logo} alt="logo" id="logo" /></div>
+            <div class="footer-group">
+              <div class="footer-line">Unete</div>
+              <div class="item-footer">
+                <a href="#"><i class="fa-brands fa-discord" id="discord"></i></a>
+              </div>
+            </div>
+            <div class="clear-fix"></div>
+          </div>
+          <div class="footer-az">
+            <div class="footer-az-info">
+              <span class="az">A-Z Lista</span>
+              <span class="az-info">Orden de búsqueda por nombre alfabético de la A a la Z.</span>
+            </div>
+            <div class="az-bottons">
+              <ul><a class="button" href="#">Todos</a></ul>
+              <ul><a class="button" href="#">#</a></ul>
+              <ul><a class="button" href="#">0-9</a></ul>
+              <ul><a class="button" href="#">A</a></ul>
+              <ul><a class="button" href="#">B</a></ul>
+              <ul><a class="button" href="#">C</a></ul>
+              <ul><a class="button" href="#">D</a></ul>
+              <ul><a class="button" href="#">E</a></ul>
+              <ul><a class="button" href="#">F</a></ul>
+              <ul><a class="button" href="#">G</a></ul>
+              <ul><a class="button" href="#">H</a></ul>
+              <ul><a class="button" href="#">I</a></ul>
+              <ul><a class="button" href="#">J</a></ul>
+              <ul><a class="button" href="#">K</a></ul>
+              <ul><a class="button" href="#">L</a></ul>
+              <ul><a class="button" href="#">M</a></ul>
+              <ul><a class="button" href="#">N</a></ul>
+              <ul><a class="button" href="#">O</a></ul>
+              <ul><a class="button" href="#">P</a></ul>
+              <ul><a class="button" href="#">Q</a></ul>
+              <ul><a class="button" href="#">R</a></ul>
+              <ul><a class="button" href="#">S</a></ul>
+              <ul><a class="button" href="#">T</a></ul>
+              <ul><a class="button" href="#">U</a></ul>
+              <ul><a class="button" href="#">V</a></ul>
+              <ul><a class="button" href="#">X</a></ul>
+              <ul><a class="button" href="#">Y</a></ul>
+              <ul><a class="button" href="#">Z</a></ul>
+              <ul><a class="button" href="#">Q</a></ul>
+            </div>
+            <div class="clear-fix"></div>
+          </div>
+          <div class="footer-links">
+            <div class="url-links">
+              <ul>
+                <li><a href="#">Terminos de Servicios</a></li>
+                <li><a href="#">Politicas de Privacidad</a></li>
+              </ul>
+            </div>
+            <div class="clear-fix"></div>
+          </div>
+          <div class="about-text">AnimeUI no almacena ningún archivo en nuestro servidor, solo nos vinculamos a los
+            medios
+            alojados en servicios de terceros.
+          </div>
+          <p class="copyright">© AnimeUI.com</p>
+        </div>
+      </div>
+      {/* <!-- Footer End --> */}
     </>
   )
 }
@@ -603,15 +674,6 @@ function Home() {
               <div class="title-anime">Spy x Family</div>
             </a>
           </div>
-          <div class="episode-info">
-            <a href="#">
-              <div class="title-episode">Episodio 8</div>
-              <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-6969.jpg" alt=""
-                id="episode-latest-image" />
-              <div class="anime-type">TV</div>
-              <div class="title-anime">Boku no Hero Academia 6th Season</div>
-            </a>
-          </div>
         </div>
         <div class="anime-container-news">
           <div class="anime-news-container">
@@ -625,26 +687,7 @@ function Home() {
       </div>
       {/* <!-- End Latest Episodes  --> */}
 
-      {/* <!-- Latest Animes --> */}
-      <div class="container-anime">
-        <div class="anime-container-text">
-          Ultimos Animes
-        </div>
-        <div class="latest-animes">
-          <a href="#">
-            <div class="info-anime">
-              <img src="https://animeui.com/wp-content/uploads/2022/11/1668294814-2656-106930.jpg" alt=""
-                id="anime-latest-image" />
-              <div class="anime-type">ONA</div>
-              <div class="anime-title">All Saint Street</div>
-            </div>
-          </a>
-        </div>
-      </div>
-      {/* <!-- End Latest Animes --> */}
-
-      {/* <!-- Trending Anime --> */}
-
+      {/* <!-- Trending Animes --> */}
       <div class="container-anime">
         <div class="anime-container-text">
           Tendencias actuales
@@ -652,31 +695,111 @@ function Home() {
         <div class="latest-animes">
           <a href="#">
             <div class="info-anime">
-              <img src="https://animeui.com/wp-content/uploads/2022/11/1668294814-2656-106930.jpg" alt=""
-                id="anime-latest-image" />
-              <div class="anime-type">ONA</div>
-              <div class="anime-title">All Saint Street</div>
+              <div class="film-poster">
+                <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx127230-FlochcFsyoF4.png"
+                  alt="" id="anime-latest-image" />
+                <div class="anime-matured">+18</div>
+              </div>
+              <div class="film-details">
+                <div class="anime-title">Chainsaw Man</div>
+                <div class="anime-type-i">TV</div>
+              </div>
             </div>
           </a>
         </div>
       </div>
+      {/* <!-- End Trending Animes --> */}
 
-      {/* <!-- End Trending Anime --> */}
+      {/* <!-- Latest Anime --> */}
+      <div class="container-anime">
+        <div class="anime-container-text">
+          Ultimos Animes
+        </div>
+        <div class="latest-animes">
+          <a href="#">
+            <div class="info-anime">
+              <div class="film-poster">
+                <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx127230-FlochcFsyoF4.png"
+                  alt="" id="anime-latest-image" />
+                <div class="anime-matured">+18</div>
+              </div>
+              <div class="film-details">
+                <div class="anime-title">Chainsaw Man</div>
+                <div class="anime-type-i">TV</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      {/* <!-- End Latest Anime --> */}
 
       {/* <!-- Footer Start --> */}
-
       <div class="container-footer">
-        <div class="logo"><img src={logo} alt="" id="logo" /></div>
-        <div class="copyright">
-          Copyright © 2022 AnimexD. Todos los derechos reservados
+        <div class="footer-about">
+          <div class="footer-top">
+            <div class="logo-footer"><img src={logo} alt="logo" id="logo" /></div>
+            <div class="footer-group">
+              <div class="footer-line">Unete</div>
+              <div class="item-footer">
+                <a href="#"><i class="fa-brands fa-discord" id="discord"></i></a>
+              </div>
+            </div>
+            <div class="clear-fix"></div>
+          </div>
+          <div class="footer-az">
+            <div class="footer-az-info">
+              <span class="az">A-Z Lista</span>
+              <span class="az-info">Orden de búsqueda por nombre alfabético de la A a la Z.</span>
+            </div>
+            <div class="az-bottons">
+              <ul><a class="button" href="#">Todos</a></ul>
+              <ul><a class="button" href="#">#</a></ul>
+              <ul><a class="button" href="#">0-9</a></ul>
+              <ul><a class="button" href="#">A</a></ul>
+              <ul><a class="button" href="#">B</a></ul>
+              <ul><a class="button" href="#">C</a></ul>
+              <ul><a class="button" href="#">D</a></ul>
+              <ul><a class="button" href="#">E</a></ul>
+              <ul><a class="button" href="#">F</a></ul>
+              <ul><a class="button" href="#">G</a></ul>
+              <ul><a class="button" href="#">H</a></ul>
+              <ul><a class="button" href="#">I</a></ul>
+              <ul><a class="button" href="#">J</a></ul>
+              <ul><a class="button" href="#">K</a></ul>
+              <ul><a class="button" href="#">L</a></ul>
+              <ul><a class="button" href="#">M</a></ul>
+              <ul><a class="button" href="#">N</a></ul>
+              <ul><a class="button" href="#">O</a></ul>
+              <ul><a class="button" href="#">P</a></ul>
+              <ul><a class="button" href="#">Q</a></ul>
+              <ul><a class="button" href="#">R</a></ul>
+              <ul><a class="button" href="#">S</a></ul>
+              <ul><a class="button" href="#">T</a></ul>
+              <ul><a class="button" href="#">U</a></ul>
+              <ul><a class="button" href="#">V</a></ul>
+              <ul><a class="button" href="#">X</a></ul>
+              <ul><a class="button" href="#">Y</a></ul>
+              <ul><a class="button" href="#">Z</a></ul>
+              <ul><a class="button" href="#">Q</a></ul>
+            </div>
+            <div class="clear-fix"></div>
+          </div>
+          <div class="footer-links">
+            <div class="url-links">
+              <ul>
+                <li><a href="#">Terminos de Servicios</a></li>
+                <li><a href="#">Politicas de Privacidad</a></li>
+              </ul>
+            </div>
+            <div class="clear-fix"></div>
+          </div>
+          <div class="about-text">AnimeUI no almacena ningún archivo en nuestro servidor, solo nos vinculamos a los
+            medios
+            alojados en servicios de terceros.
+          </div>
+          <p class="copyright">© AnimeUI.com</p>
         </div>
-        <div class="disclaimer">
-          Descargo de responsabilidad: este sitio AnimexD no almacena ningún archivo en su servidor. Todos los
-          contenidos son proporcionados por terceros no afiliados.
-        </div>
-        <br />
       </div>
-
       {/* <!-- Footer End --> */}
     </>
   );
