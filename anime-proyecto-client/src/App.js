@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 // import VideoJs from './components/videoJS';
-import { Routes, Route, useNavigate, useSearchParams, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate, useSearchParams, Navigate } from "react-router-dom";
 // import videojs from 'video.js'
 import React, { useState, useEffect, useRef } from 'react';
 // import { useSelector } from "react-redux";
@@ -351,6 +351,8 @@ function AnimeDirectory () {
 
   const [getParams, setParams] = useSearchParams();
 
+  const redirectPage = useNavigate();
+
   //console.log(params.page);
 
   useEffect(() => {
@@ -372,7 +374,7 @@ function AnimeDirectory () {
 
     try {
       const queryParams = Object.fromEntries([...getParams]);
-      const returnPages = (count) => {
+      const returnPages = count => {
         let countArr = [];
         for (let i = 1; i <= Math.ceil(count / animePerPage); i++) {
           countArr.push(i);
@@ -380,22 +382,53 @@ function AnimeDirectory () {
         return countArr;
       }
       console.log(queryParams.page);
+      console.log(queryParams.genres);
+
+      //Return results by pages
+      const sliceArrayPagesAnime = animeObject => {
+        setAnime(animeObject.slice((queryParams.page == 1) ? (queryParams.page - 1) : (queryParams.page - 1) * animePerPage),(queryParams.page * animePerPage));
+      };
 
       if (queryParams.name === undefined) {
         axios.get(`${URL_SERVICE}animes/search-all`).then(resp => {
-          setAnime(resp.data.result.rows.slice((queryParams.page == 1) ? (queryParams.page - 1) : (queryParams.page - 1) * animePerPage),(queryParams.page * animePerPage));
-          setCountResultAnime(returnPages(resp.data.result.count));
+          sliceArrayPagesAnime(resp.data.result.rows);
+          setCountResultAnime(returnPages(resp.data.result.rows.length));
         }).catch(error => console.log(`${error}`));
-      } else {
+        return;
+      }
 
+      if (queryParams.name !== undefined && queryParams.genres === undefined && queryParams.year === undefined && queryParams.type === undefined && queryParams.status === undefined) {
+        axios.post(`${URL_SERVICE}animes/search`, {name: queryParams.name}).then(resp => {
+          sliceArrayPagesAnime(resp.data.result.rows);
+          setCountResultAnime(returnPages(resp.data.result.rows.length));
+        }).catch(error => console.log(`${error}`));
+        return;
+      }
+
+      if (queryParams.name !== undefined && queryParams.genres.split('-').length > 0 || queryParams.year.split('-').length > 0 || queryParams.type.split('-').length > 0 || queryParams.status.split('-').length > 0) {
+        redirectPage('/search?page=1');
+        window.location.reload(false);
+      } else if (queryParams.genres.split('-').length > 0 || queryParams.year.split('-').length > 0 || queryParams.type.split('-').length > 0 || queryParams.status.split('-').length > 0) {
+        const filters = {
+          genres: () => {
+            
+          }
+        }
+        axios.post(`${URL_SERVICE}animes/search`, {
+          genreId: (queryParams.genres.split('-').length > 0) ? queryParams.genres.split('-') : [],
+          year: (queryParams.year.split('-').length > 0) ? queryParams.year.split('-') : [],
+          type: (queryParams.type.split('-').length > 0) ? queryParams.type.split('-') : [],
+          status: (queryParams.status.split('-').length > 0) ? queryParams.status.split('-') : [],
+        }).then(resp => {
+          sliceArrayPagesAnime(resp.data.result.rows);
+          setCountResultAnime(returnPages(resp.data.result.rows.length));
+        }).catch(error => console.log(`${error}`));
       }
     } catch(err) {
       console.log(err);
     }
   }, []);
-
-  console.log(resultAnime);
-
+  
   return (
     <>
       <div class="directory-anime-container">
