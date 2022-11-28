@@ -541,7 +541,10 @@ function AnimeDirectory() {
                       </div>
                       <div class="film-details">
                         <div class="anime-title">{item.name}</div>
+                        <div class="anime-info">
                         <div class="anime-type-i">{item.typeAnime.name}</div>
+                        <div class="anime-year">{item.year}</div>
+                        </div>
                       </div>
                     </div>
                   </a>

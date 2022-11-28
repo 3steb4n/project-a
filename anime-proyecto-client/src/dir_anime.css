@@ -220,8 +220,10 @@ body {
     font-size: 12px;
 }
 
-.anime-type {
+.anime-info {
     opacity: 0.8;
+    display: flex;
+    justify-content: space-between;
     color: #aaa;
 }
 
