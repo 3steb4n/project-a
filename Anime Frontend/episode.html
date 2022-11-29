@@ -9,7 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="header-side-footer.css">
     <link rel="stylesheet" href="episode.css">
-    <script src="http://jwpsrv.com/library/5V3tOP97EeK2SxIxOUCPzg.js"></script>
+    <script src="./js/jwplayer.js"></script>
 
     <title>Document</title>
 </head>
@@ -56,6 +56,7 @@
             </div>
         </div>
     </div>
+
     <!-- End of Navbar and Sidebar -->
     <div class="main-container">
         <div class="episode-container">
@@ -65,14 +66,28 @@
                 <div class="server-name">Hokkaido</div>
                 <div class="server-name">Everland</div>
             </div>
-            <div id="container1">s
+            <div id="container1">
             </div>
             <script type="text/javascript">
-                const playerInstance = jwplayer("container1").setup({
+
+                jwplayer("container1").setup({
                     width: 'none',
                     height: 'none',
                     aspectratio: "16:9",
+                    logo: {
+                        hide: true,
+                    },
+                    advertising: {
+                        client: "googima",
+                        adschedulei: "Az87bY12",
+                        schedule: [
+                            {
+                                tag: "https://tpc.googlesyndication.com/ima3vpaid?vad_format=linear&correlator=&scor=[placeholder]&adtagurl=https%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fads%3Fiu%3D%2F22850522958%2Fvideo%26description_url%3Dhttp%253A%252F%252Fanimeui.com%26tfcd%3D1%26npa%3D1%26sz%3D400x300%257C640x480%26cmsid%3D%5Bplaceholder%5D%26vid%3D%5Bplaceholder%5D%26gdfp_req%3D1%26output%3Dvast%26unviewed_position_start%3D1%26env%3Dvp%26vpos%3Dpreroll%26vpmute%3D0%26vpa%3Dclick%26type%3Djs%26vad_type%3Dlinear"
+                            }
+                        ]
+                    },
                     playlist: [{
+                        title: 'Sankarea Episodio 1',
                         tracks: [{
                             kind: "captions",
                             file: "https://bafkreifgsx55stov22bbemgr5xni3fgulk7zseo6j6pha5et5u32cpfh6m.ipfs.nftstorage.link/",
@@ -80,11 +95,13 @@
                         }],
                         image: "./episodes/sankarea-1.png",
                         sources: [
+
                             { type: "mp4", label: "1080p", file: "https://animeui.infura-ipfs.io/ipfs/bafybeiays4zttt53dqs5eelkjemwvbmzxs7qmgy3hejr4pzri2m2xlkdym/Uzaki-chan%20Wants%20to%20Hang%20Out%21%20-%20S01E06%20%5B1080p%5D.mp4" },
                             { type: "mp4", label: "480p", file: "https://animeui.infura-ipfs.io/ipfs/bafybeiappu4zchenfk5sh2vnrkk7snu3zsye6wdn77fbgwlulmi25fdgfq/%5BCR%5D%20Uzaki-chan%20Wants%20to%20Hang%20Out%21%20-%20S01E06%20%5B480p%5D.mp4" },
                         ]
                     }],
                 })
+
             </script>
             <div class="controller-content">
                 <div class="controllers">
@@ -204,7 +221,7 @@
     </div>
     <!-- Footer Start -->
     <script>
-        $(function(){
+        $(function () {
             $("#footer").load("footer.html");
         });
     </script>
