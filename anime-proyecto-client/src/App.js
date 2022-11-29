@@ -677,6 +677,15 @@ function Home() {
               <div class="title-anime">Spy x Family</div>
             </a>
           </div>
+          <div class="episode-info">
+            <a href="#">
+              <div class="title-episode">Episodio 20</div>
+              <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-9430.jpg" alt=""
+                id="episode-latest-image" />
+              <div class="anime-type">TV</div>
+              <div class="title-anime">Spy x Family</div>
+            </a>
+          </div>
         </div>
         <div class="anime-container-news">
           <div class="anime-news-container">

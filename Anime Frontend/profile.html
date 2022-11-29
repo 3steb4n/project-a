@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./header-side-footer.css">
+    <link rel="stylesheet" href="./profile.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- Sidebar and Navbar -->
+    <input type="checkbox" id="check">
+    <div class="sidebar">
+        <div class="close-menu">
+            <label for="check" class="closebtn">Cerrar Menu</label>
+        </div>
+        <ul>
+            <li><a id="login" href="#">Iniciar Sesion</a></li>
+            <li><a id="login" href="#">Registrarse</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Directorio Anime</a></li>
+            <li><a href="#">TV Series</a></li>
+            <li><a href="#">Peliculas</a></li>
+            <li><a href="#">ONAS</a></li>
+        </ul>
+    </div>
+    <div class="navbar">
+        <div class="section">
+            <div class="menu">
+                <label for="check" class="checkbtn">
+                    <i class="fa-sharp fa-solid fa-bars"></i>
+                </label>
+            </div>
+            <div class="logo"><img src="./images/logo.webp" alt="" id="logo"></div>
+            <div class="search">
+                <input type="text" id="animeName" name="animeName" value=sankarea onChange={searchAnime}
+                    placeholder="Buscar Anime..." />
+                <span class="fas fa-search" id="searchIcon"></span>
+            </div>
+            <div class="social">
+                <div class="item">
+                    <a href=""><i class="fa-brands fa-discord" id="discord"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="section-2">
+            <div class="auth">
+                <ul>
+                    <li><a href="#">Iniciar Sesion</a></li>
+                    <li><a href="#">Registrarse</a></li>
+                    <i class="fa-solid fa-gear"></i>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-info">
+        <div class="search-anime">
+            <a href="#">
+                <div class="search-anime-title">Sankarea</div>
+                <div class="search-anime-type">Anime</div>
+                <img src="./images/sankarea.png" alt="" id="search-anime-image">
+            </a>
+        </div>
+        <a href="#">
+            <div class="more-information">Más Resultados</div>
+        </a>
+    </div>
+    <!-- End of Sidebar and Navbar -->
+
+    <!-- User Background -->
+    <div class="background-user-picture">
+        <div class="image-content">
+            <img src="./images/sankarea-portrait.jpg" alt="">
+        </div>
+        <div class="user-image-profile">
+            <img src="./images/lappland.jpg" alt="">
+            <div class="user-info">
+                <div class="user-username">Tadokiari</div>
+                <div class="user-level">Nivel: Usuario</div>
+            </div>
+        </div>
+    </div>
+    <div class="row-list">
+        <a href="#">Idea</a>
+        <a href="#">Idea</a>
+        <a href="#">Idea</a>
+        <a href="#">Idea</a>
+        <a href="#">Configuraciones</a>
+    </div>
+
+</body>
+
+</html>

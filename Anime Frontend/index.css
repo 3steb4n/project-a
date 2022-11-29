@@ -6,10 +6,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background: #0e0e0e;
-}
-
 img {
     -webkit-user-drag: none;
     user-select: none;
@@ -205,15 +201,20 @@ img {
     }
 }
 
-@media screen and (max-width: 1144px) {
+@media screen and (max-width: 1269px) {
+    .anime-container-news {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1010px) {
     .episode-info {
-        width: 30%;
+        width: 25%;
     }
 
     .anime-news-container {
         left: -50px;
     }
-
     .news-text {
         padding-left: 0;
     }
@@ -223,13 +224,8 @@ img {
     .episode-info {
         width: 25%;
     }
-
     .description {
         width: 800px;
-    }
-
-    .anime-container-news {
-        display: none;
     }
 }
 

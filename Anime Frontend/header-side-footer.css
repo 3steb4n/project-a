@@ -7,6 +7,10 @@
     text-decoration: none;
 }
 
+body {
+    background: #0e0e0e;
+}
+
 body::-webkit-scrollbar {
     width: 0.8em;
 }
@@ -180,6 +184,7 @@ body::-webkit-scrollbar-thumb {
     left: 236px;
     width: 300px;
     z-index: 3;
+    display: none;
 }
 
 .search-anime:before {
