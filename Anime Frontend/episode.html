@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="http://jwpsrv.com/library/5V3tOP97EeK2SxIxOUCPzg.js"></script>
     <link rel="stylesheet" href="header-side-footer.css">
     <link rel="stylesheet" href="episode.css">
     <script src="./js/jwplayer.js"></script>
@@ -69,8 +70,11 @@
             <div id="container1">
             </div>
             <script type="text/javascript">
+                var url = 'https://animeui.infura-ipfs.io/ipfs/bafybeiays4zttt53dqs5eelkjemwvbmzxs7qmgy3hejr4pzri2m2xlkdym/Uzaki-chan%20Wants%20to%20Hang%20Out%21%20-%20S01E06%20%5B1080p%5D.mp4';
 
-                jwplayer("container1").setup({
+                var encode = btoa(url)
+
+                const playerInstance = jwplayer("container1").setup({
                     width: 'none',
                     height: 'none',
                     aspectratio: "16:9",
@@ -78,8 +82,8 @@
                         hide: true,
                     },
                     advertising: {
-                        client: "googima",
-                        adschedulei: "Az87bY12",
+                        client: "",
+                        adschedulei: "",
                         schedule: [
                             {
                                 tag: ""
@@ -100,13 +104,13 @@
                             { type: "mp4", label: "480p", file: "https://animeui.infura-ipfs.io/ipfs/bafybeiappu4zchenfk5sh2vnrkk7snu3zsye6wdn77fbgwlulmi25fdgfq/%5BCR%5D%20Uzaki-chan%20Wants%20to%20Hang%20Out%21%20-%20S01E06%20%5B480p%5D.mp4" },
                         ]
                     }],
-                })
+                });
 
             </script>
             <div class="controller-content">
                 <div class="controllers">
-                    <div class="control" id="resize">
-                        <div class="control-text"><i class="fa-solid fa-expand"></i> Expandir</div>
+                    <div class="control">
+                        <div class="control-text" id="resize"><i class="fa-solid fa-expand"></i> Expandir</div>
                     </div>
                     <div class="control">
                         <div class="control-text">Auto Reproduccion <span class="auto">Off</span> </div>
@@ -235,6 +239,15 @@
             this.style.height = 'auto';
             this.style.height = this.scrollHeight + 'px';
         }
+
+        const resizeButton = document.getElementById('resize');
+        resizeButton.addEventListener('click', () => {
+            if (playerInstance.getWidth() > 900) {
+                playerInstance.resize(900, 500);
+            } else {
+                playerInstance.resize(1280, 720);
+            }
+        });
     </script>
 </body>
 
