@@ -235,7 +235,6 @@ img {
     border-radius: 0.3rem;
     font-size: 15px;
     border: none!important;
-    padding: 0 5px;
 }
 
 #textarea::placeholder {
@@ -283,7 +282,6 @@ p.text-l {
 
 #more-comments {
     position: relative;
-    margin-left: 350px;
     font-size: 20px;
     margin-bottom: 25px;
     border-radius: 5px;
