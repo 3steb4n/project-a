@@ -1,4 +1,5 @@
-# ![screencapture-127-0-0-1-5501-Anime-Frontend-index-html-2022-11-26-21_49_14](https://user-images.githubusercontent.com/78386551/204117067-ef76c20e-dcd4-4685-b8da-c39c7281252b.png)
+![screencapture-127-0-0-1-5501-Anime-Frontend-index-html-2022-11-29-21_11_41](https://user-images.githubusercontent.com/78386551/204690647-e743feeb-8c58-4d2e-a505-294c7c4a6fdb.png)
+
 
 # Project-A
 <table>
@@ -9,9 +10,13 @@
 </tr>
 </table>
 
-
 ### Landing Pages
 Currently working on Frontend
+
+### Directory
+
+![screencapture-127-0-0-1-5501-Anime-Frontend-dir-anime-html-2022-11-29-21_11_19](https://user-images.githubusercontent.com/78386551/204690600-e239c77b-5730-4445-a0c3-8f93ab70a52b.png)
+
 
 ### Anime
 ![screencapture-127-0-0-1-5501-Anime-Frontend-anime-html-2022-11-26-21_52_15](https://user-images.githubusercontent.com/78386551/204117128-7c845695-4986-48a3-860c-9460b46561ab.png)
