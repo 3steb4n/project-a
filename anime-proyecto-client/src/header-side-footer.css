@@ -236,7 +236,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 #searchIcon {
-    margin-left: -30px;
+    position: relative;
+    left: -30px;
     color: #202125;
     cursor: pointer;
 }

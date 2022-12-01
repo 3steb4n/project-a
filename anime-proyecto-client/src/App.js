@@ -271,9 +271,12 @@ const NavBar = () => {
             </label>
           </div>
           <div class="logo"><img src={logo} alt="" id="logo" /></div>
+          
           <div class="search">
             <input type="text" id="animeName" name="animeName" value={animeName} onChange={searchAnime} placeholder="Buscar Anime..." />
-            <span class="fas fa-search" id="searchIcon"></span>
+            <a href={"/search?page=1&name=" + animeName}>
+              <span class="fas fa-search" id="searchIcon"></span>
+            </a>
           </div>
           <div class="social">
             <div class="item">
@@ -382,13 +385,18 @@ function AnimeDirectory() {
 
       //Return results by pages
       const sliceArrayPagesAnime = animeObject => {
-        setAnime(animeObject.slice((queryParams.page == 1) ? (queryParams.page - 1) : (queryParams.page - 1) * animePerPage), (queryParams.page * animePerPage));
+        let sliceArray = {
+          "init": (queryParams.page == 1) ? (queryParams.page - 1) : ((queryParams.page - 1) * animePerPage),
+          "limit": (queryParams.page * animePerPage)
+        }
+        setAnime(animeObject.slice(sliceArray.init, sliceArray.limit));
       };
 
-      if (queryParams.name === undefined) {
+      if (queryParams.name === undefined || queryParams.name == "" || queryParams.name.length < 3) {
         axios.get(`${URL_SERVICE}animes/search-all`).then(resp => {
           sliceArrayPagesAnime(resp.data.result.rows);
           setCountResultAnime(returnPages(resp.data.result.rows.length));
+          console.log(resultAnime);
         }).catch(error => console.log(`${error}`));
         return;
       }
@@ -404,26 +412,11 @@ function AnimeDirectory() {
       if (queryParams.name !== undefined && queryParams.genres.split('-').length > 0 || queryParams.year.split('-').length > 0 || queryParams.type.split('-').length > 0 || queryParams.status.split('-').length > 0) {
         redirectPage('/search?page=1');
         window.location.reload(false);
-      } else if (queryParams.genres.split('-').length > 0 || queryParams.year.split('-').length > 0 || queryParams.type.split('-').length > 0 || queryParams.status.split('-').length > 0) {
-        const filters = {
-          genres: () => {
-
-          }
-        }
-        axios.post(`${URL_SERVICE}animes/search`, {
-          genreId: (queryParams.genres.split('-').length > 0) ? queryParams.genres.split('-') : [],
-          year: (queryParams.year.split('-').length > 0) ? queryParams.year.split('-') : [],
-          type: (queryParams.type.split('-').length > 0) ? queryParams.type.split('-') : [],
-          status: (queryParams.status.split('-').length > 0) ? queryParams.status.split('-') : [],
-        }).then(resp => {
-          sliceArrayPagesAnime(resp.data.result.rows);
-          setCountResultAnime(returnPages(resp.data.result.rows.length));
-        }).catch(error => console.log(`${error}`));
       }
     } catch (err) {
-      console.log(err);
+
     }
-  }, []);
+  },[]);
 
   return (
     <>
@@ -536,7 +529,9 @@ function AnimeDirectory() {
                       <div class="film-poster">
                         <img src={item.url_preview}
                           alt="" id="anime-latest-image" />
-                        <div class="anime-matured">+18</div>
+                        <div class="anime-matured" style={{background: (item.status_id == 1) ? 'green' : (item.status_id == 2 ? 'yellow' : 'red')}}>
+                          {(item.status_id == 1) ? 'En emisión' : (item.status_id == 2 ? 'Proximamente' : 'Finalizado')}
+                        </div>
                       </div>
                       <div class="film-details">
                         <div class="anime-title">{item.name}</div>

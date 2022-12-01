@@ -80,15 +80,7 @@ router.post('/create', async (req, res) => {
         }
     }
 
-    if (animeInformation.urlPreview !== undefined) {
-        if (!isNaN(animeInformation.urlPreview)) {
-            res.status(200).json({
-                error: 400,
-                message: 'Error. urlPreview is not valid' 
-            });
-            return;
-        }
-    } else {
+    if (animeInformation.urlPreview === undefined || animeInformation.urlPreview == "") {
         res.status(200).json({ 
             error: 400, 
             message: 'Error. urlPreview is empty'
@@ -190,7 +182,7 @@ router.post('/create', async (req, res) => {
             url_trailer: animeInformation.urlTrailer,
             number_chapter: animeInformation.numberEpisodes,
             typeAnimeId: animeInformation.typeAnimeId,
-            status_id: 1
+            status_id: 2
         }, { fields: ['name', 'description', 'season', 'year', 'url_preview', 'url_trailer', 'number_chapter', 'typeAnimeId', 'status_id'] })
         .then(async result => {
             let bodyAnime = JSON.parse(JSON.stringify(result));
@@ -274,7 +266,7 @@ router.post("/search", async (req, res, next) => {
                     model: Models.typeAnime,
                     attributes: ['name']
                 },
-                attributes: ['id', 'name', 'url_preview'],
+                attributes: ['id', 'name', 'url_preview', 'number_chapter', 'status_id', 'year'],
                 order: [['createdAt', 'DESC']],
                 where: {
                     name: {
@@ -304,7 +296,7 @@ router.post("/search", async (req, res, next) => {
     if (filterFields.genreId !== undefined && filterFields.year !== undefined && filterFields.type !== undefined && filterFields.status !== undefined) {
         if (filterFields.genreId.length === 0 && filterFields.year.length === 0 && filterFields.type.length === 0 && filterFields.status.length === 0) {
             await Models.anime.findAndCountAll({
-                attributes: ['id', 'name', 'url_preview'],
+                attributes: ['id', 'name', 'url_preview', 'number_chapter', 'status_id', 'year'],
                 order: [['createdAt', 'DESC']]
             }).then(re => {
                 res.status(200).json({
@@ -322,7 +314,7 @@ router.post("/search", async (req, res, next) => {
             })
         } else {
             await Models.anime.findAndCountAll({
-                attributes: ['id', 'name', 'url_preview'],
+                attributes: ['id', 'name', 'url_preview', 'number_chapter', 'status_id', 'year'],
                 ...(filterFields.year.length > 0 && filterFields.type.length > 0 && filterFields.status.length > 0 && filterFields.genreId.length > 0 && {
                     include: Models.AnimeGenre,
                     where: {
