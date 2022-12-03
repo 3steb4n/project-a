@@ -241,9 +241,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 #searchIcon {
-    margin-left: -30px;
+    position: relative;
     color: #202125;
     cursor: pointer;
+    left: -30px;
 }
 
 .social {

@@ -120,6 +120,7 @@ img {
   float: left;
   width: 20%;
   padding: 5px 10px;
+  transition: 0.3s;
 }
 
 .hover-action:hover .title-anime {
@@ -301,6 +302,7 @@ img {
   background: #2a2c31;
   border-radius: 0;
   position: relative;
+  transition: 0.3s;
 }
 
 .film-details{

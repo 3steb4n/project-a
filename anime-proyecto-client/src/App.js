@@ -529,7 +529,7 @@ function AnimeDirectory() {
                       <div class="film-poster">
                         <img src={item.url_preview}
                           alt="" id="anime-latest-image" />
-                        <div class="anime-matured" style={{background: (item.status_id == 1) ? 'green' : (item.status_id == 2 ? 'yellow' : 'red')}}>
+                        <div class="anime-matured" style={{background: (item.status_id == 1) ? '#0d730d' : (item.status_id == 2 ? '#424242' : 'rgb(190, 19, 19)')}}>
                           {(item.status_id == 1) ? 'En emisión' : (item.status_id == 2 ? 'Proximamente' : 'Finalizado')}
                         </div>
                       </div>

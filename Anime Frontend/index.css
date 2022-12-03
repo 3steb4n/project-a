@@ -116,6 +116,7 @@ img {
     float: left;
     width: 20%;
     padding: 5px 10px;
+    transition: 0.3s;
 }
 
 .hover-action:hover .title-anime {
@@ -297,6 +298,7 @@ img {
     background: #2a2c31;
     border-radius: 0;
     position: relative;
+    transition: 0.3s;
 }
 
 .film-details{
@@ -319,14 +321,20 @@ img {
     -webkit-box-orient: vertical;
     overflow: hidden;
     color: white;
+    transition: 0.3s;
 }
 
-.anime-matured {
+.info-anime:hover .anime-title {
+    color: rgb(136, 136, 136);
+}
+
+
+.anime-status {
     position: absolute;
     left: 10px;
     top: 10px;
     bottom: auto;
-    background: #ff5700;
+    background: #0d730d;
     color: #fff;
     font-weight: 600;
     border-radius: 5px;
@@ -339,7 +347,8 @@ img {
 
 .anime-type-i {
     opacity: 0.8;
-    color: #aaa;
+    color: white;
+    transition: 0.3s;
 }
 
 .film-poster {

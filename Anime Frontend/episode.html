@@ -70,17 +70,18 @@
             <div id="container1">
             </div>
             <script type="text/javascript">
-                var url = 'https://animeui.infura-ipfs.io/ipfs/bafybeiays4zttt53dqs5eelkjemwvbmzxs7qmgy3hejr4pzri2m2xlkdym/Uzaki-chan%20Wants%20to%20Hang%20Out%21%20-%20S01E06%20%5B1080p%5D.mp4';
-
-                var encode = btoa(url)
-
                 const playerInstance = jwplayer("container1").setup({
+                    controls: "true",
+                    hlshtml: "true",
+                    androidhls: "true",
+                    primary: "html5",
                     width: 'none',
                     height: 'none',
                     aspectratio: "16:9",
                     logo: {
                         hide: true,
                     },
+                    // Anuncios en los Videos //
                     advertising: {
                         client: "",
                         adschedulei: "",
@@ -90,6 +91,7 @@
                             }
                         ]
                     },
+                    // Fin de Anuncions //
                     playlist: [{
                         title: 'Sankarea Episodio 1',
                         tracks: [{

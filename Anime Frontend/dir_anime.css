@@ -48,6 +48,7 @@ body {
     display: flex;
     flex-direction: row;
     background-color: #0c70de;
+    color: white;
     box-shadow: 0 1px 1px rgb(0 0 0 /10%, );
     outline: none;
     border: none;
@@ -190,6 +191,7 @@ body {
     background: #2a2c31;
     border-radius: 0;
     position: relative;
+    transition: 0.3s;
 }
 
 .film-details {
@@ -198,6 +200,18 @@ body {
     padding: 10px;
     min-height: 84px;
     background: #2a2c31;
+}
+
+.film-poster #airing {
+    background: #0d730d;
+}
+
+.film-poster #soon {
+    background: #424242;
+}
+
+.film-poster #completed {
+    background: rgb(190, 19, 19);
 }
 
 .anime-title {
@@ -214,12 +228,11 @@ body {
     color: white;
 }
 
-.anime-matured {
+.anime-status {
     position: absolute;
     left: 10px;
     top: 10px;
     bottom: auto;
-    background: #ff5700;
     color: #fff;
     font-weight: 600;
     border-radius: 5px;
