@@ -1,4 +1,5 @@
-![screencapture-127-0-0-1-5501-Anime-Frontend-index-html-2022-11-29-21_11_41](https://user-images.githubusercontent.com/78386551/204690647-e743feeb-8c58-4d2e-a505-294c7c4a6fdb.png)
+![screencapture-127-0-0-1-5501-Anime-Frontend-index-html-2022-12-05-18_35_57](https://user-images.githubusercontent.com/78386551/205767982-9e4025ba-eec5-4e88-b8f6-072150fe80f0.png)
+
 
 
 # Project-A
@@ -19,7 +20,8 @@ Currently working on Frontend
 
 
 ### Anime
-![screencapture-127-0-0-1-5501-Anime-Frontend-anime-html-2022-11-26-21_52_15](https://user-images.githubusercontent.com/78386551/204117128-7c845695-4986-48a3-860c-9460b46561ab.png)
+![screencapture-127-0-0-1-5501-Anime-Frontend-anime-html-2022-12-05-18_35_16](https://user-images.githubusercontent.com/78386551/205767967-66848e89-2e9a-43bf-a504-5dc3890d8ca5.png)
+
 
 
 ### Episode
