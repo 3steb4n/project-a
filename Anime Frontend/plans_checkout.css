@@ -1,0 +1,36 @@
+.main-container-checkout {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.checkout-container {
+    position: relative;
+    width: 30em;
+    transition: 0.3s;
+    background: rgb(12, 12, 12);
+    font-size: 20px;
+    color: white;
+}
+
+.checkout-container .pay-button {
+    position: relative;
+    background: #0c70de;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.checkout-container .top-text .logo-checkout {
+    position: relative;
+    width: 100px;    
+    height: 100px;
+}
+
+.checkout-item {
+    position: relative;
+    background: rgb(62, 62, 62);
+}

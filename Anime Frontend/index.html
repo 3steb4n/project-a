@@ -42,13 +42,16 @@
                 <input type="text" id="animeName" name="animeName" value=sankarea onChange={searchAnime}
                     placeholder="Buscar Anime..." />
                 <a href="#">
-                <span class="fas fa-search" id="searchIcon"></span>
-            </a>
+                    <span class="fas fa-search" id="searchIcon"></span>
+                </a>
             </div>
             <div class="social">
                 <div class="item">
                     <a href=""><i class="fa-brands fa-discord" id="discord"></i></a>
                 </div>
+            </div>
+            <div class="nav-links">
+                <a href="./plans.html">Planes</a>
             </div>
         </div>
         <div class="section-2">
@@ -56,11 +59,35 @@
                 <ul>
                     <li><a href="#">Iniciar Sesion</a></li>
                     <li><a href="#">Registrarse</a></li>
-                    <i class="fa-solid fa-gear"></i>
+                    <label for="options">
+                        <div class="fa-solid fa-gear" onclick="show()" id="options"></div>
+                        <div class="options-content" id="dropdown">
+                            <a href="#">Cerrar Session</a>
+                        </div>
+                    </label>
                 </ul>
             </div>
         </div>
     </div>
+
+    <script>
+        function show() {
+            document.getElementById('dropdown').classList.toggle("show")
+        }
+
+        window.onclick = function(event) {
+  if (!event.target.matches('#options')) {
+    var dropdowns = document.getElementsByClassName("options-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+    </script>
 
     <div class="search-info">
         <div class="search-anime">
@@ -681,7 +708,7 @@
 
     <!-- Footer Start -->
     <script>
-        $(function(){
+        $(function () {
             $("#footer").load("footer.html");
         });
     </script>

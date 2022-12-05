@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="./header-side-footer.css">
+    <link rel="stylesheet" href="./plans.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- Sidebar and Navbar -->
+    <input type="checkbox" id="check">
+    <div class="sidebar">
+        <div class="close-menu">
+            <label for="check" class="closebtn">Cerrar Menu</label>
+        </div>
+        <ul>
+            <li><a id="login" href="#">Iniciar Sesion</a></li>
+            <li><a id="login" href="#">Registrarse</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Directorio Anime</a></li>
+            <li><a href="#">TV Series</a></li>
+            <li><a href="#">Peliculas</a></li>
+            <li><a href="#">ONAS</a></li>
+        </ul>
+    </div>
+    <div class="navbar">
+        <div class="section">
+            <div class="menu">
+                <label for="check" class="checkbtn">
+                    <i class="fa-sharp fa-solid fa-bars"></i>
+                </label>
+            </div>
+            <div class="logo"><img src="./images/logo.webp" alt="" id="logo"></div>
+            <div class="search">
+                <input type="text" id="animeName" name="animeName" value=sankarea onChange={searchAnime}
+                    placeholder="Buscar Anime..." />
+                <a href="#">
+                    <span class="fas fa-search" id="searchIcon"></span>
+                </a>
+            </div>
+            <div class="social">
+                <div class="item">
+                    <a href=""><i class="fa-brands fa-discord" id="discord"></i></a>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#">Planes</a>
+            </div>
+        </div>
+        <div class="section-2">
+            <div class="auth">
+                <ul>
+                    <li><a href="#">Iniciar Sesion</a></li>
+                    <li><a href="#">Registrarse</a></li>
+                    <label for="options">
+                        <div class="fa-solid fa-gear" onclick="show()" id="options"></div>
+                        <div class="options-content" id="dropdown">
+                            <a href="#">Cerrar Session</a>
+                        </div>
+                    </label>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function show() {
+            document.getElementById('dropdown').classList.toggle("show")
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('#options')) {
+                var dropdowns = document.getElementsByClassName("options-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+    <div class="search-info">
+        <div class="search-anime">
+            <a href="#">
+                <div class="search-anime-title">Sankarea</div>
+                <div class="search-anime-type">Anime</div>
+                <img src="./images/sankarea.png" alt="" id="search-anime-image">
+            </a>
+        </div>
+        <a href="#">
+            <div class="more-information">Más Resultados</div>
+        </a>
+    </div>
+    <!-- End of Sidebar and Navbar -->
+    <div class="top-center">
+        <h2>AnimeUI Planes</h2>
+        <p>Los suscriptores disfrutan de anime con más ventajas.</p>
+    </div>
+
+    <div class="main-container-checkout">
+        <div class="column">
+            <div class="plans-info">
+                <div class="header">
+                    <img class="top-image" src="./images/plans1.webp" alt="">
+                    <img class="logo-basic"src="./images/logo-basic.png" alt="">
+                </div>
+                <div class="text-image">Las donaciones nos ayudan a mejorar nuestros servicios y a mantener nuestros servidores.</div>
+                <li class="header-text">Fan</li>
+                <li class="price">$0,99/mes
+                    <span class="disc">+ cualquier impuesto aplicable</span>
+                </li>
+                <div class="plans-items">
+                    <li><a href="#" class="button">Comprar Subscripcion</a></li>
+                    <li>Sin publicidad</li>
+                    <li>Insignia de Fan</li>
+                    <li>Videos a calidad 1080p / 4K</li>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

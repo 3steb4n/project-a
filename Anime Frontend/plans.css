@@ -1,0 +1,98 @@
+.top-center {
+    text-align: center;
+    color: white;
+}
+
+.main-container-columns {
+    display: flex;
+    justify-content: center;
+}
+
+.column {
+    position: relative;
+    width: 400px;
+    transition: 0.3s;
+}
+
+.plans-info {
+    list-style-type: none;
+    border: 1px solid #eee;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    background: white;
+}
+
+.header {
+    position: relative;
+    height: 150px;
+}
+
+.plans-info .top-image {
+    position: absolute;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    object-position: 60% 20%;
+}
+
+.plans-info .logo-basic {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.plans-info .text-image {
+    position: absolute;
+    padding: 0.33em 1.33em 0px;
+    background: rgb(10, 10, 10);
+    font-weight: normal;
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.plans-info .header {
+    color: white;
+    font-size: 25px;
+}
+
+.plans-info li {
+    padding: 20px;
+    text-align: center;
+}
+
+.plans-info .price {
+    left: 0;
+    font-size: 20px;
+}
+
+.disc {
+    display: block;
+    margin-top: 0.25rem;
+    text-transform: uppercase;
+    color: #333;
+    font-size: 0.625rem;
+    line-height: 0.875rem;
+    font-weight: 800;
+}
+
+.button {
+    border-color: rgb(18, 73, 192);
+    border-style: solid;
+    color: rgb(18, 73, 192);
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+    .columns {
+        width: 100%;
+    }
+}
