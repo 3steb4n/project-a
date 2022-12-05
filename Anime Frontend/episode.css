@@ -37,19 +37,10 @@ body {
     position: relative;
 }
 
-
-/* #container1 .jw-reset .jw-settings-content-item:hover {
-    color: #0c70de;
+#container1 {
+    width: 1250px;
+    height: 700px;
 }
-
-#container1 .jw-reset .jw-button-container .jw-button-color:hover:not(.jw-icon-cast) {
-    color: #0c70de;
-}
-
-.jw-button-color {
-    color: white;
-} */
-
 
 .jwplayer .jw-logo-button {
     display: none;
@@ -216,12 +207,6 @@ p.text-l {
         width: 100%;
     }
 }
-
-#container1 {
-    width: 900px;
-    height: 500px;
-}
-
 
 .episode-title {
     position: relative;

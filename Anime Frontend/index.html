@@ -75,18 +75,18 @@
             document.getElementById('dropdown').classList.toggle("show")
         }
 
-        window.onclick = function(event) {
-  if (!event.target.matches('#options')) {
-    var dropdowns = document.getElementsByClassName("options-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
+        window.onclick = function (event) {
+            if (!event.target.matches('#options')) {
+                var dropdowns = document.getElementsByClassName("options-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
     </script>
 
     <div class="search-info">
@@ -125,27 +125,33 @@
             <div class="anime-container-text">Ultimos episodios</div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-9430.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 20</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-9430.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Spy x Family</div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-6969.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 8</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-6969.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Boku no Hero Academia 6th Season</div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-7428.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 33</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-7428.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Shadowverse Flame</div>
                 </a>
@@ -153,26 +159,33 @@
             <div class="episode-info">
                 <a href="#" class="hover-action">
                     <div class="title-episode">Episodio 8</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-5142.jpg" alt=""
-                        id="episode-latest-image">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-5142.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
+                    <div class="title-episode">Episodio 8</div>
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Uzaki-chan wa Asobitai! Double</div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-5992.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 9</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-5992.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Akuyaku Reijou nanode Last Boss wo Kattemimashita </div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-7394.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 8</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-7394.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Noumin Kanren no Skill bakka Agetetara Nazeka Tsuyoku Natta.</div>
                 </a>
@@ -180,9 +193,11 @@
 
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-4964.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 8</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-4964.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Yuusha Party wo Tsuihou sareta Beast Tamer, Saikyoushu no Nekomimi Shoujo
                         to Deau</div>
@@ -190,115 +205,141 @@
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-1903.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 8</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-1903.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Koukyuu no Karasu</div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-726.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 7</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-726.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Bocchi the Rock!</div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-7030.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 22</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-7030.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Utawarerumono: Futari no Hakuoro</div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-3000.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 7</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-3000.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Yama no Susume: Next Summit</div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-4460.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 7</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-4460.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Urusei Yatsura (2022)</div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-1512.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 7</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-1512.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Hoshi no Samidare</div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-5850.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 7</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-5850.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Seiken Densetsu: Legend of Mana - The Teardrop Crystal</div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-2120.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 7</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-2120.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Blue Lock</div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-799.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 7</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-799.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Arknights: Reimei Zensou</div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-7979.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 6</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-7979.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">4-nin wa Sorezore Uso wo Tsuku</div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="./episodes/sankarea-12.png" alt="" id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 12</div>
-                    <img src="./episodes/sankarea-12.png" alt="" id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Sankarea</div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="./episodes/sankarea-1.png" alt="" id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 1</div>
-                    <img src="./episodes/sankarea-1.png" alt="" id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Sankarea</div>
                 </a>
             </div>
             <div class="episode-info">
                 <a href="#" class="hover-action">
+                    <div class="film-episode">
+                        <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-2184.jpg" alt=""
+                            id="episode-latest-image">
+                    </div>
                     <div class="title-episode">Episodio 8</div>
-                    <img src="https://animeui.com/wp-content/uploads/2022/11/video-capture-2184.jpg" alt=""
-                        id="episode-latest-image">
                     <div class="anime-type">TV</div>
                     <div class="title-anime">Berserk: Ougon Jidai-hen - Memorial Edition</div>
                 </a>

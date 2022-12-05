@@ -22,6 +22,7 @@ img {
     display: table;
 }
 
+
 .anime-image-feature img {
     height: 350px;
     width: 100%;
@@ -32,8 +33,9 @@ img {
 .anime-image-portrait {
     position: relative;
     margin-left: 50px;
-    height: 300px;
     bottom: 80px;
+    transition: 0.3s;
+
 }
 
 .anime-image-portrait img {
@@ -91,7 +93,7 @@ img {
     color: #fff;
     border-radius: 5px;
     padding: 2px 5px;
-    width: 250px;
+    width: 260px;
     text-align: center;
     font-size: 19px;
 }
@@ -110,7 +112,6 @@ img {
 
 .anime-info-container {
     position: relative;
-    margin-top: 20px;
 }
 
 .info-title {
@@ -142,12 +143,15 @@ img {
 }
 
 .episode-info {
-    position: relative;
-    display: flex;
-    float: left;
     width: 19%;
-    margin: 5px;
+    margin: 5px 5px;
+    float: left;
+    position: relative;
     transition: 0.3s;
+}
+
+.film-episode {
+    padding-bottom: 55%;
 }
 
 .container-episodes {
@@ -173,14 +177,23 @@ img {
 .title-episode {
     position: absolute;
     background: #0c70de;
-    border-radius: 5px 0 5px 0;
     color: white;
-    padding: 1px 5px;
+    border-radius: 5px 0px 5px 0px;
+    padding: 2px 5px;
+    font-size: 0.9rem;
+    top: 0;
+    left: 0;
 }
 
 #episode-latest-image {
+    position: absolute;
     width: 100%;
-    margin: 1px;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     border-radius: 5px;
 }
 

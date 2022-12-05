@@ -112,11 +112,23 @@ img {
 }
 
 .episode-info {
-    position: relative;
+    width: 19%;
+    margin: 20px 5px;
     float: left;
-    width: 20%;
-    padding: 5px 10px;
+    position: relative;
     transition: 0.3s;
+}
+
+.film-episode {
+    padding-bottom: 43%;
+}
+
+.episode-details {
+    position: relative;
+    font-size: 12px;
+    padding: 10px;
+    min-height: 84px;
+    background: #2a2c31;
 }
 
 .hover-action:hover .title-anime {
@@ -129,17 +141,20 @@ img {
     color: white;
     border-radius: 5px 0px 5px 0px;
     padding: 2px 5px;
-    font-size: 16px;
+    font-size: 0.9rem;
+    top: 0;
+    left: 0;
 }
 
 .anime-type {
     position: absolute;
     background: #0c70de;
-    bottom: 43px;
     border-radius: 5px 0 5px 0;
     color: white;
     padding: 1px 5px;
-    right: 9px;
+    font-size: 0.9rem;
+    right: 0;
+    bottom: 0;
 }
 
 .title-anime {
@@ -147,8 +162,9 @@ img {
     color: white;
     border-radius: 5px 0px 5px 0px;
     text-align: center;
-    height: 30px;
-    font-size: .95em;
+    top: 45px;
+    height: 40px;
+    font-size: .85em;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -156,9 +172,14 @@ img {
 }
 
 #episode-latest-image {
+    position: absolute;
     width: 100%;
-    margin: 1px;
-    min-height: 155px;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     border-radius: 5px;
 }
 
@@ -196,50 +217,43 @@ img {
 
 /* End Latest Anime Episodes  */
 
-@media screen and (max-width: 1331px) {
-    .episode-info {
-        width: 25%;
-    }
-}
-
-@media screen and (max-width: 1269px) {
+@media screen and (max-width: 1494px) {
     .anime-container-news {
         display: none;
     }
 }
 
-@media screen and (max-width: 1010px) {
+@media screen and (max-width: 1233px) {
     .episode-info {
-        width: 25%;
+        width: calc(21% - 30px);
     }
 
-    .anime-news-container {
-        left: -50px;
-    }
-    .news-text {
-        padding-left: 0;
-    }
 }
 
 @media screen and (max-width: 1100px) {
     .episode-info {
-        width: 25%;
+        width: 24%;
     }
     .description {
         width: 800px;
     }
 }
 
-@media screen and (max-width: 823px) {
+@media screen and (max-width: 1000px) {
     .episode-info {
-        width: 30%;
-        left: 35px;
+        width: 32%;
     }
 }
 
-@media screen and (max-width: 663px) {
+@media screen and (max-width: 750px) {
     .episode-info {
-        width: 50%;
+        width: 48%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .episode-info {
+        width: 47%;
         left: 0;
     }
 
