@@ -87,6 +87,19 @@ img {
     display: none;
 }
 
+
+.film-poster #airing {
+    background: #0d730d;
+}
+
+.film-poster #soon {
+    background: #424242;
+}
+
+.film-poster #completed {
+    background: rgb(190, 19, 19);
+}
+
 /* End Trending Animes */
 
 
@@ -155,6 +168,15 @@ img {
     font-size: 0.9rem;
     right: 0;
     bottom: 0;
+}
+
+.anime-info {
+    position: relative;
+    opacity: 0.8;
+    display: flex;
+    color: #aaa;
+    justify-content: space-around;
+    transition: 0.3s;
 }
 
 .title-anime {
@@ -358,12 +380,6 @@ img {
     min-width: 36px;
     text-align: center;
     font-size: 12px;
-}
-
-.anime-type-i {
-    opacity: 0.8;
-    color: white;
-    transition: 0.3s;
 }
 
 .film-poster {

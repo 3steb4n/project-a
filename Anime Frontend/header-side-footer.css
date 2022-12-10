@@ -212,7 +212,6 @@ body::-webkit-scrollbar-thumb {
     left: 236px;
     width: 300px;
     z-index: 3;
-    display: none;
 }
 
 .search-anime:before {

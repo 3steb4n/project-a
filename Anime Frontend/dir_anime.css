@@ -1,14 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    box-sizing: border-box;
-}
-
-body {
-    background: #0e0e0e;
-}
-
 /* Filter Anime */
 
 
@@ -203,15 +192,15 @@ body {
 }
 
 .film-poster #airing {
-    background: #0d730d;
+    background: rgb(18, 113, 18);
 }
 
 .film-poster #soon {
-    background: #424242;
+    background: rgb(66, 66, 66);
 }
 
 .film-poster #completed {
-    background: rgb(190, 19, 19);
+    background: rgb(137, 18, 18);
 }
 
 .anime-title {

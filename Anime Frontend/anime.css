@@ -87,9 +87,22 @@ img {
     transition: 0.3s;
 }
 
+.anime-trailer {
+    position: relative;
+    color: #fff;
+    border-color: red;
+    border: 1px solid #fff!important;
+    border-radius: 5px;
+    padding: 2px 5px;
+    width: 260px;
+    text-align: center;
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
 .anime-status {
-    position: absolute;
-    background: #0d730d;
+    position: relative;
+    background: rgb(190, 19, 19);
     color: #fff;
     border-radius: 5px;
     padding: 2px 5px;
