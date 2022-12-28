@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   const createTypeAnime = () => {
-    const nameType = ['ONA', 'OVA', 'TV', 'PELICULA', 'BD', 'ESPECIAL', 'ETESEX'];
+    const nameType = ['ONA', 'OVA', 'TV', 'PELICULA', 'BD', 'ESPECIAL'];
     nameType.map(value => {
       typeAnime.count({
         where: { name: value }
