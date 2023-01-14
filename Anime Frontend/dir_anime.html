@@ -203,18 +203,62 @@
 
 
     <script>
-        function gen() {
-            document.getElementById("dropdown").classList.toggle("show");
+function gen() {
+            let container = document.getElementById("dropdown-gen");
+            if (container.classList.contains("show")) {
+                container.classList.remove("show");
+            } else {
+                container.classList.add("show");
+                document.getElementById("dropdown-year").classList.remove("show");
+                document.getElementById("dropdown-type").classList.remove("show");
+                document.getElementById("dropdown-status").classList.remove("show");
+            }
         }
+
         function year() {
-            document.getElementById("dropdown-year").classList.toggle("show");
+            let container = document.getElementById("dropdown-year");
+            if (container.classList.contains("show")) {
+                container.classList.remove("show");
+            } else {
+                container.classList.add("show");
+                document.getElementById("dropdown-gen").classList.remove("show");
+                document.getElementById("dropdown-type").classList.remove("show");
+                document.getElementById("dropdown-status").classList.remove("show");
+            }
         }
         function types() {
-            document.getElementById("dropdown-type").classList.toggle("show");
+            let container = document.getElementById("dropdown-type");
+            if (container.classList.contains("show")) {
+                container.classList.remove("show");
+            } else {
+                container.classList.add("show");
+                document.getElementById("dropdown-gen").classList.remove("show");
+                document.getElementById("dropdown-year").classList.remove("show");
+                document.getElementById("dropdown-status").classList.remove("show");
+            }
         }
         function status() {
-            document.getElementById("dropdown-status").classList.toggle("show");
+            let container = document.getElementById("dropdown-status");
+            if (container.classList.contains("show")) {
+                container.classList.remove("show");
+            } else {
+                container.classList.add("show");
+                document.getElementById("dropdown-gen").classList.remove("show");
+                document.getElementById("dropdown-year").classList.remove("show");
+                document.getElementById("dropdown-type").classList.remove("show");
+            }
         }
+
+
+        // Event listener to make the filter container disappear when the user clicks outside the container
+        document.addEventListener("click", function (event) {
+            if (!event.target.matches(".select-filter") && !event.target.closest(".container-filters")) {
+                var containers = document.getElementsByClassName("container-filters");
+                for (var i = 0; i < containers.length; i++) {
+                    containers[i].classList.remove("show");
+                }
+            }
+        });
     </script>
 
     <!-- End of Filter Anime -->
